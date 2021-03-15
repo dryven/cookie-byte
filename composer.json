@@ -1,0 +1,44 @@
+{
+    "name": "ddm-studio/cookie-byte",
+    "type": "statamic-addon",
+    "version": "1.0.0",
+    "description": "",
+    "keywords": [
+        "Statamic",
+        "Cookie",
+        "Notice",
+        "Modal"
+    ],
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "DDM",
+            "email": "hallo@ddm.studio",
+            "homepage": "https://ddm.studio/"
+        }
+    ],
+    "support": {
+        "email": "support@ddm.studio"
+    },
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "statamic/cms": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "DDM\\CookieByte\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "DDM\\CookieByte\\CookieByteServiceProvider"
+            ]
+        },
+        "statamic": {
+            "name": "Cookie Byte",
+            "description": "",
+            "version": "1.0.0"
+        }
+    }
+}
