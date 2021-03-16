@@ -1,40 +1,42 @@
 {
-  "name": "cookie-byte",
-  "version": "1.0.0",
-  "description": "",
-  "keywords": [
-    "cookie",
-    "notice",
-    "modal",
-    "cover"
-  ],
-  "license": "proprietary",
-  "author": "DDM Studio",
-  "homepage": "https://github.com/ddm-studio/cookie-byte#readme",
-  "bugs": {
-    "url": "https://github.com/ddm-studio/cookie-byte/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ddm-studio/cookie-byte.git"
-  },
-  "main": "resources/js/cookie-byte.js",
-  "scripts": {
-    "prod": "npm run production",
-    "dev": "npm run development",
-    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch": "npm run development -- --watch",
-    "watch-poll": "npm run watch -- --watch-poll"
-  },
-  "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^4.0.2",
-    "cross-env": "^7.0.3",
-    "laravel-mix": "^6.0.13",
-    "postcss-import": "^14.0.0",
-    "postcss-import-svg": "^1.0.5",
-    "postcss-nested": "^5.0.5",
-    "postcss-preset-env": "^6.7.0",
-    "tailwindcss": "^2.0.3"
-  }
+	"name": "cookie-byte",
+	"version": "1.0.0",
+	"description": "",
+	"keywords": [
+		"cookie",
+		"notice",
+		"modal",
+		"cover"
+	],
+	"license": "proprietary",
+	"author": "DDM Studio",
+	"homepage": "https://github.com/ddm-studio/cookie-byte#readme",
+	"bugs": {
+		"url": "https://github.com/ddm-studio/cookie-byte/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ddm-studio/cookie-byte.git"
+	},
+	"main": "resources/js/cookie-byte.js",
+	"scripts": {
+		"prod": "npm run production",
+		"dev": "npm run development",
+		"production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --stats-children --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
+		"development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --stats-children --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
+		"watch": "npm run development -- --watch",
+		"watch-poll": "npm run watch -- --watch-poll"
+	},
+	"devDependencies": {
+		"cross-env": "^7.0.3",
+		"laravel-mix": "^6.0.13",
+		"postcss-import": "^14.0.0",
+		"postcss-nested": "^5.0.5",
+		"postcss-preset-env": "^6.7.0"
+	},
+	"browserslist": [
+		"defaults",
+		"last 5 versions",
+		"IE 11"
+	]
 }

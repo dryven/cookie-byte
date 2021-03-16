@@ -1,0 +1,36 @@
+enabled: true
+classes:
+  -
+    title: 'Essenzielle Cookies'
+    handle: essential
+    required: true
+    description: 'Essenzielle Cookies sind Cookies, welche für die ordnungsgemäße Funktion der Website benötigt werden.'
+    code_snippets: {  }
+  -
+    title: 'Drittanbieter Cookies'
+    handle: thirdparty
+    required: false
+    description: 'Drittanbieter Cookies sind Cookies, die Drittanbieter-Software setzen, um Funktionen wie Google Maps zu ermöglichen.'
+    code_snippets:
+      -
+        code: |-
+          console.log('Vielen Dank für den Download unseres Addons! :-)\n\t-- DDM Studio 2021');
+
+          // loadGoogleMaps();
+custom_style: false
+custom_code: false
+modal_title: Cookie-Einstellungen
+modal_description: 'Wir verwenden Cookies, um Ihnen auf unserer Website ein optimales Erlebnis zu bieten. Sie können im Folgenden auswählen, welche Cookies Sie zulassen möchten. Nähere Details finden Sie in unserer Datenschutzerklärung.'
+modal_button_all: 'Alle auswählen'
+modal_button_selected: 'Auswahl bestätigen'
+  modal_horizontal_positon: right
+  modal_vertical_positon: bottom
+  modal_background: back-none
+covers:
+  -
+    handle: googlemaps
+    classes: 'essential,thirdparty'
+    title: 'Google Maps kann nicht angezeigt werden.'
+    paragraph: 'Da Google Maps eine Drittanbieter-Software ist, müssen dafür die Cookies akzeptiert werden.'
+    button_accept: 'Cookies akzeptieren'
+    bg_image: null

@@ -1,0 +1,166 @@
+/*
+    COOKIE MODAL STYLING
+
+    This is our pre-defined cookie modal styling.
+
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    !!! Warning to the creative people out there                             !!!
+    !!! ````````````````````````````````````````                             !!!
+    !!! In this stylesheet are some pretty useful classes, which deletion    !!!
+    !!! could make some of the settings in the control panel, well, useless. !!!
+    !!! Drive safe and most importantly: be careful.                         !!!
+    !!! Everything is safe to edit above line: xxx                           !!!
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ */
+
+/** This is the background layer, which fills the whole screen. */
+.ddmcm {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: opacity ease-in-out 300ms;
+    pointer-events: none;
+    z-index: 100;
+
+    /** These classes add the CP option to select a visible background layer. */
+    &.back-light {
+        background: rgba(64, 64, 64, .3);
+        backdrop-filter: saturate(180%) blur(3px);
+        pointer-events: auto;
+    }
+
+    &.back-heavy {
+        background: rgba(64, 64, 64, .6);
+        backdrop-filter: saturate(180%) blur(3px);
+        pointer-events: auto;
+    }
+}
+
+/** The relative wrapper, prepping the modal to be placed somewhere. */
+.ddmcm-wrapper {
+    position: relative;
+    height: 100vh;
+}
+
+/** Controls the placement of the modal itself. */
+.ddmcm-box {
+    /* Initially, the modal is centered on the screen */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    max-width: 28rem;
+    max-height: 90vh;
+    transform: translate(-50%, -50%);
+    overflow-x: hidden;
+    overflow-y: auto;
+    pointer-events: auto;
+
+    background-color: #fff;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+    /* Make the modal a little wider on desktops */
+    @media screen and (min-width: 64rem) {
+        max-width: 34rem;
+    }
+
+    /* Position the modal as defined by the classes above tablets */
+    @media screen and (min-width: 48rem) {
+        &.top {
+            top: 2rem;
+            bottom: auto;
+        }
+
+        &.left {
+            left: 2rem;
+            right: auto;
+        }
+
+        &.right {
+            right: 2rem;
+            left: auto;
+        }
+
+        &.bottom {
+            bottom: 2rem;
+            top: auto;
+        }
+
+        &:not(.center) {
+            transform: none;
+        }
+
+        &.center {
+            &.left, &.right {
+                transform: translateY(-50%);
+            }
+
+            &.top, &.bottom {
+                transform: translateX(-50%);
+            }
+        }
+    }
+}
+
+/* !#!               Everything is safe to be edited from here            !#! */
+
+/** Now it's time to align the checkboxes. */
+.ddmcm-classes {
+    margin-bottom: 1.5rem;
+
+    .checkbox {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &:not(:last-of-type) {
+            margin-bottom: 0.5rem;
+        }
+
+        @media screen and (min-width: 48rem) {
+            display: block;
+        }
+    }
+}
+
+.ddmcm-buttons {
+    display: flex;
+    flex-direction: column;
+
+    button:not(:last-of-type) {
+        margin-bottom: 1rem;
+    }
+
+    @media screen and (min-width: 64rem) {
+        display: block;
+
+        button:not(:last-of-type) {
+            margin-bottom: 0;
+            margin-right: 0.5rem;
+        }
+    }
+}
+
+#ddmcm-button-all {
+    background-color: #000;
+    border: 2px solid #000; /* Primary color */
+    color: #fff; /* Secondary color */
+
+    &:hover {
+        background-color: #fff; /* Secondary color */
+        color: #000; /* Primary color */
+    }
+}
+
+#ddmcm-button-selected {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    text-decoration: none;
+    transition: color ease-in-out 300ms;
+
+    &:hover {
+        color: #a3a3a3;
+    }
+}

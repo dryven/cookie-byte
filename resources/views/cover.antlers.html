@@ -1,0 +1,15 @@
+{{ if enabled }}
+{{ if !{ cookie_consent:classes } }}
+<div class="ddm ddmcc" id="{{ handle }}" data-classes="{{ classes }}" style="display:block;opacity:100;background-image: url('{{ bg_image }}')">
+	<div class="ddmcc-wrapper">
+		<div class="ddmcc-content">
+			<h2>{{ title }}</h2>
+			<p>{{ paragraph }}</p>
+			<div class="ddmcc-buttons">
+				<button id="ddmcc-button-accept">{{ button_accept }}</button>
+			</div>
+		</div>
+	</div>
+</div>
+{{ /if }}
+{{ /if }}

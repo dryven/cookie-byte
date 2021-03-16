@@ -20,13 +20,12 @@ module.exports = {
 			white: colors.white,
 			gray: colors.trueGray,
 			primary: '#000000',
+			secondary: '#ffffff',
 		},
-		extend: {
-			/** Setting a higher default transition duration */
-			transitionDuration: {
-				DEFAULT: '500ms'
-			}
-		}
+		/** Setting a higher default transition duration */
+		transitionDuration: {
+			DEFAULT: '300ms',
+		},
 	},
 	variants: {},
 	plugins: []

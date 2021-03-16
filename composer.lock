@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "95ea2088f9d4a3dc2928a7bfbf63b2c0",
+    "content-hash": "97885cca8db30982b1e7c38854e1f3dc",
     "packages": [
         {
             "name": "brick/math",
@@ -3042,16 +3042,16 @@
         },
         {
             "name": "statamic/cms",
-            "version": "v3.0.46",
+            "version": "v3.0.47",
             "source": {
                 "type": "git",
                 "url": "https://github.com/statamic/cms.git",
-                "reference": "0ff6bd2beb3b938c07823eebeec36a353689d056"
+                "reference": "18e4a051fa88cb26bea3e23af6806788ad98c7f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/statamic/cms/zipball/0ff6bd2beb3b938c07823eebeec36a353689d056",
-                "reference": "0ff6bd2beb3b938c07823eebeec36a353689d056",
+                "url": "https://api.github.com/repos/statamic/cms/zipball/18e4a051fa88cb26bea3e23af6806788ad98c7f3",
+                "reference": "18e4a051fa88cb26bea3e23af6806788ad98c7f3",
                 "shasum": ""
             },
             "require": {
@@ -3118,7 +3118,7 @@
             ],
             "support": {
                 "issues": "https://github.com/statamic/cms/issues",
-                "source": "https://github.com/statamic/cms/tree/v3.0.46"
+                "source": "https://github.com/statamic/cms/tree/v3.0.47"
             },
             "funding": [
                 {
@@ -3126,7 +3126,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-03-05T21:03:35+00:00"
+            "time": "2021-03-15T17:49:17+00:00"
         },
         {
             "name": "statamic/stringy",
@@ -6158,7 +6158,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.4 || ^8.0"
+        "php": "^7.3 || ^8.0"
     },
     "platform-dev": [],
     "plugin-api-version": "2.0.0"

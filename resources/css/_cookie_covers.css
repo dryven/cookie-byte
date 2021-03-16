@@ -1,0 +1,49 @@
+/*
+    COOKIE COVER STYLING
+    This is our pre-defined cookie cover styling.
+ */
+
+.ddmcc {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: opacity ease-in-out 300ms;
+    z-index: 10;
+}
+
+.ddmcc-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    background-color: rgba(64, 64, 64, .6);
+}
+
+.ddmcc-content {
+    padding: 0 3rem;
+
+    h2, p {
+        text-align: center;
+        color: #fff;
+    }
+}
+
+.ddmcc-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+#ddmcc-button-accept {
+    background-color: #fff; /* Secondary color */
+    color: #000; /* Primary color */
+
+    &:hover {
+        background-color: #000; /* Primary color */
+        color: #fff; /* Secondary color */
+    }
+}
