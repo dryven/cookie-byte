@@ -159,4 +159,43 @@ JavaScript code files ready to be published in your resources/vendor/ directory:
 php artisan vendor:publish --tag="cookie-byte-resources-custom"
 ```
 
-The CSS stylesheets are written with ``postcss``
+The CSS stylesheets are written with ``postcss`` and the the ``postcss-nested`` plugin, to make our and your life
+easier. You can drag them out of the vendor paths and start changing whatever you like about the stylesheet, for example
+matching the buttons to your pages or rounding the corners like they are on your card modules. But be aware: there are
+some classes that make the options in the control panel useable, like the position of the modal.
+
+Adding the JavaScript to your site's script file is just as easy, if you use ES6 or some translation tool like
+``webpack`` (our choice). You can import the modules that are useful for you, like this:
+
+```js
+import {
+    CookieConsent,  // The class for managing the cookie consent
+    CookieCovers,   // The class for initializing the covers
+    CookieModal     // The class for initializing the modal
+} from './cookie-byte';
+```
+
+Now you can use these everywhere in the code, and do *fun stuff* with them like initializing the objects on your page,
+registering callback right in your code (instead of the control panel), checking consent for multiple classes,
+repeatedly showing and hiding the modal and much more:
+
+```js
+const initMySite = () => {
+    window.CookieConsent = new CookieConsent();
+    window.CookieModal = new CookieModal(window.CookieConsent);
+    window.CookieCovers = new CookieCovers(window.CookieConsent);
+
+    window.CookieConsent.registerCallback('essential', () => {
+        console.log('HELLO :-)');
+    });
+
+    if (window.CookieConsent.hasConsent('essential,thirdparty')) {
+        console.debug('Yes, we made in!');
+    }
+    
+    for (let i = 0; i < 10000; ++i) {
+    	window.CookieModal.hide();
+        window.CookieModal.show();
+    }
+};
+```

@@ -1,5 +1,5 @@
 <div style="position:absolute; left:14rem; top: 2.5rem;">
-    <img src="https://raw.githubusercontent.com/ddm-studio/cookie-notice/master/resources/svg/ddm-cookie.svg" width="45px" height="45px">
+    <img src="/resources/svg/ddm-cookie.svg" width="45px" height="45px">
 </div>
 
 # Cookie Byte
