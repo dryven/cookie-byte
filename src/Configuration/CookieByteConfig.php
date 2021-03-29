@@ -3,10 +3,10 @@
 	namespace DDM\CookieByte\Configuration;
 
 	use Illuminate\Http\Request;
-	use Statamic\Fields\Blueprint;
 	use Statamic\Facades\File;
 	use Statamic\Facades\Site;
 	use Statamic\Facades\YAML;
+	use Statamic\Fields\Blueprint;
 	use Statamic\Fields\Fields;
 	use Statamic\Support\Arr;
 
@@ -30,21 +30,22 @@
 		}
 
 		/**
+		 * Returns the current locale.
+		 *
+		 * @return mixed
+		 */
+		private function getLocale() {
+			if (session('statamic.cp.selected-site')) return Site::selected()->locale();
+			else return Site::current()->locale();
+		}
+
+		/**
 		 * Returns the path to the configuration file.
 		 *
 		 * @return string
 		 */
 		public function path(): string {
 			return $this->configPath;
-		}
-
-		/**
-		 * Returns the raw array data.
-		 *
-		 * @return array
-		 */
-		public function raw(): array {
-			return $this->configData;
 		}
 
 		/**
@@ -57,6 +58,13 @@
 		}
 
 		/**
+		 * Returns the values augmented by the blueprint.
+		 */
+		public function values(): array {
+			return $this->fields()->values()->all();
+		}
+
+		/**
 		 * Returns the current blueprint fields.
 		 *
 		 * @return Fields
@@ -66,10 +74,12 @@
 		}
 
 		/**
-		 * Returns the values augmented by the blueprint.
+		 * Returns the raw array data.
+		 *
+		 * @return array
 		 */
-		public function values(): array {
-			return $this->fields()->values()->all();
+		public function raw(): array {
+			return $this->configData;
 		}
 
 		/**
@@ -105,16 +115,6 @@
 		 */
 		public function save() {
 			File::disk()->put($this->configPath, YAML::dump($this->configData));
-		}
-
-		/**
-		 * Returns the current locale.
-		 *
-		 * @return mixed
-		 */
-		private function getLocale() {
-			if (session('statamic.cp.selected-site')) return Site::selected()->locale();
-			else return Site::current()->locale();
 		}
 
 	}

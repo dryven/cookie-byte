@@ -7,7 +7,7 @@ classes:
     description: 'Essential cookies are cookies that are needed for the proper functioning of the website.'
     code_snippets: {  }
   -
-    title: 'Drittanbieter Cookies'
+    title: 'Thirdparty Cookies'
     handle: thirdparty
     required: false
     description: 'Third-party cookies are cookies set by third-party software to enable features such as Google Maps.'

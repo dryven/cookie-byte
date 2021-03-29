@@ -22,7 +22,7 @@
 		}
 
 		/**
-		 * {{ cookie_consent:... }}
+		 * {{ cookie_cover:... }}
 		 *
 		 * @param $handle
 		 */
@@ -55,23 +55,6 @@
 			return view(CookieByte::getNamespacedKey('cover'), collect($this->config->raw()));
 		}
 
-		private function findBackgroundImage() {
-			$values = $this->config->raw();
-
-			// The background images is augmented to a string with the pattern
-			// "[assets-Folder]::[path/image.ext] so we have to convert the asset
-			// by finding the relative public path
-			if (isset($values['bg_image'])) {
-				// If there is more than one image pick the first as the background
-				if (is_array($values['bg_image']))
-					$values['bg_image'] = $values['bg_image'][0];
-
-				$values['bg_image'] = Asset::find($values['bg_image']);
-			}
-
-			$this->config->setValues($values);
-		}
-
 		private function findCoverByHandle($values, $handle) {
 			// Stop execution if there are no cookie covers or no handle was given
 			if (!array_key_exists('covers', $values)) throw new CookieCoverException("No covers were found.");
@@ -90,6 +73,23 @@
 			if ($cover === null) throw new CookieCoverException("There is no cover with the handle '$handle'.");
 
 			return $cover;
+		}
+
+		private function findBackgroundImage() {
+			$values = $this->config->raw();
+
+			// The background images is augmented to a string with the pattern
+			// "[assets-Folder]::[path/image.ext] so we have to convert the asset
+			// by finding the relative public path
+			if (isset($values['bg_image'])) {
+				// If there is more than one image pick the first as the background
+				if (is_array($values['bg_image']))
+					$values['bg_image'] = $values['bg_image'][0];
+
+				$values['bg_image'] = Asset::find($values['bg_image']);
+			}
+
+			$this->config->setValues($values);
 		}
 
 	}

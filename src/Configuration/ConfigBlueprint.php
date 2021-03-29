@@ -44,7 +44,7 @@
 												'display' => CookieByte::getCpTranslation('class_title'),
 												'instructions' => CookieByte::getCpTranslation('class_title_instructions'),
 												'placeholder' => CookieByte::getCpTranslation('class_title_placeholder'),
-												'validate' => [ 'required' ],
+												'validate' => ['required'],
 												'width' => 33
 											]
 										],
@@ -56,7 +56,7 @@
 												'instructions' => CookieByte::getCpTranslation('class_handle_instructions'),
 												'placeholder' => CookieByte::getCpTranslation('class_handle_placeholder'),
 												'generate' => true,
-												'validate' => [ 'required' ],
+												'validate' => ['required'],
 												'width' => 33
 											]
 										],
@@ -149,7 +149,7 @@
 									'display' => CookieByte::getCpTranslation('modal_title'),
 									'instructions' => CookieByte::getCpTranslation('modal_title_instructions'),
 									'placeholder' => CookieByte::getCpTranslation('modal_title_placeholder'),
-									'validate' => [ 'required' ]
+									'validate' => ['required']
 								]
 							],
 							[
@@ -159,7 +159,7 @@
 									'display' => CookieByte::getCpTranslation('modal_description'),
 									'instructions' => CookieByte::getCpTranslation('modal_description_instructions'),
 									'placeholder' => CookieByte::getCpTranslation('modal_description_placeholder'),
-									'validate' => [ 'required' ]
+									'validate' => ['required']
 								]
 							],
 							[
@@ -169,7 +169,7 @@
 									'display' => CookieByte::getCpTranslation('modal_button_all'),
 									'instructions' => CookieByte::getCpTranslation('modal_button_all_instructions'),
 									'placeholder' => CookieByte::getCpTranslation('modal_button_all_placeholder'),
-									'validate' => [ 'required' ],
+									'validate' => ['required'],
 									'width' => 50
 								]
 							],
@@ -180,7 +180,7 @@
 									'display' => CookieByte::getCpTranslation('modal_button_selected'),
 									'instructions' => CookieByte::getCpTranslation('modal_button_selected_instructions'),
 									'placeholder' => CookieByte::getCpTranslation('modal_button_selected_placeholder'),
-									'validate' => [ 'required' ],
+									'validate' => ['required'],
 									'width' => 50
 								]
 							],
@@ -263,7 +263,7 @@
 												'instructions' => CookieByte::getCpTranslation('cover_handle_instructions'),
 												'placeholder' => CookieByte::getCpTranslation('cover_handle_placeholder'),
 												'generate' => false,
-												'validate' => [ 'required', 'alpha' ],
+												'validate' => ['required', 'alpha'],
 												'width' => 33
 											]
 										],
@@ -274,7 +274,7 @@
 												'display' => CookieByte::getCpTranslation('cover_classes'),
 												'instructions' => CookieByte::getCpTranslation('cover_classes_instructions'),
 												'placeholder' => CookieByte::getCpTranslation('cover_classes_placeholder'),
-												'validate' => [ 'required' ],
+												'validate' => ['required'],
 												'width' => 66
 											]
 										],
@@ -285,7 +285,7 @@
 												'display' => CookieByte::getCpTranslation('cover_title'),
 												'instructions' => CookieByte::getCpTranslation('cover_title_instructions'),
 												'placeholder' => CookieByte::getCpTranslation('cover_title_placeholder'),
-												'validate' => [ 'required' ]
+												'validate' => ['required']
 											]
 										],
 										[
@@ -304,7 +304,7 @@
 												'display' => CookieByte::getCpTranslation('cover_button_accept'),
 												'instructions' => CookieByte::getCpTranslation('cover_button_accept_instructions'),
 												'placeholder' => CookieByte::getCpTranslation('cover_button_accept_placeholder'),
-												'validate' => [ 'required' ]
+												'validate' => ['required']
 											]
 										],
 										[

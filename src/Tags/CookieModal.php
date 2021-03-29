@@ -4,8 +4,6 @@
 
 	use DDM\CookieByte\Configuration\CookieByteConfig;
 	use DDM\CookieByte\CookieByte;
-	use Statamic\Facades\File;
-	use Statamic\Facades\Site;
 	use Statamic\Tags\Tags;
 
 	/**

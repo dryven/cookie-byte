@@ -1,4 +1,4 @@
-import { CookieConsent, CookieModal, CookieCovers } from './cookie-byte';
+import {CookieConsent, CookieCovers, CookieModal} from './cookie-byte';
 
 import './ie11-polyfills';
 

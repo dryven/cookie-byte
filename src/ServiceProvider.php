@@ -57,6 +57,26 @@
 		}
 
 		/**
+		 * Creates navigation item for this addon's control panel settings.
+		 *
+		 * @return $this
+		 */
+		protected function bootNavigation(): ServiceProvider {
+			Nav::extend(function ($nav) {
+				$cookieIconData = File::disk()->get(__DIR__ . '/../resources/svg/cookie-byte.svg');
+
+				$nav
+					->create(CookieByte::getCpTranslation('navigation_item'))
+					->can(User::current()->hasPermission(CookieByte::PERMISSION_GENERAL_KEY))
+					->route(CookieByte::ROUTE_SETTINGS_INDEX)
+					->section('Tools')
+					->icon($cookieIconData ?? 'alert');
+			});
+
+			return $this;
+		}
+
+		/**
 		 * Registers the permissions. Gives the users more control who can do what.
 		 *
 		 * @return $this
@@ -73,26 +93,6 @@
 						->description(CookieByte::getCpTranslation('permission_general_description'));
 				}
 			);
-
-			return $this;
-		}
-
-		/**
-		 * Creates navigation item for this addon's control panel settings.
-		 *
-		 * @return $this
-		 */
-		protected function bootNavigation(): ServiceProvider {
-			Nav::extend(function ($nav) {
-				$cookieIconData = File::disk()->get(__DIR__ . '/../resources/svg/cookie-byte.svg');
-
-				$nav
-					->create(CookieByte::getCpTranslation('navigation_item'))
-					->can(User::current()->hasPermission(CookieByte::PERMISSION_GENERAL_KEY))
-					->route(CookieByte::ROUTE_SETTINGS_INDEX)
-					->section('Tools')
-					->icon($cookieIconData ?? 'alert');
-			});
 
 			return $this;
 		}

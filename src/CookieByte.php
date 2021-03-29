@@ -2,7 +2,6 @@
 
 	namespace DDM\CookieByte;
 
-	use Statamic\Facades\Site;
 	use Statamic\Facades\YAML;
 
 	/**
@@ -34,17 +33,6 @@
 		public const VENDOR_LANGUAGES_KEY = self::NAMESPACE . '-lang';
 
 		/**
-		 * Returns the configuration file path.
-		 *
-		 * @param $locale configuration's locale
-		 *
-		 * @return string
-		 */
-		public static function getConfigurationFile($locale): string {
-			return base_path("content/cookie_byte_" . $locale . ".yaml");
-		}
-
-		/**
 		 * Returns the configuration file data as an array.
 		 *
 		 * @param $locale configuration's locale
@@ -53,6 +41,17 @@
 		 */
 		public static function getConfigurationData($locale): array {
 			return YAML::file(base_path(self::getConfigurationFile($locale)))->parse();
+		}
+
+		/**
+		 * Returns the configuration file path.
+		 *
+		 * @param $locale configuration's locale
+		 *
+		 * @return string
+		 */
+		public static function getConfigurationFile($locale): string {
+			return base_path("content/cookie_byte_" . $locale . ".yaml");
 		}
 
 		/**

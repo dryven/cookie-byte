@@ -5,7 +5,6 @@
 	use DDM\CookieByte\Configuration\CookieByteConfig;
 	use DDM\CookieByte\CookieByte;
 	use Illuminate\Http\Request;
-	use Statamic\Facades\User;
 	use Statamic\Http\Controllers\CP\CpController;
 
 	/**

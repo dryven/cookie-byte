@@ -2,10 +2,6 @@
 
 	namespace DDM\CookieByte\Tags;
 
-	use DDM\CookieByte\Configuration\CookieByteConfig;
-	use DDM\CookieByte\CookieByte;
-	use Statamic\Facades\Site;
-	use Statamic\Support\Str;
 	use Statamic\Tags\Tags;
 
 	/**
@@ -45,15 +41,14 @@
 
 			$consent = false;
 
-			foreach ($cookieClasses as $cookieClass) {
-				if (array_key_exists('cookie-byte-consent-' . $cookieClass, $_COOKIE)) {
-					$consent = $_COOKIE['cookie-byte-consent-' . $cookieClass] === 'true';
+			foreach ($cookieClasses as &$cookieClass) {
+				$cookieFound = isset($_COOKIE['cookie-byte-consent-' . $cookieClass]);
+				$consent = false;
 
-					// Return false if the current cookie class hasn't been consented to
-					if (!$consent) {
-						return false;
-					}
-				}
+				if ($cookieFound) $consent = $_COOKIE['cookie-byte-consent-' . $cookieClass] === 'true';
+
+				// Return false if the current cookie class hasn't been consented to
+				if (!($cookieFound || $consent)) return false;
 			}
 
 			return $consent;

@@ -10,7 +10,7 @@
 		/** General tab **/
 		'tab_general' => 'General',
 
-		'enabled' => 'Enable cookie notice',
+		'enabled' => 'Enable Cookie Byte',
 		'enabled_instructions' => '',
 
 		'classes' => 'Cookie classes',

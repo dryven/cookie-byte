@@ -1,12 +1,14 @@
 'use strict';
 
+const SECONDS_IN_A_YEAR = 864e+5;
+
 export class Cookies {
 	static get(key, fallback = '') {
 		return document.cookie.match('(^|;)\\s*' + key + '\\s*=\\s*([^;]+)')?.pop() || fallback;
 	}
 
 	static set(key, value, expires = 365, path = '/') {
-		let expirationDate = new Date(new Date * 1 + expires * 864e+5);
+		let expirationDate = new Date(new Date * 1 + expires * SECONDS_IN_A_YEAR);
 
 		key = encodeURIComponent(String(key))
 			.replace(/%(23|24|26|2B|5E|60|7C)/g, decodeURIComponent)
