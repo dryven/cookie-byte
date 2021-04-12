@@ -1,4 +1,4 @@
-[Cookie Byte Logo](resources/svg/cookie-byte.svg)
+[Cookie Byte Logo](https://raw.githubusercontent.com/ddm-studio/cookie-byte/main/resources/svg/cookie-byte.svg)
 
 # Cookie Byte
 
