@@ -24,7 +24,8 @@ other features so that you no longer have to worry about cookies of any kind.
 * **Cookie content covers:** Some content must be hidden as long as the corresponding cookies have not been accepted,
   such as Google Maps embeds. For this we created cookie content covers (and because we can call the feature ccc
   internally).
-  [Animated cookie content cover preview](https://raw.githubusercontent.com/ddm-studio/cookie-byte/main/repo/CookieCoverExample.gif)
+  
+  <img src="https://raw.githubusercontent.com/ddm-studio/cookie-byte/main/repo/CookieCoverExample.gif">
 * **Customisability:** The modal and the covers are completely customizable - change the text and position of the modal
   as you see fit.
 * **Developer friendly:** To make your life easier, the addon comes with predefined styles and inline code. But rest
