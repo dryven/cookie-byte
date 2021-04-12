@@ -6,9 +6,8 @@
 [![GitHub release](https://img.shields.io/github/release/ddm-studio/cookie-byte.svg)](https://github.com/ddm-studio/cookie-byte/releases/)
 
 > Our cookie is a byte better! With just one line of code you gain full control over your settings directly in the
-> control panel without having to worry about GDPR compliance ever again. Easily customize the look of your cookie modal
-> or just use our prebuilt theme. With our cookie content cover, you can hide content as long as specific cookie types
-> aren't accepted.
+> control panel. Easily customize the look of your cookie modal or just use our prebuilt theme. With our cookie content
+> cover, you can hide content as long as specific cookie types aren't accepted.
 
 ## Disclaimer
 
