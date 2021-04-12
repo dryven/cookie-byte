@@ -1,12 +1,14 @@
 {
 	"name": "cookie-byte",
 	"version": "1.0.0",
-	"description": "",
+	"description": "Our cookie is a byte better! With just one line of code you gain full control over your settings directly in the control panel without having to worry about GDPR compliance ever again. Easily customize the look of your cookie modal or just use our prebuilt theme. With our cookie content cover, you can hide content as long as specific cookie types aren't accepted.",
 	"keywords": [
-		"cookie",
-		"notice",
-		"modal",
-		"cover"
+		"cookie consent",
+		"cookie consent banner",
+		"cookie consent manager",
+		"cookie banner",
+		"gdpr",
+		"seo"
 	],
 	"license": "proprietary",
 	"author": "DDM Studio",

@@ -3,7 +3,7 @@
 # Cookie Byte
 
 [![Statamic 3.0+](https://img.shields.io/badge/Statamic-3.0%2B-FF269E)](https://statamic.com/)
-[![GitHub release](https://img.shields.io/github/release/ddm-studio/cookie-byte.svg)](https://gitHub.com/ddm-studio/cookie-byte/releases/)
+[![GitHub release](https://img.shields.io/github/release/ddm-studio/cookie-byte.svg)](https://github.com/ddm-studio/cookie-byte/releases/)
 
 > Our cookie is a byte better! With just one line of code you gain full control over your settings directly in the
 > control panel without having to worry about GDPR compliance ever again. Easily customize the look of your cookie modal
