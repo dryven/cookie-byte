@@ -1,9 +1,14 @@
-<img src="https://raw.githubusercontent.com/ddm-studio/cookie-byte/main/resources/svg/cookie-byte.svg" width="45px" height="45px">
+<img src="https://raw.githubusercontent.com/ddm-studio/cookie-byte/main/resources/svg/cookie-byte.svg" width="45px" height="45px" alt="Cookie Byte logo">
 
 # Cookie Byte
 
 [![Statamic 3.0+](https://img.shields.io/badge/Statamic-3.0%2B-FF269E)](https://statamic.com/)
 [![GitHub release](https://img.shields.io/github/release/ddm-studio/cookie-byte.svg)](https://gitHub.com/ddm-studio/cookie-byte/releases/)
+
+> Our cookie is a byte better! With just one line of code you gain full control over your settings directly in the
+> control panel without having to worry about GDPR compliance ever again. Easily customize the look of your cookie modal
+> or just use our prebuilt theme. With our cookie content cover, you can hide content as long as specific cookie types
+> aren't accepted.
 
 ## Disclaimer
 
@@ -29,12 +34,11 @@ other features so that you no longer have to worry about cookies of any kind.
 * **Developer friendly:** To make your life easier, the addon comes with predefined styles and inline code. But rest
   assured: If you need more control, you can customize everything!
 
-There are more amazing features coming: Take a look at our [Feature releases](README.md#future-features)!
+There are more amazing features coming: Take a look at our [Feature releases](#future-features)!
 
 ## Documentation
 
-For more information about how to use this addon see our
-[documentation](DOCUMENTATION.md).
+For more information about how to use this addon see our [documentation](DOCUMENTATION.md).
 
 ## Licensing
 
