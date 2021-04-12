@@ -10,7 +10,7 @@
 	</publish-form>
 
 	@include('statamic::partials.docs-callout', [
-		'topic' => 'Cookie Notice',
-		'url' => 'https://github.com/ddm-studio/cookie-notice'
+		'topic' => 'Cookie Byte',
+		'url' => 'https://statamic.com/addons/ddm-studio/cookie-byte'
 	])
 @stop

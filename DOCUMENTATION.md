@@ -156,7 +156,7 @@ styles and JavaScript code files ready to be published in your ``resources/vendo
 php artisan vendor:publish --tag="cookie-byte-resources-custom"
 ```
 
-The CSS stylesheets are written with ``postcss`` and the the ``postcss-nested`` plugin, to make our and your life
+The CSS stylesheets are written with ``postcss`` and the ``postcss-nested`` plugin, to make our and your life
 easier. You can drag them out of the vendor paths and start changing whatever you like about the stylesheet, for example
 matching the buttons to your pages or rounding the corners like they are on your card modules. But be aware: there are
 some classes that make the options in the control panel useable, like the position of the modal.
