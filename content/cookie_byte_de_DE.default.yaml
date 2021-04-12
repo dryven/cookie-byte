@@ -23,9 +23,9 @@ modal_title: Cookie-Einstellungen
 modal_description: 'Wir verwenden Cookies, um Ihnen auf unserer Website ein optimales Erlebnis zu bieten. Sie können im Folgenden auswählen, welche Cookies Sie zulassen möchten. Nähere Details finden Sie in unserer Datenschutzerklärung.'
 modal_button_all: 'Alle auswählen'
 modal_button_selected: 'Auswahl bestätigen'
-  modal_horizontal_positon: right
-  modal_vertical_positon: bottom
-  modal_background: back-none
+modal_horizontal_positon: right
+modal_vertical_positon: bottom
+modal_background: back-none
 covers:
   -
     handle: googlemaps

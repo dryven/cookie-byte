@@ -1,7 +1,7 @@
 enabled: true
 classes:
   -
-    title: 'Essential cookies'
+    title: 'Essential Cookies'
     handle: essential
     required: true
     description: 'Essential cookies are cookies that are needed for the proper functioning of the website.'
@@ -19,7 +19,7 @@ classes:
           // loadGoogleMaps();
 custom_style: false
 custom_code: false
-modal_title: Cookie-Einstellungen
+modal_title: 'Cookie Settings'
 modal_description: 'We use cookies to give you the best experience on our website. You can choose which cookies you want to allow below. You can find more details in our privacy policy.'
 modal_button_all: 'Select all'
 modal_button_selected: 'Confirm selection'
