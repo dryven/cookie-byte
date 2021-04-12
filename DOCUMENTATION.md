@@ -95,7 +95,7 @@ to put a relative wrapper around it to fill the whole space like this:
 
 With the right settings it could look something like this:
 
-![Cover Preview](repo/CoverPreview.png)
+![Cover Preview](https://raw.githubusercontent.com/ddm-studio/cookie-byte/main/repo/CookieCoverExample.gif)
 
 ### CookieConsent
 

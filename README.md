@@ -22,10 +22,8 @@ other features so that you no longer have to worry about cookies of any kind.
 * **Code snippets and their cookies:** Code snippets are loaded on the website only when the user agrees to the cookies
   required for them - without reloading the website (so your analytics data won't be corrupted - yesss!).
 * **Cookie content covers:** Some content must be hidden as long as the corresponding cookies have not been accepted,
-  such as Google Maps embeds. For this we created cookie content covers (and because we can call the feature ccc
-  internally).
-  
-  <img src="https://raw.githubusercontent.com/ddm-studio/cookie-byte/main/repo/CookieCoverExample.gif">
+  such as Google Maps embeds. For this we created cookie content covers For this we created cookie content covers (and
+  because it's a nice alliteration).
 * **Customisability:** The modal and the covers are completely customizable - change the text and position of the modal
   as you see fit.
 * **Developer friendly:** To make your life easier, the addon comes with predefined styles and inline code. But rest
