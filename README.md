@@ -1,37 +1,26 @@
-<div style="position:absolute; left:14rem; top: 2.5rem;">
-    <img src="/resources/svg/ddm-cookie.svg" width="45px" height="45px">
-</div>
+[Cookie Byte Logo](resources/svg/cookie-byte.svg)
 
 # Cookie Byte
 
 [![Statamic 3.0+](https://img.shields.io/badge/Statamic-3.0%2B-FF269E)](https://statamic.com/)
 [![GitHub release](https://img.shields.io/github/release/ddm-studio/cookie-byte.svg)](https://gitHub.com/ddm-studio/cookie-byte/releases/)
 
-> Cookie Byte is an important keystone addon for your website to comply with
-> modern cookie policies. Next to a modal it features a whole bunch of other
-> features to make you stop worrying about cookies.
+> Cookie Byte is an important addon to make your website fit for the current privacy and cookie policies. In addition to the usual cookie consent modal, in which users can selectively accept the desired cookies, the addon offers numerous other features so that you no longer have to worry about cookies of any kind.
+
+## Disclaimer
+
+Please note that we have created the addon to the best of our knowledge, but due to the rapid developments around the GDPR, we cannot guarantee full legal compliance and are not liable for violations of the GDPR and other privacy policies. In case of doubt, please contact your legal advisor.
 
 ## Features
 
-* **Control panel settings:** Change settings right from where you like it most:
-  The control panel. Enable the addon, add cookies classes, remove a snippet -
-  Here you can try your hand at being god.
-* **Usability & GDPR-compliant:** Any snippet will only be added as soon as the
-  user consents the required cookies - with no page reload needed.
-* **Cookie Covers:** Some content needs to be hidden as long as cookies haven't
-  been accepted, like Google Maps. For these reasons we added Cookie Covers.
+* **Control panel settings:** Change the addon's settings directly where you prefer to do it: In the control panel. Activate the addon, add cookie classes, remove a code snippet - rule over all cookies!
+* **Code snippets and their cookies:** Code snippets are loaded on the website only when the user agrees to the cookies required for them - without reloading the website (so your analytics data won't be corrupted - yesss!).
+* **Cookie content covers:** Some content must be hidden as long as the corresponding cookies have not been accepted, such as Google Maps embeds. For this we created cookie content covers (and because we can call the feature ccc internally).
 * **Customisability:** The modal and the covers are completely customizable -
-  change every text or just the position of the modal, however you like it.
-* **Developer-friendly:** By default, we add pre-defined styles and inline code
-  to make your life easier. But if you want more control, you can customize both.
+  change the text and position of the modal as you see fit.
+* **Developer friendly:** To make your life easier, the addon comes with predefined styles and inline code. But rest assured: If you need more control, you can customize everything!
 
-...and there are more amazing features to find or already on our [TODO list](README.md#in-a-future-release)
-
-## Cookie Modal
-
-## Cookie Covers
-
-## Options
+There are more amazing features coming: Take a look at our [Feature releases](README.md#future-features)!
 
 ## Documentation
 
@@ -43,17 +32,15 @@ For more information about how to use this addon see our
 You can use the addon for free during development as long as you want, to see if
 it suits you and your website. As soon as you fell in love with it and want to
 put it on your live production site, the addon needs licensing. Check out the
-[Statamic Marketplace](https://statamic.com/addons/statamic/seo-pro)  to learn
-more about the that.
+[Statamic Marketplace](https://statamic.com/addons/statamic/seo-pro) to learn
+more about that.
 
-## In a future release...
+## Future features
 
-...you will see more awesome features like:
+In future releases you will see more awesome features like:
 
-* **Another modal type:** We'll add a more sophisticated modal to choose from,
-  which features submenus and a harder opt-out passage - for our more analytical
-  and marketing users.
-* **Consent records:** How many people have seen the modal? How many have
-  accepted? And how many have bounced off? You'll find out here.
-* **Geo-Targeting:** Choose from a range of countries that need the cookie modal
-  in the first place. By default, all EU countries will be selected.
+* **Second modal type:** We'll add a second modal to choose from,
+  which features submenus and an opt-out which requires more steps - for our "I wish more users would accept the statistical cookies so we have more analytics data for our online-marketing" colleagues.
+* **Consent records:** How many people have seen the modal? How many people have
+  accepted? How many have bounced off? So many questions - soon we will provide the answers!
+* **Geo-Targeting:** In many countries, the cookie modal does not need to be displayed at all. So why bother the users from these countries with it? Just exclude them with our geo-tracking.
