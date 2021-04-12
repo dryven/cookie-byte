@@ -15,25 +15,22 @@
 ## Installation
 
 1. There are two ways to install Cookie Byte on your site:
-    * Quick and easy from the ``Tools > Addons`` menu in the Control Panel
-    * Fast and efficient in the console via composer
-    ```shell
-   composer require ddm-studio/cookie-byte
-   ```
+    * From the ``Tools > Addons`` menu in the Control Panel
+    * In the console via composer ```composer require ddm-studio/cookie-byte```
 2. Add the tag ``{{ cookie_modal }}`` as far up in the body tag as is comfortable for you.
 3. Test it out by going on your page and seeing something like below. You've done it!
 
-![Modal Preview](repo/ModalPreview.png)
+![Modal Preview](https://raw.githubusercontent.com/ddm-studio/cookie-byte/main/repo/ModalPreview.png)
 
 ## Control Panel
 
-![Animated navigation item](repo/NavItem.gif)
+![Animated navigation item](https://raw.githubusercontent.com/ddm-studio/cookie-byte/main/repo/NavItem.gif)
 
 After the installation, a new menu item spontaneously appeared in your site's control panel: The settings for Cookie
 Byte! Play it cool by immediately clicking on it. You'll be surprised by the three tabs in which you can do your magic.
 By default, we added some placeholder texts, so you can play around with the addon right from the start.
 
-![Settings Tabs](repo/SettingsMenuTabs.png)
+![Settings Tabs](https://raw.githubusercontent.com/ddm-studio/cookie-byte/main/repo/SettingsMenuTabs.png)
 
 * **General**
     * *Enable Cookie Byte*
