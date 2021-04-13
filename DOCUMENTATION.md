@@ -3,14 +3,14 @@
 1. [Installation](#installation)
 2. [Control Panel](#control-panel)
 3. [Antlers Tags](#antlers-tags)
-    1. [Cookie Modal](#cookiemodal)
-    2. [Cookie Cover](#cookiecover)
-    3. [Cookie Consent](#cookieconsent)
+    * [Cookie Modal](#cookiemodal)
+    * [Cookie Cover](#cookiecover)
+    * [Cookie Consent](#cookieconsent)
 4. [Advanced configuration](#advanced-configuration)
-    1. [Publishing the view](#publishing-the-view)
-    2. [Publishing the default settings](#publishing-the-default-settings)
-    3. [Publishing the languages](#publishing-the-languages)
-    4. [Custom styling & code](#custom-styling--code)
+    * [Publishing the view](#publishing-the-view)
+    * [Publishing the default settings](#publishing-the-default-settings)
+    * [Publishing the languages](#publishing-the-languages)
+    * [Custom styling & code](#custom-styling--code)
 
 ## Installation
 
