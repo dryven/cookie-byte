@@ -1,20 +1,20 @@
 enabled: true
-classes:
+categories:
   -
-    title: 'Essential Cookies'
+    title: 'Essential cookies'
     handle: essential
     required: true
     description: 'Essential cookies are cookies that are needed for the proper functioning of the website.'
     code_snippets: {  }
   -
-    title: 'Thirdparty Cookies'
+    title: 'Third-party cookies'
     handle: thirdparty
     required: false
     description: 'Third-party cookies are cookies set by third-party software to enable features such as Google Maps.'
     code_snippets:
       -
         code: |-
-          console.log('Thank you for downloading our addon! :-)\n\t-- DDM Studio 2021');
+          console.log('Thank you for downloading our addon! :-)\n\t-- DDM OG 2021');
 
           // loadGoogleMaps();
 custom_style: false
@@ -29,7 +29,7 @@ modal_background: back-none
 covers:
   -
     handle: googlemaps
-    classes: 'essential,thirdparty'
+    categories: 'essential,thirdparty'
     title: 'Google Maps cannot be displayed.'
     paragraph: 'As Google Maps is a third-party software, cookies must be accepted for this.'
     button_accept: 'Accept cookies'

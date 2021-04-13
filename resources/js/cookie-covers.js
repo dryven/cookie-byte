@@ -27,7 +27,7 @@ export class CookieCovers {
 			cover_button.addEventListener('click', (event) => {
 				event.preventDefault();
 
-				this._instance.consent(cover.dataset.classes);
+				this._instance.consent(cover.dataset.categories);
 
 				this.hide(cover.id);
 			});
@@ -76,7 +76,7 @@ export class CookieCovers {
 		if (this._covers.length === 0) return;
 
 		this._covers.forEach((cover) => {
-			if (this._instance.hasConsent(cover.dataset.classes)) this.hide(cover.id);
+			if (this._instance.hasConsent(cover.dataset.categories)) this.hide(cover.id);
 		});
 	}
 }

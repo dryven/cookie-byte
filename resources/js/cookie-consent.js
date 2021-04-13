@@ -10,7 +10,7 @@ export class CookieConsent {
 	 * Creates the instance for handling cookie requests, changes and callbacks.
 	 *
 	 * Available options:
-	 *  - callbacks: object with arrays of functions, which are called when a cookie class has been consented to
+	 *  - callbacks: object with arrays of functions, which are called when a cookie category has been consented to
 	 *
 	 * @param {Object} options
 	 */
@@ -31,77 +31,77 @@ export class CookieConsent {
 
 		this._registerCPCallbacksAndRun();
 
-		// Add linkers to the dependent classes
+		// Add linkers to the dependent categories
 		this.cookieModal = null;
 		this.cookieCover = null;
 	}
 
 	/**
-	 * Adds a callback function to a cookie class
+	 * Adds a callback function to a cookie category
 	 *
-	 * @param {string} cookieClass the cookie class
-	 * @param {function} callback the callback function to be called when the cookie class has been consented to
+	 * @param {string} cookieCategory the cookie category
+	 * @param {function} callback the callback function to be called when the cookie category has been consented to
 	 */
-	registerCallback(cookieClass, callback) {
+	registerCallback(cookieCategory, callback) {
 		// Create callback array if it doesn't exist already
-		if (!Array.isArray(this._options.callbacks[cookieClass])) {
-			this._options.callbacks[cookieClass] = [];
+		if (!Array.isArray(this._options.callbacks[cookieCategory])) {
+			this._options.callbacks[cookieCategory] = [];
 		}
 
-		this._options.callbacks[cookieClass].push(callback);
+		this._options.callbacks[cookieCategory].push(callback);
 	}
 
 	/**
-	 * Removes the callbacks added to a cookie class or a list of cookie classes.
+	 * Removes the callbacks added to a cookie category or a list of cookie categories.
 	 *
-	 * @param {string} cookieClasses the cookie classes
+	 * @param {string} cookieCategories the cookie categories
 	 */
-	unregisterCallback(cookieClasses) {
-		this._runSplitList(cookieClasses, (cookieClass) => {
-			delete this._options.callbacks[cookieClass];
+	unregisterCallback(cookieCategories) {
+		this._runSplitList(cookieCategories, (cookieCategory) => {
+			delete this._options.callbacks[cookieCategory];
 		});
 	}
 
 	/**
-	 * Runs the callback function of a cookie class if it has been consented to.
+	 * Runs the callback function of a cookie category if it has been consented to.
 	 * TODO: Prevention of running callbacks multiple times
 	 *
-	 * @param {string} cookieClass the cookie class
+	 * @param {string} cookieCategory the cookie category
 	 */
-	runCallback(cookieClass) {
-		// Don't bother if the cookie class has no consent or callback function
-		if (!this.hasConsent(cookieClass)) return;
-		if (!(cookieClass in this._options.callbacks)) return;
+	runCallback(cookieCategory) {
+		// Don't bother if the cookie category has no consent or callback function
+		if (!this.hasConsent(cookieCategory)) return;
+		if (!(cookieCategory in this._options.callbacks)) return;
 
-		this._options.callbacks[cookieClass].forEach((callback) => {
+		this._options.callbacks[cookieCategory].forEach((callback) => {
 			if (typeof callback === 'function') callback();
 		});
 	}
 
 	/**
-	 * Runs all the callback functions which cookie classes have been consented to.
+	 * Runs all the callback functions which cookie categories have been consented to.
 	 */
 	runCallbacks() {
-		Object.keys(this._options.callbacks).forEach((cookieClass) => {
-			this.runCallback(cookieClass);
+		Object.keys(this._options.callbacks).forEach((cookieCategory) => {
+			this.runCallback(cookieCategory);
 		});
 	}
 
 	/**
-	 * Checks whether the cookie class or cookie classes have already been consented to.
+	 * Checks whether the cookie category or cookie categories have already been consented to.
 	 *
-	 * @param cookieClasses the cookie classes to check for
-	 * @returns {boolean} whether the cookie classes have been consented to
+	 * @param cookieCategories the cookie categories to check for
+	 * @returns {boolean} whether the cookie categories have been consented to
 	 */
-	hasConsent(cookieClasses) {
+	hasConsent(cookieCategories) {
 		let consent = false;
 
-		const arr = cookieClasses.toString().split(',');
+		const arr = cookieCategories.toString().split(',');
 
-		for (const cookieClass of arr) {
-			consent = Cookies.get(this._options.prefix + cookieClass) === 'true';
+		for (const cookieCategory of arr) {
+			consent = Cookies.get(this._options.prefix + cookieCategory) === 'true';
 
-			// Return false if the current cookie class hasn't been consented to
+			// Return false if the current cookie category hasn't been consented to
 			if (!consent) {
 				return false;
 			}
@@ -111,22 +111,22 @@ export class CookieConsent {
 	}
 
 	/**
-	 * Consents to the cookie class.
+	 * Consents to the cookie categories.
 	 *
-	 * @param cookieClass the cookie class to consent to
+	 * @param cookieCategories the cookie category to consent to
 	 */
-	consent(cookieClass) {
-		this.setConsent(cookieClass, true);
+	consent(cookieCategories) {
+		this.setConsent(cookieCategories, true);
 	}
 
 	/**
-	 * Sets the consent for a list of cookie classes.
+	 * Sets the consent for a list of cookie categories.
 	 *
-	 * @param cookieClasses the cookie classes to set
+	 * @param cookieCategories the cookie categories to set
 	 * @param {boolean, string} value
 	 */
-	setConsent(cookieClasses, value) {
-		this._runSplitList(cookieClasses, (cookieType) => {
+	setConsent(cookieCategories, value) {
+		this._runSplitList(cookieCategories, (cookieType) => {
 			Cookies.set(this._options.prefix + cookieType, (value === true || value === 'true'), {expires: 365});
 
 			this.runCallback(cookieType);
@@ -139,10 +139,10 @@ export class CookieConsent {
 		if (snippets.length === 0) return;
 
 		snippets.forEach((snippet) => {
-			const cookieClass = snippet.dataset.class;
+			const cookieCategory = snippet.dataset.category;
 			const snippetCode = snippet.text;
 
-			this.registerCallback(cookieClass.toString(), Function(snippetCode));
+			this.registerCallback(cookieCategory.toString(), Function(snippetCode));
 		});
 
 		this.runCallbacks();

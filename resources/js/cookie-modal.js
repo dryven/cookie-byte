@@ -19,8 +19,8 @@ export class CookieModal {
 		this._modal = document.querySelector('.ddmcm');
 		if (this._modal === null) return;
 
-		// Find all cookie class checkboxes
-		this._modalCheckboxes = this._modal.querySelectorAll('.ddmcm-classes input[type=\"checkbox\"]');
+		// Find all cookie category checkboxes
+		this._modalCheckboxes = this._modal.querySelectorAll('.ddmcm-categories input[type=\"checkbox\"]');
 		if (this._modalCheckboxes.length === 0) return;
 
 		// Select all checkboxes which already have consent
@@ -75,14 +75,14 @@ export class CookieModal {
 	}
 
 	/**
-	 * Selects all the cookie class checkboxes.
+	 * Selects all the cookie category checkboxes.
 	 */
 	checkAll() {
 		this._getUncheckedModals().forEach((check) => check.click());
 	}
 
 	/**
-	 * Consents for all selected cookie class checkboxes.
+	 * Consents for all selected cookie category checkboxes.
 	 *
 	 * @private
 	 */
@@ -97,7 +97,7 @@ export class CookieModal {
 	}
 
 	/**
-	 * Consents for all selected cookie class checkboxes and hides the cookie modal.
+	 * Consents for all selected cookie category checkboxes and hides the cookie modal.
 	 *
 	 * @private
 	 */
@@ -118,6 +118,6 @@ export class CookieModal {
 	 * @private
 	 */
 	_getUncheckedModals() {
-		return this._modal.querySelectorAll('.ddmcm-classes input[type=\"checkbox\"]:not(:checked)');
+		return this._modal.querySelectorAll('.ddmcm-categories input[type=\"checkbox\"]:not(:checked)');
 	}
 }

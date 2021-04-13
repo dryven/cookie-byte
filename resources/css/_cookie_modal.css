@@ -6,7 +6,7 @@
     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     !!! Warning to the creative people out there                             !!!
     !!! ````````````````````````````````````````                             !!!
-    !!! In this stylesheet are some pretty useful classes, which deletion    !!!
+    !!! In this stylesheet are some pretty useful categories, which deletion    !!!
     !!! could make some of the settings in the control panel, well, useless. !!!
     !!! Drive safe and most importantly: be careful.                         !!!
     !!! Everything is safe to edit above line: xxx                           !!!
@@ -24,7 +24,7 @@
     pointer-events: none;
     z-index: 100;
 
-    /** These classes add the CP option to select a visible background layer. */
+    /** These categories add the CP option to select a visible background layer. */
     &.back-light {
         background: rgba(64, 64, 64, .3);
         backdrop-filter: saturate(180%) blur(3px);
@@ -66,7 +66,7 @@
         max-width: 34rem;
     }
 
-    /* Position the modal as defined by the classes above tablets */
+    /* Position the modal as defined by the categories above tablets */
     @media screen and (min-width: 48rem) {
         &.top {
             top: 2rem;
@@ -104,10 +104,10 @@
     }
 }
 
-/* !#!               Everything is safe to be edited from here            !#! */
+/*                   Everything is safe to be edited from here                */
 
 /** Now it's time to align the checkboxes. */
-.ddmcm-classes {
+.ddmcm-categories {
     margin-bottom: 1.5rem;
 
     .checkbox {

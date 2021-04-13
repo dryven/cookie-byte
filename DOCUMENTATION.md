@@ -70,8 +70,8 @@ CookieModal. Let's see them in detail.
 ```
 
 This simple one-liner adds the Cookie Modal you've seen above in [Installation](#installation). It automatically puts
-together the texts, cookie categories and decisions you've made in the CP and puts them in one box for users to decide if
-they want to accept the cookies on your site. It is recommended to put this in your layout template file, because
+together the texts, cookie categories and decisions you've made in the CP and puts them in one box for users to decide
+if they want to accept the cookies on your site. It is recommended to put this in your layout template file, because
 (unless you include JavaScript and CSS yourself) every other functionality, like the Cookie Cover, won't work.
 
 ![Modal Preview](https://raw.githubusercontent.com/ddm-studio/cookie-byte/main/repo/CookieModalExample.gif)
@@ -107,11 +107,11 @@ With the right settings it could look something like this:
 {{ cookie_consent has="..." }}
 ```
 
-This tag either takes a string or a string variable and checks if the given cookie categories have been consented to. You
-can either put a single term like ``"essential"`` or a comma-seperated list of terms like ``"essential,thirdparty"`` in
-it. It's a pretty useful feature to check if the cookie category has been set on a previous visit to the page, but for
-Analytics and the like it's better to add these as code snippets which will be loaded right on the click on the "Accept"
-button.
+This tag either takes a string or a string variable and checks if the given cookie categories have been consented to.
+You can either put a single term like ``"essential"`` or a comma-seperated list of terms like ``"essential,thirdparty"``
+in it. It's a pretty useful feature to check if the cookie category has been set on a previous visit to the page, but
+for Analytics and the like it's better to add these as code snippets which will be loaded right on the click on the "
+Accept" button.
 
 ## Advanced configuration
 
@@ -158,8 +158,8 @@ styles and JavaScript code files ready to be published in your ``resources/vendo
 php artisan vendor:publish --tag="cookie-byte-resources-custom"
 ```
 
-The CSS stylesheets are written with ``postcss`` and the ``postcss-nested`` plugin, to make our and your life
-easier. You can drag them out of the vendor paths and start changing whatever you like about the stylesheet, for example
+The CSS stylesheets are written with ``postcss`` and the ``postcss-nested`` plugin, to make our and your life easier.
+You can drag them out of the vendor paths and start changing whatever you like about the stylesheet, for example
 matching the buttons to your pages or rounding the corners like they are on your card modules. But be aware: there are
 some categories that make the options in the control panel useable, like the position of the modal.
 

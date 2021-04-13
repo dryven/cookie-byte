@@ -1,5 +1,5 @@
 enabled: true
-classes:
+categories:
   -
     title: 'Essenzielle Cookies'
     handle: essential
@@ -14,7 +14,7 @@ classes:
     code_snippets:
       -
         code: |-
-          console.log('Vielen Dank für den Download unseres Addons! :-)\n\t-- DDM Studio 2021');
+          console.log('Vielen Dank für den Download unseres Addons! :-)\n\t-- DDM OG 2021');
 
           // loadGoogleMaps();
 custom_style: false
@@ -29,7 +29,7 @@ modal_background: back-none
 covers:
   -
     handle: googlemaps
-    classes: 'essential,thirdparty'
+    categories: 'essential,thirdparty'
     title: 'Google Maps kann nicht angezeigt werden.'
     paragraph: 'Da Google Maps eine Drittanbieter-Software ist, müssen dafür die Cookies akzeptiert werden.'
     button_accept: 'Cookies akzeptieren'

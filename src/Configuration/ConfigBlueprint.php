@@ -27,12 +27,12 @@
 								]
 							],
 							[
-								'handle' => 'classes',
+								'handle' => 'categories',
 								'field' => [
 									'type' => 'grid',
-									'display' => CookieByte::getCpTranslation('classes'),
-									'instructions' => CookieByte::getCpTranslation('classes_instructions'),
-									'add_row' => CookieByte::getCpTranslation('classes_add_row'),
+									'display' => CookieByte::getCpTranslation('categories'),
+									'instructions' => CookieByte::getCpTranslation('categories_instructions'),
+									'add_row' => CookieByte::getCpTranslation('categories_add_row'),
 									'mode' => 'stacked',
 									'reorderable' => true,
 									'min_rows' => 1,
@@ -41,9 +41,9 @@
 											'handle' => 'title',
 											'field' => [
 												'type' => 'text',
-												'display' => CookieByte::getCpTranslation('class_title'),
-												'instructions' => CookieByte::getCpTranslation('class_title_instructions'),
-												'placeholder' => CookieByte::getCpTranslation('class_title_placeholder'),
+												'display' => CookieByte::getCpTranslation('category_title'),
+												'instructions' => CookieByte::getCpTranslation('category_title_instructions'),
+												'placeholder' => CookieByte::getCpTranslation('category_title_placeholder'),
 												'validate' => ['required'],
 												'width' => 33
 											]
@@ -52,9 +52,9 @@
 											'handle' => 'handle',
 											'field' => [
 												'type' => 'slug',
-												'display' => CookieByte::getCpTranslation('class_handle'),
-												'instructions' => CookieByte::getCpTranslation('class_handle_instructions'),
-												'placeholder' => CookieByte::getCpTranslation('class_handle_placeholder'),
+												'display' => CookieByte::getCpTranslation('category_handle'),
+												'instructions' => CookieByte::getCpTranslation('category_handle_instructions'),
+												'placeholder' => CookieByte::getCpTranslation('category_handle_placeholder'),
 												'generate' => true,
 												'validate' => ['required'],
 												'width' => 33
@@ -64,8 +64,8 @@
 											'handle' => 'required',
 											'field' => [
 												'type' => 'toggle',
-												'display' => CookieByte::getCpTranslation('class_required'),
-												'instructions' => CookieByte::getCpTranslation('class_required_instructions'),
+												'display' => CookieByte::getCpTranslation('category_required'),
+												'instructions' => CookieByte::getCpTranslation('category_required_instructions'),
 												'width' => 33
 											]
 										],
@@ -73,24 +73,24 @@
 											'handle' => 'description',
 											'field' => [
 												'type' => 'textarea',
-												'display' => CookieByte::getCpTranslation('class_description'),
-												'instructions' => CookieByte::getCpTranslation('class_description_instructions'),
-												'placeholder' => CookieByte::getCpTranslation('class_description_placeholder'),
+												'display' => CookieByte::getCpTranslation('category_description'),
+												'instructions' => CookieByte::getCpTranslation('category_description_instructions'),
+												'placeholder' => CookieByte::getCpTranslation('category_description_placeholder'),
 											]
 										],
 										[
 											'handle' => 'code_snippets',
 											'field' => [
 												'type' => 'grid',
-												'display' => CookieByte::getCpTranslation('class_code_snippets'),
-												'instructions' => CookieByte::getCpTranslation('class_code_snippets_instructions'),
-												'add_row' => CookieByte::getCpTranslation('class_code_snippets_add_row'),
+												'display' => CookieByte::getCpTranslation('category_code_snippets'),
+												'instructions' => CookieByte::getCpTranslation('category_code_snippets_instructions'),
+												'add_row' => CookieByte::getCpTranslation('category_code_snippets_add_row'),
 												'fields' => [
 													[
 														'handle' => 'code',
 														'field' => [
 															'type' => 'code',
-															'display' => CookieByte::getCpTranslation('class_code_snippets'),
+															'display' => CookieByte::getCpTranslation('category_code_snippets'),
 															'mode' => 'javascript',
 															'theme' => 'light',
 															'indent_type' => 'tabs',
@@ -268,12 +268,12 @@
 											]
 										],
 										[
-											'handle' => 'classes',
+											'handle' => 'categories',
 											'field' => [
 												'type' => 'text',
-												'display' => CookieByte::getCpTranslation('cover_classes'),
-												'instructions' => CookieByte::getCpTranslation('cover_classes_instructions'),
-												'placeholder' => CookieByte::getCpTranslation('cover_classes_placeholder'),
+												'display' => CookieByte::getCpTranslation('cover_categories'),
+												'instructions' => CookieByte::getCpTranslation('cover_categories_instructions'),
+												'placeholder' => CookieByte::getCpTranslation('cover_categories_placeholder'),
 												'validate' => ['required'],
 												'width' => 66
 											]

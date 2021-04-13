@@ -5,17 +5,17 @@
 			<div class="ddmcm-content">
 				<h2>{{ modal_title }}</h2>
 				<p>{{ modal_description }}</p>
-				<div class="ddmcm-classes">
-					{{ classes }}
+				<div class="ddmcm-categories">
+					{{ categories }}
 					<div class="checkbox">
-						<input type="checkbox" id="cookie-class-{{ handle }}" name="{{ handle }}"{{ if required }} disabled checked{{ /if }}>
-						<label for="cookie-class-{{ handle }}">{{ title }}</label>
+						<input type="checkbox" id="cookie-category-{{ handle }}" name="{{ handle }}"{{ if required }} disabled checked{{ /if }}>
+						<label for="cookie-category-{{ handle }}">{{ title }}</label>
 						<button aria-label="{{ description }}" role="tooltip"></button>
 						{{ code_snippets }}
-						<script data-class="{{ handle }}" type="text/snippetscript">{{ code }}</script>
+						<script data-category="{{ handle }}" type="text/snippetscript">{{ code }}</script>
 						{{ /code_snippets }}
 					</div>
-					{{ /classes }}
+					{{ /categories }}
 				</div>
 				<div class="ddmcm-buttons">
 					<button id="ddmcm-button-all">{{ modal_button_all }}</button>

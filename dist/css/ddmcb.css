@@ -17,27 +17,18 @@
         }
 
 .ddm * {
-        -webkit-box-sizing: border-box;
-                box-sizing: border-box;
+        box-sizing: border-box;
     }
 
 #ddmcm-button-all, #ddmcc-button-accept {
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
     display: inline-flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    justify-content: center;
+    align-items: center;
     padding: 0.375rem 1.25rem;
 
     font-size: 1rem;
     font-weight: 700;
     text-decoration: none;
-    -webkit-transition: all ease-in-out 300ms;
-    -o-transition: all ease-in-out 300ms;
     transition: all ease-in-out 300ms;
 }
 
@@ -71,8 +62,6 @@
 
         border: 2px solid #000; /* Primary color */
         content: '';
-        -webkit-transition: all .12s, border-color .08s;
-        -o-transition: all .12s, border-color .08s;
         transition: all .12s, border-color .08s;
     }
 
@@ -83,9 +72,7 @@
 .ddmcm input[type='checkbox']:checked + label::before {
         width: 0.75rem;
         top: 0.5rem;
-        -webkit-transform: rotate(45deg) translate(-50%, -50%);
-            -ms-transform: rotate(45deg) translate(-50%, -50%);
-                transform: rotate(45deg) translate(-50%, -50%);
+        transform: rotate(45deg) translate(-50%, -50%);
 
         background-color: transparent;
         border-color: transparent;
@@ -113,20 +100,15 @@
 
 [aria-label][role~=tooltip]::before, [aria-label][role~=tooltip]::after {
         position: absolute;
-        -webkit-transform-origin: top;
-            -ms-transform-origin: top;
-                transform-origin: top;
+        transform-origin: top;
         will-change: transform;
-        -webkit-box-sizing: border-box;
-                box-sizing: border-box;
+        box-sizing: border-box;
 
         z-index: 10;
         opacity: 0;
         -webkit-backface-visibility: hidden;
                 backface-visibility: hidden;
         pointer-events: none;
-        -webkit-transition: all .18s ease-in-out;
-        -o-transition: all .18s ease-in-out;
         transition: all .18s ease-in-out;
 
         /* default tooltip position: left */
@@ -134,8 +116,7 @@
         left: auto;
         right: 100%;
         bottom: auto;
-        -webkit-transform: translate3d(10px, -50%, 0);
-                transform: translate3d(10px, -50%, 0);
+        transform: translate3d(10px, -50%, 0);
     }
 
 [aria-label][role~=tooltip] {
@@ -159,8 +140,7 @@
         width: 60vw;
         max-width: 260px;
         padding: .5em 1em;
-        -webkit-box-sizing: content-box;
-                box-sizing: content-box;
+        box-sizing: content-box;
 
         border-radius: 4px;
         content: attr(aria-label);
@@ -177,8 +157,7 @@
             pointer-events: auto;
 
             /* default tooltip position: left */
-            -webkit-transform: translate3d(0, -50%, 0);
-                    transform: translate3d(0, -50%, 0);
+            transform: translate3d(0, -50%, 0);
         }
 
 [aria-label][role~=tooltip] {
@@ -200,8 +179,7 @@
             left: 50%;
             margin-right: auto;
             margin-bottom: 5px;
-            -webkit-transform: translate3d(-50%, 0, 0);
-                    transform: translate3d(-50%, 0, 0);
+            transform: translate3d(-50%, 0, 0);
         }
 
         [aria-label][role~=tooltip]::after {
@@ -209,17 +187,14 @@
             left: 50%;
             margin-right: auto;
             margin-bottom: 11px;
-            -webkit-transform: translate3d(calc(0% + -16px), 0, 0);
-                    transform: translate3d(calc(0% + -16px), 0, 0);
+            transform: translate3d(calc(0% + -16px), 0, 0);
         }
             [aria-label][role~=tooltip]:hover::before {
-                -webkit-transform: translate3d(-50%, -5px, 0);
-                        transform: translate3d(-50%, -5px, 0);
+                transform: translate3d(-50%, -5px, 0);
             }
 
             [aria-label][role~=tooltip]:hover::after {
-                -webkit-transform: translate3d(calc(0% + -16px), -5px, 0);
-                        transform: translate3d(calc(0% + -16px), -5px, 0);
+                transform: translate3d(calc(0% + -16px), -5px, 0);
             }
     }
 
@@ -274,7 +249,7 @@
     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     !!! Warning to the creative people out there                             !!!
     !!! ````````````````````````````````````````                             !!!
-    !!! In this stylesheet are some pretty useful classes, which deletion    !!!
+    !!! In this stylesheet are some pretty useful categories, which deletion    !!!
     !!! could make some of the settings in the control panel, well, useless. !!!
     !!! Drive safe and most importantly: be careful.                         !!!
     !!! Everything is safe to edit above line: xxx                           !!!
@@ -289,13 +264,11 @@
     left: 0;
     right: 0;
     bottom: 0;
-    -webkit-transition: opacity ease-in-out 300ms;
-    -o-transition: opacity ease-in-out 300ms;
     transition: opacity ease-in-out 300ms;
     pointer-events: none;
     z-index: 100
 
-    /** These classes add the CP option to select a visible background layer. */
+    /** These categories add the CP option to select a visible background layer. */
 }
 
 .ddmcm.back-light {
@@ -329,16 +302,13 @@
     width: 90%;
     max-width: 28rem;
     max-height: 90vh;
-    -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     overflow-x: hidden;
     overflow-y: auto;
     pointer-events: auto;
 
     background-color: #fff;
-    -webkit-box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)
 
     /* Make the modal a little wider on desktops */
 }
@@ -352,7 +322,7 @@
 
 .ddmcm-box {
 
-    /* Position the modal as defined by the classes above tablets */
+    /* Position the modal as defined by the categories above tablets */
 }
 
 @media screen and (min-width: 48rem) {
@@ -377,62 +347,45 @@
         }
 
         .ddmcm-box:not(.center) {
-            -webkit-transform: none;
-                -ms-transform: none;
-                    transform: none;
+            transform: none;
         }
             .ddmcm-box.center.left, .ddmcm-box.center.right {
-                -webkit-transform: translateY(-50%);
-                    -ms-transform: translateY(-50%);
-                        transform: translateY(-50%);
+                transform: translateY(-50%);
             }
 
             .ddmcm-box.center.top, .ddmcm-box.center.bottom {
-                -webkit-transform: translateX(-50%);
-                    -ms-transform: translateX(-50%);
-                        transform: translateX(-50%);
+                transform: translateX(-50%);
             }
     }
 
-/* !#!               Everything is safe to be edited from here            !#! */
+/*                   Everything is safe to be edited from here                */
 
 /** Now it's time to align the checkboxes. */
 
-.ddmcm-classes {
+.ddmcm-categories {
     margin-bottom: 1.5rem;
 }
 
-.ddmcm-classes .checkbox {
-        display: -webkit-box;
-        display: -ms-flexbox;
+.ddmcm-categories .checkbox {
         display: flex;
-        -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
-                justify-content: space-between;
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center
+        justify-content: space-between;
+        align-items: center
     }
 
-.ddmcm-classes .checkbox:not(:last-of-type) {
+.ddmcm-categories .checkbox:not(:last-of-type) {
             margin-bottom: 0.5rem;
         }
 
 @media screen and (min-width: 48rem) {
 
-    .ddmcm-classes .checkbox {
+    .ddmcm-categories .checkbox {
             display: block
     }
         }
 
 .ddmcm-buttons {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
 }
 
 .ddmcm-buttons button:not(:last-of-type) {
@@ -466,8 +419,6 @@
     font-size: 0.875rem;
     line-height: 1.25rem;
     text-decoration: none;
-    -webkit-transition: color ease-in-out 300ms;
-    -o-transition: color ease-in-out 300ms;
     transition: color ease-in-out 300ms
 }
 
@@ -489,23 +440,14 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    -webkit-transition: opacity ease-in-out 300ms;
-    -o-transition: opacity ease-in-out 300ms;
     transition: opacity ease-in-out 300ms;
     z-index: 10;
 }
 
 .ddmcc-wrapper {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    flex-direction: column;
+    justify-content: center;
     height: 100%;
     background-color: rgba(64, 64, 64, .6);
 }
@@ -520,12 +462,8 @@
     }
 
 .ddmcc-buttons {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    justify-content: center;
 }
 
 #ddmcc-button-accept {

@@ -11,9 +11,9 @@ mix.options({
 	cssNano: {}
 });
 
-mix.js('resources/js/loadscript.js', 'dist/js/cookie-byte' + fileSuffix + '.js');
+mix.js('resources/js/loadscript.js', 'dist/js/ddmcb' + fileSuffix + '.js');
 
-mix.postCss('resources/css/_cookie_byte.css', 'dist/css/cookie-byte' + fileSuffix + '.css', [
+mix.postCss('resources/css/_cookie_byte.css', 'dist/css/ddmcb' + fileSuffix + '.css', [
 	require('postcss-import'),
 	require('postcss-nested'),
 	require('postcss-preset-env')({
@@ -29,3 +29,5 @@ mix.postCss('resources/css/_cookie_byte.css', 'dist/css/cookie-byte' + fileSuffi
 		}
 	}),
 ]);
+
+mix.sourceMaps();

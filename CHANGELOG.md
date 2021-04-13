@@ -1,41 +1,42 @@
 # Changelog
 
-## [v1.0.0] - 2021-03-XX
+## [v1.0.0] - 2021-04-13
 
 ### Added
+
 * **Cookie modal**
-  * customizable text
-  * customizable position
-  * customizable background
-  * checkbox for each cookie class
-  * two buttons: "Select all" and "Confirm selection"
-* **Cookie cover**
-  * customizable text
-  * customizable background image
+    * customizable text
+    * customizable position
+    * customizable background
+    * checkbox for each cookie category
+    * two buttons: "Select all" and "Confirm selection"
+* **Cookie content cover**
+    * customizable text
+    * customizable background image
 * **JavaScript**
-  * Object ``CookieConsent``: consent & callback management
-    * Method ``hasConsent(cookieClasses)`` for checking consent of cookie class(es)
-    * Method ``consent(cookieClasses)`` for consenting to cookie class(es)
-    * Method ``registerCallback(cookieClass, callback)`` Registering a callback
-      function after consenting to a cookie class
-    * Method ``unregisterCallback(cookieClasses)`` unregistering callback functions
-    * Method ``runCallback(cookieClasses)`` runs the callback if the cookie class
-      has already been consented to
-    * Method ``runCallbacks()`` runns callbacks of all consented cookie classes
-  * Object ``CookieModal``: modal initialization
-    * Method ``show()`` Makes the modal appear
-    * Method ``hide()`` Makes the modal disappear
-  * Object ``CookieCovers``: covers initialization
-    * Method ``getCoverByHandle(handle)`` Returns cover element by handle
-    * Method ``show(cover)`` Makes the given cover appear
-    * Method ``hide(cover)`` Makes the given cover disappear
+    * Object ``CookieConsent``: consent & callback management
+        * Method ``hasConsent(cookieCategories)`` for checking consent of cookie category/categories
+        * Method ``consent(cookieCategories)`` for consenting to cookie category/categories
+        * Method ``registerCallback(cookieCategory, callback)`` Registering a callback function after consenting to a
+          cookie category
+        * Method ``unregisterCallback(cookieCategories)`` unregistering callback functions
+        * Method ``runCallback(cookieCategories)`` runs the callback if the cookie category/categories have already been
+          consented to
+        * Method ``runCallbacks()`` runns callbacks of all consented cookie categories
+    * Object ``CookieModal``: modal initialization
+        * Method ``show()`` Makes the modal appear
+        * Method ``hide()`` Makes the modal disappear
+    * Object ``CookieCovers``: initialization of content covers
+        * Method ``getCoverByHandle(handle)`` Returns content cover element by handle
+        * Method ``show(cover)`` Makes the given content cover appear
+        * Method ``hide(cover)`` Makes the given content cover disappear
 * **CSS**
-  * Pre-defined styles for modal and covers
-  * Pre-defined styles for checkboxes, buttons and tooltips
+    * Pre-defined styles for modal and content covers
+    * Pre-defined styles for checkboxes, buttons and tooltips
 * **Tags**
-  * Tags for checking consent, the modal and the covers
+    * Tags for checking consent, the modal and the content covers
 * **Control Panel**
-  * 3 Tabs for customizing the addon, the modal and the covers
-  * English and German translation files
-  * English and German default config files
-  * Icon for navigation item
+    * 3 Tabs for customizing the addon, the modal and the content covers
+    * English translation files
+    * English and German default config files
+    * Icon for navigation item

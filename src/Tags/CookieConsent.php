@@ -14,40 +14,40 @@
 		/**
 		 * {{ cookie_consent:... }}
 		 *
-		 * @param $cookieClasses
+		 * @param $cookieCategories
 		 */
-		public function wildcard($cookieClasses) {
-			if (isset($this->context[$cookieClasses]))
-				$this->params['cookieClasses'] = $this->context[$cookieClasses];
+		public function wildcard($cookieCategories) {
+			if (isset($this->context[$cookieCategories]))
+				$this->params['cookieCategories'] = $this->context[$cookieCategories];
 			else
-				$this->params['cookieClasses'] = $cookieClasses;
+				$this->params['cookieCategories'] = $cookieCategories;
 
 			return $this->index();
 		}
 
 		/**
-		 * Checks whether the cookie class or cookie classes have already been consented to.
+		 * Checks whether the cookie category or cookie categories have already been consented to.
 		 * If no parameter is given, it checks if the cookie modal has already been accepted.
 		 *
-		 * {{ cookie_consent cookieClasses="..." }} or {{ cookie_consent has="..." }}
+		 * {{ cookie_consent cookieCategories="..." }} or {{ cookie_consent has="..." }}
 		 *
-		 * @return bool whether the cookie class has already been consented to
+		 * @return bool whether the cookie categories have already been consented to
 		 */
 		public function index() {
-			$cookieClasses = $this->params->get('cookieClasses') ?? $this->params->get('has') ?? 'showed';
+			$cookieCategories = $this->params->get('cookieCategories') ?? $this->params->get('has') ?? 'showed';
 
 			// Seperate the list by comma
-			$cookieClasses = explode(',', $cookieClasses);
+			$cookieCategories = explode(',', $cookieCategories);
 
 			$consent = false;
 
-			foreach ($cookieClasses as &$cookieClass) {
-				$cookieFound = isset($_COOKIE['cookie-byte-consent-' . $cookieClass]);
+			foreach ($cookieCategories as &$cookieCategory) {
+				$cookieFound = isset($_COOKIE['cookie-byte-consent-' . $cookieCategory]);
 				$consent = false;
 
-				if ($cookieFound) $consent = $_COOKIE['cookie-byte-consent-' . $cookieClass] === 'true';
+				if ($cookieFound) $consent = $_COOKIE['cookie-byte-consent-' . $cookieCategory] === 'true';
 
-				// Return false if the current cookie class hasn't been consented to
+				// Return false if the current cookie category hasn't been consented to
 				if (!($cookieFound || $consent)) return false;
 			}
 
