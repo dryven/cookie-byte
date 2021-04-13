@@ -37,6 +37,6 @@
     * Tags for checking consent, the modal and the content covers
 * **Control Panel**
     * 3 Tabs for customizing the addon, the modal and the content covers
-    * English translation files
+    * English and German translation files
     * English and German default config files
     * Icon for navigation item
