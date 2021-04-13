@@ -34,7 +34,7 @@ By default, we added some placeholder texts, so you can play around with the add
 
 * **General**
     * *Enable Cookie Byte*
-    * Cookie classes
+    * Cookie categories
         * *Name*
         * *Handle*
         * *Required*
@@ -52,7 +52,7 @@ By default, we added some placeholder texts, so you can play around with the add
 * **Covers**:
     * Cookie covers
         * *Handle*
-        * *Cookie classes needed*
+        * *Cookie categories needed*
         * *Title*
         * *Paragraph*
         * *Button*
@@ -70,9 +70,11 @@ CookieModal. Let's see them in detail.
 ```
 
 This simple one-liner adds the Cookie Modal you've seen above in [Installation](#installation). It automatically puts
-together the texts, cookie classes and decisions you've made in the CP and puts them in one box for users to decide if
+together the texts, cookie categories and decisions you've made in the CP and puts them in one box for users to decide if
 they want to accept the cookies on your site. It is recommended to put this in your layout template file, because
 (unless you include JavaScript and CSS yourself) every other functionality, like the Cookie Cover, won't work.
+
+![Modal Preview](https://raw.githubusercontent.com/ddm-studio/cookie-byte/main/repo/CookieModalExample.gif)
 
 ### CookieCover
 
@@ -101,13 +103,13 @@ With the right settings it could look something like this:
 
 ```php
 {{ cookie_consent:... }}
-{{ cookie_consent cookieClasses="..." }}
+{{ cookie_consent cookieCategories="..." }}
 {{ cookie_consent has="..." }}
 ```
 
-This tag either takes a string or a string variable and checks if the given cookie classes have been consented to. You
+This tag either takes a string or a string variable and checks if the given cookie categories have been consented to. You
 can either put a single term like ``"essential"`` or a comma-seperated list of terms like ``"essential,thirdparty"`` in
-it. It's a pretty useful feature to check if the cookie class has been set on a previous visit to the page, but for
+it. It's a pretty useful feature to check if the cookie category has been set on a previous visit to the page, but for
 Analytics and the like it's better to add these as code snippets which will be loaded right on the click on the "Accept"
 button.
 
@@ -159,7 +161,7 @@ php artisan vendor:publish --tag="cookie-byte-resources-custom"
 The CSS stylesheets are written with ``postcss`` and the ``postcss-nested`` plugin, to make our and your life
 easier. You can drag them out of the vendor paths and start changing whatever you like about the stylesheet, for example
 matching the buttons to your pages or rounding the corners like they are on your card modules. But be aware: there are
-some classes that make the options in the control panel useable, like the position of the modal.
+some categories that make the options in the control panel useable, like the position of the modal.
 
 Adding the JavaScript to your site's script file is just as easy, if you use ES6 or some translation tool
 like ``webpack`` (our choice). You can import the modules that are useful for you, like this:
@@ -173,7 +175,7 @@ import {
 ```
 
 Now you can use these everywhere in the code, and do *fun stuff* with them like initializing the objects on your page,
-registering callback right in your code (instead of the control panel), checking consent for multiple classes,
+registering callback right in your code (instead of the control panel), checking consent for multiple categories,
 repeatedly showing and hiding the modal and much more:
 
 ```js
