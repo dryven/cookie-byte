@@ -5,9 +5,9 @@
 [![Statamic 3.0+](https://img.shields.io/badge/Statamic-3.0%2B-FF269E)](https://statamic.com/)
 [![GitHub release](https://img.shields.io/github/release/ddm-studio/cookie-byte.svg)](https://github.com/ddm-studio/cookie-byte/releases/)
 
-> Our cookie is a byte better! With just one line of code you gain full control over your settings directly in the
-> control panel. Easily customize the look of your cookie modal or just use our prebuilt theme. With our cookie content
-> cover, you can hide content as long as specific cookie categories aren't accepted.
+> Keep your friends close, but your cookies closer! With just one line of code you gain full control over your settings
+> directly in the control panel. Easily customize the look of your cookie modal or just use our prebuilt theme. With our
+> cookie content cover, you can hide content as long as specific cookie categories aren't accepted.
 
 ## Disclaimer
 
