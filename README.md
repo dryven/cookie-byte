@@ -7,7 +7,7 @@
 
 > Our cookie is a byte better! With just one line of code you gain full control over your settings directly in the
 > control panel. Easily customize the look of your cookie modal or just use our prebuilt theme. With our cookie content
-> cover, you can hide content as long as specific cookie types aren't accepted.
+> cover, you can hide content as long as specific cookie categories aren't accepted.
 
 ## Disclaimer
 
