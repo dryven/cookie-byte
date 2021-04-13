@@ -43,7 +43,7 @@ For more information about how to use this addon see our [documentation](DOCUMEN
 
 You can use the addon for free during development as long as you want, to see if it suits you and your website. As soon
 as you fell in love with it and want to put it on your live production site, the addon needs licensing. Check out the
-[Statamic Marketplace](https://statamic.com/addons/statamic/seo-pro) to learn more about that.
+[Statamic Marketplace](https://statamic.com/addons/ddm-studio/cookie-byte) to learn more about that.
 
 ## Future features
 
