@@ -81,7 +81,7 @@
 			// The background images is augmented to a string with the pattern
 			// "[assets-Folder]::[path/image.ext] so we have to convert the asset
 			// by finding the relative public path
-			if (isset($values['bg_image'])) {
+			if (isset($values['bg_image']) && !empty($values['bg_image'])) {
 				// If there is more than one image pick the first as the background
 				if (is_array($values['bg_image']))
 					$values['bg_image'] = $values['bg_image'][0];
