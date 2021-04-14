@@ -5,9 +5,9 @@
 [![Statamic 3.0+](https://img.shields.io/badge/Statamic-3.0%2B-FF269E)](https://statamic.com/)
 [![GitHub release](https://img.shields.io/github/release/ddm-studio/cookie-byte.svg)](https://github.com/ddm-studio/cookie-byte/releases/)
 
-> Keep your friends close, but your cookies closer! With just one line of code you gain full control over your settings
-> directly in the control panel. Easily customize the look of your cookie modal or just use our prebuilt theme. With our
-> cookie content cover, you can hide content as long as specific cookie categories aren't accepted.
+> Keep your friends close, but your cookies closer! Get full control over all your cookie-related settings right in the
+> control panel: Create cookie categories, add code snippets, customise the cookie modal and activate cookie content
+> covers that hide content as long as specific cookie categories are not accepted.
 
 ## Disclaimer
 
@@ -26,8 +26,7 @@ other features so that you no longer have to worry about cookies of any kind.
 * **Code snippets and their cookies:** Code snippets are loaded on the website only when the user agrees to the cookies
   required for them - without reloading the website (so your analytics data won't be corrupted - yesss!).
 * **Cookie content covers:** Some content must be hidden as long as the corresponding cookies have not been accepted,
-  such as Google Maps embeds. For this we created cookie content covers For this we created cookie content covers (and
-  because it's a nice alliteration).
+  such as Google Maps embeds. For this we created cookie content covers (and because it's a nice alliteration).
 * **Customisability:** The modal and the covers are completely customizable - change the text and position of the modal
   as you see fit.
 * **Developer friendly:** To make your life easier, the addon comes with predefined styles and inline code. But rest

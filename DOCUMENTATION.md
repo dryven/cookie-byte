@@ -39,23 +39,23 @@ By default, we added some placeholder texts, so you can play around with the add
         * *Handle*
         * *Required*
         * *Description*
-        * *Code Snippets*
+        * *Code snippets*
     * Developer settings
         * *Custom CSS styling*
         * *Custom JavaScript code*
 * **Modal**:
-    * *Title*
+    * *Headline*
     * *Description*
-    * *Buttons*
+    * *Button "Select all" and "Confirm selection"*
     * *Horizontal and vertical position*
     * *Background type*
 * **Covers**:
-    * Cookie covers
+    * Cookie content covers
         * *Handle*
-        * *Cookie categories needed*
-        * *Title*
+        * *Cookie categories to be accepted*
+        * *Headline of the cookie content cover*
         * *Paragraph*
-        * *Button*
+        * *Button "Accept cookies"*
         * *Background image*
 
 ## Antlers Tags
@@ -169,7 +169,7 @@ like ``webpack`` (our choice). You can import the modules that are useful for yo
 ```js
 import {
     CookieConsent,  // The class for managing the cookie consent
-    CookieCovers,   // The class for initializing the covers
+    CookieCovers,   // The class for initializing the content covers
     CookieModal     // The class for initializing the modal
 } from './cookie-byte';
 ```

@@ -87,7 +87,7 @@
 }
 
 /* Big thanks to Ghosh for this amazing tooltip (npm: microtip) */
-[aria-label][role~=tooltip] {
+.ddmcm [aria-label][role~=tooltip] {
     position: relative;
     width: 1rem;
     height: 1rem;
@@ -228,7 +228,7 @@
 }
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-    [aria-label][role~=tooltip] {
+    .ddmcm [aria-label][role~=tooltip] {
         vertical-align: inherit;
     }
 }
