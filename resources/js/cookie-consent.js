@@ -16,7 +16,8 @@ export class CookieConsent {
 	 */
 	constructor(options = {}) {
 		this._defaults = {
-			callbacks: {}
+			callbacks: {},
+			autorun: true,
 		};
 
 		this._options = Object.assign({}, this._defaults, options);
@@ -29,7 +30,11 @@ export class CookieConsent {
 			this._options.prefix += '-';
 		}
 
-		this._registerCPCallbacksAndRun();
+		this._registerCPCallbacks();
+
+		if (this._options.autorun) {
+			this.runCallbacks();
+		}
 
 		// Add linkers to the dependent categories
 		this.cookieModal = null;
@@ -64,7 +69,6 @@ export class CookieConsent {
 
 	/**
 	 * Runs the callback function of a cookie category if it has been consented to.
-	 * TODO: Prevention of running callbacks multiple times
 	 *
 	 * @param {string} cookieCategory the cookie category
 	 */
@@ -76,6 +80,8 @@ export class CookieConsent {
 		this._options.callbacks[cookieCategory].forEach((callback) => {
 			if (typeof callback === 'function') callback();
 		});
+
+		delete this._options.callbacks[cookieCategory];
 	}
 
 	/**
@@ -133,7 +139,7 @@ export class CookieConsent {
 		});
 	}
 
-	_registerCPCallbacksAndRun() {
+	_registerCPCallbacks() {
 		const snippets = document.querySelectorAll('script[type="text/snippetscript"]');
 
 		if (snippets.length === 0) return;
@@ -144,8 +150,6 @@ export class CookieConsent {
 
 			this.registerCallback(cookieCategory.toString(), Function(snippetCode));
 		});
-
-		this.runCallbacks();
 	}
 
 	/**
