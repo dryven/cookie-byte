@@ -1,5 +1,15 @@
 # Changelog
 
+## [v1.0.1] - 2021-05-05
+
+### Added
+
+* Added prevention for running a callback multiple times.
+* Added ``autorun`` option in ``CookieConsent`` class for controlling if
+  callbacks are automatically run with initializing the class.
+
+---
+
 ## [v1.0.0] - 2021-04-13
 
 ### Added
