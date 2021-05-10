@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.0.2] - 2021-05-10
+
+### Fixed
+
+* Fixed invalid expire date in cookies
+
 ## [v1.0.1] - 2021-05-05
 
 ### Added
