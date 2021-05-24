@@ -38,8 +38,14 @@
 		public function boot() {
 			parent::boot();
 
-			$this->loadTranslationsFrom(__DIR__ . '/../resources/lang', CookieByte::NAMESPACE);
-			$this->loadViewsFrom(__DIR__ . '/../resources/views', CookieByte::NAMESPACE);
+			Statamic::booted(function() {
+				$this
+					->bootPermissions()
+					->bootNavigation();
+
+				$this->loadTranslationsFrom(__DIR__ . '/../resources/lang', CookieByte::NAMESPACE);
+				$this->loadViewsFrom(__DIR__ . '/../resources/views', CookieByte::NAMESPACE);
+			});
 
 			Statamic::afterInstalled(function ($command) {
 				// Publish default settings, to make the first time experience easier
@@ -47,12 +53,6 @@
 
 				// Force web resource publish, so it's overwritten on every install and update
 				$command->call('vendor:publish', ['--tag' => CookieByte::VENDOR_WEB_RESOURCES_KEY, '--force' => true]);
-			});
-
-			$this->booted(function () {
-				$this
-					->bootPermissions()
-					->bootNavigation();
 			});
 		}
 
@@ -67,7 +67,7 @@
 
 				$nav
 					->create(CookieByte::getCpTranslation('navigation_item'))
-					->can(User::current()->hasPermission(CookieByte::PERMISSION_GENERAL_KEY))
+					->can(CookieByte::PERMISSION_GENERAL_KEY)
 					->route(CookieByte::ROUTE_SETTINGS_INDEX)
 					->section('Tools')
 					->icon($cookieIconData ?? 'alert');
@@ -88,7 +88,7 @@
 				CookieByte::getCpTranslation('permission_settings'),
 				function () {
 					// Add permission for configuring the settings
-					Permission::make(CookieByte::PERMISSION_GENERAL_KEY)
+					Permission::register(CookieByte::PERMISSION_GENERAL_KEY)
 						->label(CookieByte::getCpTranslation('permission_general'))
 						->description(CookieByte::getCpTranslation('permission_general_description'));
 				}

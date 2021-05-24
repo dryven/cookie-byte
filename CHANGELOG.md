@@ -1,5 +1,9 @@
 # Changelog
 
+## [v1.0.3] - 2021-05-24
+
+* Fixed permission settings
+
 ## [v1.0.2] - 2021-05-10
 
 ### Fixed
