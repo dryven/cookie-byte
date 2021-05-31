@@ -110,8 +110,14 @@ With the right settings it could look something like this:
 This tag either takes a string or a string variable and checks if the given cookie categories have been consented to.
 You can either put a single term like ``"essential"`` or a comma-seperated list of terms like ``"essential,thirdparty"``
 in it. It's a pretty useful feature to check if the cookie category has been set on a previous visit to the page, but
-for Analytics and the like it's better to add these as code snippets which will be loaded right on the click on the "
-Accept" button.
+for Analytics and the like it's better to add these as code snippets which will be loaded right on the click on the
+"Accept" button. You can use it like so:
+
+```php
+{{ if { cookie_consent has="marketing-cookies" } }}
+    {{# code that should be executed #}}
+{{ /if }}
+```
 
 ## Advanced configuration
 
