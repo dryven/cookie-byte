@@ -78,6 +78,8 @@
 		private function findBackgroundImage() {
 			$values = $this->config->raw();
 
+			$values['bg_image'] = $values['bg_image'] === [] ? null : $values['bg_image'];
+
 			// The background images is augmented to a string with the pattern
 			// "[assets-Folder]::[path/image.ext] so we have to convert the asset
 			// by finding the relative public path
