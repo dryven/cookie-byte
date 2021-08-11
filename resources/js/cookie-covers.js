@@ -29,7 +29,9 @@ export class CookieCovers {
 
 				this._instance.consent(cover.dataset.categories);
 
-				this.hide(cover.id);
+				this.hideConsented();
+
+				if (this._instance.cookieModal) this._instance.cookieModal.hideIfConsented();
 			});
 		});
 	}

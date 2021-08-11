@@ -5,11 +5,9 @@
 	use DDM\CookieByte\Tags\CookieConsent;
 	use DDM\CookieByte\Tags\CookieCover;
 	use DDM\CookieByte\Tags\CookieModal;
-	use DDM\CookieNotice\CookieNoticeApp;
 	use Statamic\Facades\CP\Nav;
 	use Statamic\Facades\File;
 	use Statamic\Facades\Permission;
-	use Statamic\Facades\User;
 	use Statamic\Providers\AddonServiceProvider;
 	use Statamic\Statamic;
 

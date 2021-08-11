@@ -75,6 +75,15 @@ export class CookieModal {
 	}
 
 	/**
+	 * Hides the cookie modal if all cookie categories have been consented to.
+	 */
+	hideIfConsented() {
+		let allConsented = Array.prototype.every.call(this._modalCheckboxes, check => this._instance.hasConsent(check.name));
+
+		if (allConsented) this._finalize();
+	}
+
+	/**
 	 * Selects all the cookie category checkboxes.
 	 */
 	checkAll() {
