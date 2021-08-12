@@ -21,7 +21,7 @@ export class CookieCovers {
 
 		this._covers.forEach((cover) => {
 			// Add a event listener to consent and hide the cover
-			const cover_button = cover.querySelector('#ddmcc-button-accept');
+			const cover_button = cover.querySelector('.ddmcc-button-accept');
 			if (cover_button === null) return;
 
 			cover_button.addEventListener('click', (event) => {
@@ -37,36 +37,41 @@ export class CookieCovers {
 	}
 
 	/**
-	 * Returns the first cookie cover with a given handle.
+	 * Returns the cookie covers with a specific handle.
 	 *
 	 * @param {string} handle
-	 * @returns {Element} the node element
+	 * @returns {NodeList} the node element  list
 	 */
-	getCoverByHandle(handle) {
-		return document.querySelector('.ddmcc#' + handle) ?? false;
+	getCoversByHandle(handle) {
+		const covers = document.querySelectorAll('.ddmcc[data-handle="' + handle + '"]');
+		return covers.length === 0 ? false : covers;
 	}
 
 	show(handle) {
-		let cover = this.getCoverByHandle(handle);
+		let covers = this.getCoversByHandle(handle);
 
-		if (cover) {
-			cover.style.display = 'block';
+		if (covers) {
+			covers.forEach((cover) => {
+				cover.style.display = 'block';
 
-			setTimeout(() => {
-				cover.style.opacity = '1';
-			}, 10);
+				setTimeout(() => {
+					cover.style.opacity = '1';
+				}, 10);
+			});
 		}
 	}
 
 	hide(handle) {
-		let cover = this.getCoverByHandle(handle);
+		let covers = this.getCoversByHandle(handle);
 
-		if (cover) {
-			cover.style.opacity = '0';
+		if (covers) {
+			covers.forEach((cover) => {
+				cover.style.opacity = '0';
 
-			setTimeout(() => {
-				cover.style.display = 'none';
-			}, DISPLAY_SLEEP_TIME);
+				setTimeout(() => {
+					cover.style.display = 'none';
+				}, DISPLAY_SLEEP_TIME);
+			});
 		}
 	}
 
@@ -78,7 +83,7 @@ export class CookieCovers {
 		if (this._covers.length === 0) return;
 
 		this._covers.forEach((cover) => {
-			if (this._instance.hasConsent(cover.dataset.categories)) this.hide(cover.id);
+			if (this._instance.hasConsent(cover.dataset.categories)) this.hide(cover.dataset.handle);
 		});
 	}
 }

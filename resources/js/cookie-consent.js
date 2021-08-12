@@ -17,7 +17,7 @@ export class CookieConsent {
 	constructor(options = {}) {
 		this._defaults = {
 			callbacks: {},
-			autorun: true,
+			autorun: true
 		};
 
 		this._options = Object.assign({}, this._defaults, options);

@@ -38,7 +38,7 @@
     justify-content: center;
 }
 
-#ddmcc-button-accept {
+.ddmcc-button-accept {
     background-color: #fff; /* Secondary color */
     color: #000; /* Primary color */
 

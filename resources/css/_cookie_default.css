@@ -22,7 +22,7 @@
     }
 }
 
-#ddmcm-button-all, #ddmcc-button-accept {
+#ddmcm-button-all, .ddmcc-button-accept {
     display: inline-flex;
     justify-content: center;
     align-items: center;

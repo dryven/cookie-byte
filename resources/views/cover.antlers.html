@@ -1,12 +1,12 @@
 {{ if enabled }}
 {{ if !{ cookie_consent:categories } }}
-<div class="ddm ddmcc" id="{{ handle }}" data-categories="{{ categories }}" style="display:block;opacity:100;{{ if bg_image }}background-image: url('{{ bg_image }}'){{ /if }}">
+<div class="ddm ddmcc" data-handle="{{ handle }}" data-categories="{{ categories }}" style="display:block;opacity:100;{{ if bg_image }}background-image: url('{{ bg_image }}'){{ /if }}">
 	<div class="ddmcc-wrapper">
 		<div class="ddmcc-content">
 			<h2>{{ title }}</h2>
 			<p>{{ paragraph }}</p>
 			<div class="ddmcc-buttons">
-				<button id="ddmcc-button-accept">{{ button_accept }}</button>
+				<button class="ddmcc-button-accept">{{ button_accept }}</button>
 			</div>
 		</div>
 	</div>
