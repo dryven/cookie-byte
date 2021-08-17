@@ -97,9 +97,7 @@ export class CookieModal {
 	 */
 	_pushSettings() {
 		this._modalCheckboxes.forEach((check) => {
-			if (check.checked) {
-				this._instance.consent(check.name);
-			}
+			this._instance.setConsent(check.name, check.checked);
 		});
 
 		this._instance.consent('showed');

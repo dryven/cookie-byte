@@ -133,6 +133,7 @@ export class CookieConsent {
 	 */
 	setConsent(cookieCategories, value) {
 		this._runSplitList(cookieCategories, (cookieType) => {
+
 			Cookies.set(this._options.prefix + cookieType, (value === true || value === 'true'));
 
 			this.runCallback(cookieType);
