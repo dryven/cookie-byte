@@ -204,3 +204,40 @@ const initMySite = () => {
     }
 };
 ```
+
+### Adding an "Edit cookie settings" button
+
+For a better GDPR compliance, your website needs the option to review and edit the cookie settings after they have made
+their initial decision. For this, you need to activate the 'Custom JavaScript Code' option in the Control Panel. After
+that you have two options to implement the button:
+
+__First option__
+
+Add the first snippet to the initialization code of your website's JavaScript code, so that you
+create a variable in global space that can be accessed from anywhere else on the document.
+
+```
+window.CookieConsent = new CookieConsent();
+window.CookieModal = new CookieModal(window.CookieConsent);
+window.CookieCovers = new CookieCovers(window.CookieConsent);
+```
+
+Now you can access the code for a button, that opens the CookieModal after it was pressed. Voilà!
+
+```
+<button class="btn-cookie-settings-edit" onclick="window.CookieModal.show()">Edit cookie settings</button>
+```
+
+__Second option__
+
+If you despise inline JavaScript in HTML documents as much as grapes on pizza, you could add an event listener to the
+button in your website's initialization script instead of defining global variables.
+
+```
+const cookieSettingsEditButtons = document.querySelectorAll('.btn-cookie-settings-edit');
+cookieSettingsEditButtons.forEach((cookieSettingsEditButton) => {
+    cookieSettingsEditButton.addEventListener((event) => {
+        window.CookieModal.show();
+    });
+});
+```
