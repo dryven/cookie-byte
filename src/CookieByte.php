@@ -15,8 +15,8 @@
 
 		public const NAMESPACE = "cookie-byte";
 
-		public const PATH_STYLESHEET = "vendor/" . self::NAMESPACE . "/css/";
-		public const PATH_JAVASCRIPT = "vendor/" . self::NAMESPACE . "/js/";
+		public const PATH_STYLESHEET = "/vendor/" . self::NAMESPACE . "/css/";
+		public const PATH_JAVASCRIPT = "/vendor/" . self::NAMESPACE . "/js/";
 
 		public const NAVIGATION_ITEM_KEY = "cookie_byte_settings";
 
