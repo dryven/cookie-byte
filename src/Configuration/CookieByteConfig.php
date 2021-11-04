@@ -35,6 +35,9 @@
 		 * @return mixed
 		 */
 		private function getLocale() {
+			var_dump(session('statamic.cp.selected-site'));
+			return 'en_US';
+
 			if (session('statamic.cp.selected-site')) return Site::selected()->locale();
 			else return Site::current()->locale();
 		}

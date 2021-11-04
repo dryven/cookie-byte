@@ -12,7 +12,7 @@
 						<label for="cookie-category-{{ handle }}">{{ title }}</label>
 						<button aria-label="{{ description }}" role="tooltip"></button>
 						{{ code_snippets }}
-						<script data-category="{{ handle }}" type="text/snippetscript">{{ code }}</script>
+						<script data-category="{{ handle }}" type="text/snippetscript">{{ code:code ?? code }}</script>
 						{{ /code_snippets }}
 					</div>
 					{{ /categories }}
