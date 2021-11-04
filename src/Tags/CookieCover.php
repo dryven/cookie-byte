@@ -6,7 +6,8 @@
 	use DDM\CookieByte\CookieByte;
 	use DDM\CookieByte\Exceptions\CookieCoverException;
 	use Statamic\Facades\Asset;
-	use Statamic\Tags\Tags;
+use Statamic\Facades\Site;
+use Statamic\Tags\Tags;
 
 	/**
 	 * Class CookieCover
@@ -18,7 +19,7 @@
 		protected $config;
 
 		public function __construct() {
-			$this->config = new CookieByteConfig();
+			$this->config = new CookieByteConfig(Site::current()->locale());
 		}
 
 		/**

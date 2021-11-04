@@ -22,21 +22,11 @@
 		protected $configPath;
 		protected $configData;
 
-		public function __construct() {
-			$this->currentLocale = $this->getLocale();
+		public function __construct($locale) {
+			$this->currentLocale = $locale;
 			$this->blueprint = \Statamic\Facades\Blueprint::make()->setContents(ConfigBlueprint::getBlueprint());
 			$this->configPath = base_path("content/cookie_byte_" . $this->currentLocale . ".yaml");
 			$this->configData = YAML::parse(File::disk()->get($this->configPath));
-		}
-
-		/**
-		 * Returns the current locale.
-		 *
-		 * @return mixed
-		 */
-		private function getLocale() {
-			if (session('statamic.cp.selected-site')) return Site::selected()->locale();
-			else return Site::current()->locale();
 		}
 
 		/**

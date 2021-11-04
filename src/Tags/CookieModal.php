@@ -4,7 +4,8 @@
 
 	use DDM\CookieByte\Configuration\CookieByteConfig;
 	use DDM\CookieByte\CookieByte;
-	use Statamic\Tags\Tags;
+use Statamic\Facades\Site;
+use Statamic\Tags\Tags;
 
 	/**
 	 * Class CookieModal
@@ -16,7 +17,7 @@
 		protected $config;
 
 		public function __construct() {
-			$this->config = new CookieByteConfig();
+			$this->config = new CookieByteConfig(Site::current()->locale());
 		}
 
 		public function index() {

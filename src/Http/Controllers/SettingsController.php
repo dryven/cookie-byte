@@ -5,7 +5,8 @@
 	use DDM\CookieByte\Configuration\CookieByteConfig;
 	use DDM\CookieByte\CookieByte;
 	use Illuminate\Http\Request;
-	use Statamic\Facades\User;
+use Statamic\Facades\Site;
+use Statamic\Facades\User;
 	use Statamic\Http\Controllers\CP\CpController;
 
 	/**
@@ -15,12 +16,8 @@
 	 */
 	class SettingsController extends CpController {
 
-		protected $config;
-
 		public function __construct(Request $request) {
 			parent::__construct($request);
-
-			$this->config = new CookieByteConfig();
 		}
 
 		public function index() {
@@ -28,12 +25,14 @@
 			abort_unless(User::current()->hasPermission('super') ||
 				User::current()->hasPermission(CookieByte::PERMISSION_GENERAL_KEY), 403);
 
+			$config = $this->getConfig();
+
 			return view(CookieByte::getNamespacedKey('settings'), [
 				'title' => CookieByte::getCpTranslation('title'),
 				'action' => cp_route(CookieByte::ROUTE_SETTINGS_INDEX),
-				'blueprint' => $this->config->blueprint()->toPublishArray(),
-				'values' => $this->config->values(),
-				'meta' => $this->config->fields()->meta()
+				'blueprint' => $config->blueprint()->toPublishArray(),
+				'values' => $config->values(),
+				'meta' => $config->fields()->meta()
 			]);
 		}
 
@@ -42,9 +41,15 @@
 			abort_unless(User::current()->hasPermission('super') ||
 				User::current()->hasPermission(CookieByte::PERMISSION_GENERAL_KEY), 403);
 
-			$values = $this->config->validatedValues($request);
+			$config = $this->getConfig();
+
+			$values = $config->validatedValues($request);
 
 			$this->config->setValues($values)->save();
+		}
+
+		public function getConfig() {
+			return new CookieByteConfig(Site::selected()->locale());
 		}
 
 	}
