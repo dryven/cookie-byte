@@ -1,6 +1,57 @@
 # Changelog
 
+## [v1.0.10] - 2021-11-04
+
+### Fixed
+
+* Removed obsolete code
+
+## [v1.0.9] - 2021-11-04
+
+### Fixed
+
+* Fix bug that prevents the output of the javascript code which should be executed when a cookie category is consented to
+
+## [v1.0.8] - 2021-11-02
+
+### Fixed
+
+* Change stylesheet and javascript paths from relative to absolute
+
+## [v1.0.7] - 2021-08-17
+
+### Fixed
+
+* Bug that ignored unchecked checkboxes in the cookie modal when the settings were changed afterwards #3
+
+## [v1.0.6] - 2021-08-12
+
+### Fixed
+
+* Cookie covers with the same handle on one page are now collectively closed #2
+  * **Warning**: Make sure to replace all instances of '#ddmcc-button-accept' to '.ddmcc-button-accept' in your custom styles, else the buttons of the covers might not be styled anymore.
+
+## [v1.0.5] - 2021-08-11
+
+### Added
+
+* Cookie covers now close as soon as their cookie category or cookie categories have been consented to from elsewhere
+* The cookie modal closes as soon as all cookie categories have been consentend to from elsewhere
+
+### Fixed
+
+* All cookies covers of the same cookie category are now closed at the same time #2
+
+## [v1.0.4] - 2021-07-26
+
+### Fixed
+
+* Added check if a background image was set on a cookie cover
+* Fixed possible error 'Cannot render an array variable as a string: {{ bg_image }}'
+
 ## [v1.0.3] - 2021-05-24
+
+### Fixed
 
 * Fixed permission settings
 
