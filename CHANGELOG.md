@@ -1,16 +1,12 @@
 # Changelog
 
-## [v1.0.10] - 2021-11-04
-
-### Fixed
-
-* Removed obsolete code
-
-## [v1.0.9] - 2021-11-04
+## [v1.0.9-v1.0.11] - 2021-11-04
 
 ### Fixed
 
 * Fix bug that prevents the output of the javascript code which should be executed when a cookie category is consented to
+* Removed obsolete code
+* Fix bug that always shows the default site config in CP
 
 ## [v1.0.8] - 2021-11-02
 
