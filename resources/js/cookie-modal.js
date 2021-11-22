@@ -38,11 +38,15 @@ export class CookieModal {
 
 			this.checkAll();
 
+			this._pushSettings();
+
 			this._finalize();
 		});
 
 		this._buttonConfirm.addEventListener('click', (event) => {
 			event.preventDefault();
+
+			this._pushSettings();
 
 			this._finalize();
 		});
@@ -109,8 +113,6 @@ export class CookieModal {
 	 * @private
 	 */
 	_finalize() {
-		this._pushSettings();
-
 		this.hide();
 
 		if (this._instance.cookieCover !== null) {
