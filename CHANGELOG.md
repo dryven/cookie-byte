@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.0.12] - 2021-11-22
+
+### Fixed
+
+* Fix bug that falsely set the consents into the browsers' cookies after accepting cookies through a cookie cover
+
 ## [v1.0.9-v1.0.11] - 2021-11-04
 
 ### Fixed
