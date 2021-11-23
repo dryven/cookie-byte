@@ -1,7 +1,7 @@
 {
 	"name": "ddm-studio/cookie-byte",
 	"type": "statamic-addon",
-	"version": "1.0.12",
+	"version": "1.0.13",
 	"description": "Our cookie is a byte better! With just one line of code you gain full control over your settings directly in the control panel without having to worry about GDPR compliance ever again. Easily customize the look of your cookie modal or just use our prebuilt theme. With our cookie content cover, you can hide content as long as specific cookie categories aren't accepted.",
 	"keywords": [
 		"cookie consent",
@@ -39,7 +39,7 @@
 		"statamic": {
 			"name": "Cookie Byte",
 			"description": "Our cookie is a byte better! With just one line of code you gain full control over your settings directly in the control panel without having to worry about GDPR compliance ever again. Easily customize the look of your cookie modal or just use our prebuilt theme. With our cookie content cover, you can hide content as long as specific cookie categories aren't accepted.",
-			"version": "1.0.12"
+			"version": "1.0.13"
 		}
 	}
 }

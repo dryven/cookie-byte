@@ -45,7 +45,7 @@ use Statamic\Facades\User;
 
 			$values = $config->validatedValues($request);
 
-			$this->config->setValues($values)->save();
+			$config->setValues($values)->save();
 		}
 
 		public function getConfig() {

@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.0.13] - 2021-11-23
+
+### Fixed
+
+* Fix bug that prevents from saving the addons' configuration
+
 ## [v1.0.12] - 2021-11-22
 
 ### Fixed
