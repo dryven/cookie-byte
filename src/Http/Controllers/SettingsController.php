@@ -5,9 +5,10 @@
 	use DDM\CookieByte\Configuration\CookieByteConfig;
 	use DDM\CookieByte\CookieByte;
 	use Illuminate\Http\Request;
-use Statamic\Facades\Site;
-use Statamic\Facades\User;
+	use Statamic\Facades\Site;
+	use Statamic\Facades\User;
 	use Statamic\Http\Controllers\CP\CpController;
+	use Statamic\StaticCaching\Cacher;
 
 	/**
 	 * Class SettingsController
@@ -46,10 +47,17 @@ use Statamic\Facades\User;
 			$values = $config->validatedValues($request);
 
 			$config->setValues($values)->save();
+
+			// If static caching is enabled, invalidate all cached urls
+			if ($this->isStaticCachingEnabled()) app(Cacher::class)->flush();
 		}
 
 		public function getConfig() {
 			return new CookieByteConfig(Site::selected()->locale());
+		}
+
+		protected function isStaticCachingEnabled() {
+			return config('statamic.static_caching.strategy') !== null;
 		}
 
 	}
