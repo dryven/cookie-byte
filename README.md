@@ -40,7 +40,7 @@ For more information about how to use this addon see our [documentation](DOCUMEN
 
 ## Licensing
 
-Cookie Byte is a commercial addon - you **must purchase a license** via the [Statamic Marketplace](https://statamic.com/addons/double-three-digital/cookie-notice) to use it in a production environment.
+Cookie Byte is a commercial addon - you **must purchase a license** via the [Statamic Marketplace](https://statamic.com/addons/dryven/cookie-byte) to use it in a production environment.
 
 ## Future features
 
