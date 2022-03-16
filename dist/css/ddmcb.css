@@ -8,7 +8,7 @@
 .ddm button {
         -webkit-appearance: button;
         background: none;
-        cursor: pointer
+        cursor: pointer;
     }
 
 .ddm button:focus {
@@ -33,7 +33,7 @@
 }
 
 .ddmcm input[type='checkbox'] {
-    display: none
+    display: none;
 }
 
 .ddmcm input[type='checkbox'] + label {
@@ -95,7 +95,7 @@
     height: 1rem;
     vertical-align: super;
     /* Thanks to bootstrap icons for this cool info icon (name: info-circle) */
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23000' viewBox='0 0 16 16'%3E%3Cpath d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'/%3E%3Cpath d='M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z'/%3E%3C/svg%3E") no-repeat
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23000' viewBox='0 0 16 16'%3E%3Cpath d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'/%3E%3Cpath d='M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z'/%3E%3C/svg%3E") no-repeat;
 }
 
 .ddmcm [aria-label][role~=tooltip]::before, .ddmcm [aria-label][role~=tooltip]::after {
@@ -119,10 +119,7 @@
         transform: translate3d(10px, -50%, 0);
     }
 
-.ddmcm [aria-label][role~=tooltip] {
-
-    /* The little arrow, showing where the tooltip comes from */
-}
+/* The little arrow, showing where the tooltip comes from */
 
 .ddmcm [aria-label][role~=tooltip]::before {
         background-size: 100% auto !important;
@@ -160,10 +157,7 @@
             transform: translate3d(0, -50%, 0);
         }
 
-.ddmcm [aria-label][role~=tooltip] {
-
-    /* Everything above tablet; Tooltip position: top-right */
-}
+/* Everything above tablet; Tooltip position: top-right */
 
 @media screen and (min-width: 48rem) {
         .ddmcm [aria-label][role~=tooltip]::before, .ddmcm [aria-label][role~=tooltip]::after {
@@ -266,10 +260,10 @@
     bottom: 0;
     transition: opacity ease-in-out 300ms;
     pointer-events: none;
-    z-index: 100
-
-    /** These categories add the CP option to select a visible background layer. */
+    z-index: 100;
 }
+
+/** These categories add the CP option to select a visible background layer. */
 
 .ddmcm.back-light {
         background: rgba(64, 64, 64, .3);
@@ -308,10 +302,10 @@
     pointer-events: auto;
 
     background-color: #fff;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)
-
-    /* Make the modal a little wider on desktops */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
+
+/* Make the modal a little wider on desktops */
 
 @media screen and (min-width: 64rem) {
 
@@ -320,10 +314,7 @@
 }
     }
 
-.ddmcm-box {
-
-    /* Position the modal as defined by the categories above tablets */
-}
+/* Position the modal as defined by the categories above tablets */
 
 @media screen and (min-width: 48rem) {
         .ddmcm-box.top {
@@ -369,7 +360,7 @@
 .ddmcm-categories .checkbox {
         display: flex;
         justify-content: space-between;
-        align-items: center
+        align-items: center;
     }
 
 .ddmcm-categories .checkbox:not(:last-of-type) {
@@ -378,7 +369,7 @@
 
 @media screen and (min-width: 48rem) {
 
-    .ddmcm-categories .checkbox {
+.ddmcm-categories .checkbox {
             display: block
     }
         }
@@ -395,7 +386,7 @@
 @media screen and (min-width: 64rem) {
 
 .ddmcm-buttons {
-        display: block;
+        display: block
 }
 
         .ddmcm-buttons button:not(:last-of-type) {
@@ -407,8 +398,10 @@
 #ddmcm-button-all {
     background-color: #000;
     border: 2px solid #000; /* Primary color */
-    color: #fff /* Secondary color */
+    color: #fff;
 }
+
+/* Secondary color */
 
 #ddmcm-button-all:hover {
         background-color: #fff; /* Secondary color */
@@ -419,7 +412,7 @@
     font-size: 0.875rem;
     line-height: 1.25rem;
     text-decoration: none;
-    transition: color ease-in-out 300ms
+    transition: color ease-in-out 300ms;
 }
 
 #ddmcm-button-selected:hover {
@@ -468,8 +461,10 @@
 
 .ddmcc-button-accept {
     background-color: #fff; /* Secondary color */
-    color: #000 /* Primary color */
+    color: #000;
 }
+
+/* Primary color */
 
 .ddmcc-button-accept:hover {
         background-color: #000; /* Primary color */
