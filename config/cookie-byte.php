@@ -2,6 +2,6 @@
 
     return [
 
-        'assets_container' => 'assets',
+        'asset_container' => 'assets',
 
     ];

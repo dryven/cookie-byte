@@ -14,7 +14,7 @@ use Statamic\Facades\AssetContainer;
 	class ConfigBlueprint {
 
 		protected static function getAssetsContainerHandle() {
-			$assetContainerHandle = config('cookie-byte.assets_container', 'assets');
+			$assetContainerHandle = config('cookie-byte.asset_container', 'assets');
 
 			if (!AssetContainer::findByHandle($assetContainerHandle))
 				throw new Exception("The container with the handle $assetContainerHandle cannot be found.");
