@@ -10,14 +10,14 @@
 		"seo"
 	],
 	"license": "proprietary",
-	"author": "DDM Studio",
-	"homepage": "https://github.com/ddm-studio/cookie-byte#readme",
+	"author": "dryven",
+	"homepage": "https://github.com/dryven/cookie-byte#readme",
 	"bugs": {
-		"url": "https://github.com/ddm-studio/cookie-byte/issues"
+		"url": "https://github.com/dryven/cookie-byte/issues"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/ddm-studio/cookie-byte.git"
+		"url": "git+https://github.com/dryven/cookie-byte.git"
 	},
 	"main": "resources/js/cookie-byte.js",
 	"scripts": {

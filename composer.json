@@ -13,13 +13,13 @@
 	"license": "proprietary",
 	"authors": [
 		{
-			"name": "DDM",
-			"email": "hallo@ddm.studio",
-			"homepage": "https://ddm.studio/"
+			"name": "dryven",
+			"email": "hallo@dryven.at",
+			"homepage": "https://dryven.at/"
 		}
 	],
 	"support": {
-		"email": "support@ddm.studio"
+		"email": "support@dryven.at"
 	},
 	"require": {
 		"php": "^7.3 || ^8.0",
@@ -40,6 +40,11 @@
 			"name": "Cookie Byte",
 			"description": "Our cookie is a byte better! With just one line of code you gain full control over your settings directly in the control panel without having to worry about GDPR compliance ever again. Easily customize the look of your cookie modal or just use our prebuilt theme. With our cookie content cover, you can hide content as long as specific cookie categories aren't accepted.",
 			"version": "1.0.14"
+		}
+	},
+	"config": {
+		"allow-plugins": {
+			"pixelfear/composer-dist-plugin": true
 		}
 	}
 }

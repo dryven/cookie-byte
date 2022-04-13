@@ -20,17 +20,17 @@
 2. Add the tag ``{{ cookie_modal }}`` as far up in the body tag as is comfortable for you.
 3. Test it out by going on your page and seeing something like below. You've done it!
 
-![Modal Preview](https://raw.githubusercontent.com/ddm-studio/cookie-byte/main/repo/ModalPreview.png)
+![Modal Preview](https://raw.githubusercontent.com/dryven/cookie-byte/main/repo/ModalPreview.png)
 
 ## Control Panel
 
-![Animated navigation item](https://raw.githubusercontent.com/ddm-studio/cookie-byte/main/repo/NavItem.gif)
+![Animated navigation item](https://raw.githubusercontent.com/dryven/cookie-byte/main/repo/NavItem.gif)
 
 After the installation, a new menu item spontaneously appeared in your site's control panel: The settings for Cookie
 Byte! Play it cool by immediately clicking on it. You'll be surprised by the three tabs in which you can do your magic.
 By default, we added some placeholder texts, so you can play around with the addon right from the start.
 
-![Settings Tabs](https://raw.githubusercontent.com/ddm-studio/cookie-byte/main/repo/SettingsMenuTabs.png)
+![Settings Tabs](https://raw.githubusercontent.com/dryven/cookie-byte/main/repo/SettingsMenuTabs.png)
 
 * **General**
     * *Enable Cookie Byte*
@@ -74,7 +74,7 @@ together the texts, cookie categories and decisions you've made in the CP and pu
 if they want to accept the cookies on your site. It is recommended to put this in your layout template file, because
 (unless you include JavaScript and CSS yourself) every other functionality, like the Cookie Cover, won't work.
 
-![Modal Preview](https://raw.githubusercontent.com/ddm-studio/cookie-byte/main/repo/CookieModalExample.gif)
+![Modal Preview](https://raw.githubusercontent.com/dryven/cookie-byte/main/repo/CookieModalExample.gif)
 
 ### CookieCover
 
@@ -97,7 +97,7 @@ to put a relative wrapper around it to fill the whole space like this:
 
 With the right settings it could look something like this:
 
-![Cover Preview](https://raw.githubusercontent.com/ddm-studio/cookie-byte/main/repo/CookieCoverExample.gif)
+![Cover Preview](https://raw.githubusercontent.com/dryven/cookie-byte/main/repo/CookieCoverExample.gif)
 
 ### CookieConsent
 
