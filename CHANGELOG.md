@@ -1,5 +1,22 @@
 # Changelog
 
+## [v1.0.15] - 2022-06-14
+
+## Added
+
+* Make Cookie Byte work with static caching
+
+## Changed
+
+* Some minor code cleanup
+* Make statically cached sites update, when the CookieByte CP configuration is saved
+
+## [v1.0.14] - 2022-03-16
+
+## Fixed
+
+* Fix error when there are multiple asset containers defined
+
 ## [v1.0.13] - 2021-11-23
 
 ### Fixed
