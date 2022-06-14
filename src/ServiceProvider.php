@@ -2,7 +2,8 @@
 
 	namespace DDM\CookieByte;
 
-	use DDM\CookieByte\Tags\CookieConsent;
+use DDM\CookieByte\Http\Middleware\LicenseMiddleware;
+use DDM\CookieByte\Tags\CookieConsent;
 	use DDM\CookieByte\Tags\CookieCover;
 	use DDM\CookieByte\Tags\CookieModal;
 	use Statamic\Facades\CP\Nav;
@@ -29,6 +30,12 @@
 
 		protected $routes = [
 			'cp' => __DIR__ . '/../routes/cp.php',
+		];
+
+		protected $middlewareGroups = [
+			'statamic.cp.authenticated' => [
+				LicenseMiddleware::class
+			]
 		];
 
 		protected $publishAfterInstall = false;

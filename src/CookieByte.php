@@ -3,6 +3,7 @@
 	namespace DDM\CookieByte;
 
 	use Statamic\Facades\YAML;
+	use Statamic\Licensing\LicenseManager;
 
 	/**
 	 * Global definitions and routines.
@@ -74,6 +75,22 @@
 		 */
 		public static function getCpTranslation($translationKey): string {
 			return __(CookieByte::NAMESPACE . '::cp.' . $translationKey);
+		}
+
+		/**
+		 * Returns if Cookie Byte has a valid license.
+		 */
+		public static function isLicenseValid() {
+			$licenses = app(LicenseManager::class);
+			$addons = $licenses->addons();
+	
+			if (!$addons->has('ddm-studio/cookie-byte') || $licenses->isOnTestDomain()) {
+				return true;
+			}
+	
+			$cookieByteLicense = $addons->get('ddm-studio/cookie-byte');
+	
+			return $cookieByteLicense->valid();
 		}
 
 	}

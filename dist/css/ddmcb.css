@@ -123,6 +123,9 @@
 
 .ddmcm [aria-label][role~=tooltip]::before {
         background-size: 100% auto !important;
+    }
+
+.ddmcm [aria-label][role~=tooltip]::before {
         content: '';
 
         /* default tooltip position: left */

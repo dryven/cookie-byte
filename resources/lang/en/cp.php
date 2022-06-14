@@ -1,6 +1,8 @@
 <?php
 
 	return [
+		'cookie_byte' => 'Cookie Byte',
+
 		/* NAVIGATION */
 		'navigation_item' => 'Cookie Byte',
 
@@ -106,4 +108,11 @@
 		'permission_settings' => 'Cookie Byte',
 		'permission_general' => 'Configure settings',
 		'permission_general_description' => 'Grants access to all Cookie Byte related permissions',
+
+		/* LICENSING */
+		'licensing_warning' => 'You use an unlicensed copy of Cookie Byte. You must purchase a license for using this addon.',
+		'licensing_buy_button' => 'Get a license',
+		'license_warning_toast_0' => 'Cookie Byte seems to lack a license.',
+		'license_warning_toast_1' => 'Purchase a Cookie Byte license&nbsp;<a href="https://statamic.com/addons/dryven/cookie-byte">here</a>.',
+		'license_warning_toast_2' => 'You need to purchase a license for Cookie Byte.',
 	];
