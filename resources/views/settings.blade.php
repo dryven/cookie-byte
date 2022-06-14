@@ -11,6 +11,6 @@
 
 	@include('statamic::partials.docs-callout', [
 		'topic' => 'Cookie Byte',
-		'url' => 'https://statamic.com/addons/ddm-studio/cookie-byte'
+		'url' => 'https://statamic.com/addons/dryven/cookie-byte'
 	])
 @stop

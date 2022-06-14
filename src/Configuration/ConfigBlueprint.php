@@ -3,7 +3,8 @@
 	namespace DDM\CookieByte\Configuration;
 
 	use DDM\CookieByte\CookieByte;
-	use Statamic\Facades\AssetContainer;
+use Exception;
+use Statamic\Facades\AssetContainer;
 
 	/**
 	 * Class ConfigBlueprint
@@ -11,6 +12,15 @@
 	 * @author  DDM Studio
 	 */
 	class ConfigBlueprint {
+
+		protected static function getAssetsContainerHandle() {
+			$assetContainerHandle = config('cookie-byte.asset_container', 'assets');
+
+			if (!AssetContainer::findByHandle($assetContainerHandle))
+				throw new Exception("The container with the handle $assetContainerHandle cannot be found.");
+
+			return $assetContainerHandle;
+		}
 
 		public static function getBlueprint(): array {
 			return [
@@ -314,7 +324,7 @@
 												'display' => CookieByte::getCpTranslation('cover_bg_image'),
 												'instructions' => CookieByte::getCpTranslation('cover_bg_image_instructions'),
 												'placeholder' => CookieByte::getCpTranslation('cover_bg_image_placeholder'),
-												'container' => AssetContainer::findByHandle('assets') ? 'assets' : null,
+												'container' => self::getAssetsContainerHandle(),
 												'max_files' => 1
 											]
 										]

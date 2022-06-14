@@ -1,9 +1,9 @@
-<img src="https://raw.githubusercontent.com/ddm-studio/cookie-byte/main/resources/svg/cookie-byte.svg" alt="Cookie Byte logo" width="45px" height="45px">
+<img src="https://raw.githubusercontent.com/dryven/cookie-byte/main/resources/svg/cookie-byte.svg" alt="Cookie Byte logo" width="45px" height="45px">
 
 # Cookie Byte
 
 [![Statamic 3.0+](https://img.shields.io/badge/Statamic-3.0%2B-FF269E)](https://statamic.com/)
-[![GitHub release](https://img.shields.io/github/release/ddm-studio/cookie-byte.svg)](https://github.com/ddm-studio/cookie-byte/releases/)
+[![GitHub release](https://img.shields.io/github/release/dryven/cookie-byte.svg)](https://github.com/dryven/cookie-byte/releases/)
 
 > Keep your friends close, but your cookies closer! Get full control over all your cookie-related settings right in the
 > control panel: Create cookie categories, add code snippets, customise the cookie modal and activate cookie content
