@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 const DISPLAY_SLEEP_TIME = 300;
 
@@ -16,11 +16,11 @@ export class CookieModal {
 		this._instance.cookieModal = this;
 
 		// We assume that there should only exist one modal per page
-		this._modal = document.querySelector('.ddmcm');
+		this._modal = document.querySelector(".ddmcm");
 		if (this._modal === null) return;
 
 		// Find all cookie category checkboxes
-		this._modalCheckboxes = this._modal.querySelectorAll('.ddmcm-categories input[type=\"checkbox\"]');
+		this._modalCheckboxes = this._modal.querySelectorAll('.ddmcm-categories input[type="checkbox"]');
 		if (this._modalCheckboxes.length === 0) return;
 
 		// Select all checkboxes which already have consent
@@ -29,11 +29,11 @@ export class CookieModal {
 		});
 
 		// Find the two buttons necessary in the modal and add their listeners
-		this._buttonSelectAll = this._modal.querySelector('#ddmcm-button-all');
-		this._buttonConfirm = this._modal.querySelector('#ddmcm-button-selected');
+		this._buttonSelectAll = this._modal.querySelector("#ddmcm-button-all");
+		this._buttonConfirm = this._modal.querySelector("#ddmcm-button-selected");
 		if (this._buttonSelectAll === null || this._buttonConfirm == null) return;
 
-		this._buttonSelectAll.addEventListener('click', (event) => {
+		this._buttonSelectAll.addEventListener("click", (event) => {
 			event.preventDefault();
 
 			this.checkAll();
@@ -43,7 +43,7 @@ export class CookieModal {
 			this._finalize();
 		});
 
-		this._buttonConfirm.addEventListener('click', (event) => {
+		this._buttonConfirm.addEventListener("click", (event) => {
 			event.preventDefault();
 
 			this._pushSettings();
@@ -52,18 +52,18 @@ export class CookieModal {
 		});
 
 		// Show the cookie notice if it hasn't already been interacted with
-		if (!this._instance.hasConsent('showed')) this.show();
+		if (!this._instance.hasConsent("showed")) this.show();
 	}
 
 	/**
 	 * Shows the cookie modal.
 	 */
 	show() {
-		this._modal.style.display = 'block';
+		this._modal.style.display = "block";
 
 		// Cancel the race condition for a smooth animation
 		setTimeout(() => {
-			this._modal.style.opacity = '1';
+			this._modal.style.opacity = "1";
 		}, 0);
 	}
 
@@ -71,10 +71,10 @@ export class CookieModal {
 	 * Hides the cookie modal.
 	 */
 	hide() {
-		this._modal.style.opacity = '0';
+		this._modal.style.opacity = "0";
 
 		setTimeout(() => {
-			this._modal.style.display = 'none';
+			this._modal.style.display = "none";
 		}, DISPLAY_SLEEP_TIME);
 	}
 
@@ -82,7 +82,9 @@ export class CookieModal {
 	 * Hides the cookie modal if all cookie categories have been consented to.
 	 */
 	hideIfConsented() {
-		let allConsented = Array.prototype.every.call(this._modalCheckboxes, check => this._instance.hasConsent(check.name));
+		let allConsented = Array.prototype.every.call(this._modalCheckboxes, (check) =>
+			this._instance.hasConsent(check.name)
+		);
 
 		if (allConsented) this._finalize();
 	}
@@ -104,7 +106,7 @@ export class CookieModal {
 			this._instance.setConsent(check.name, check.checked);
 		});
 
-		this._instance.consent('showed');
+		this._instance.consent("showed");
 	}
 
 	/**
@@ -127,6 +129,6 @@ export class CookieModal {
 	 * @private
 	 */
 	_getUncheckedModals() {
-		return this._modal.querySelectorAll('.ddmcm-categories input[type=\"checkbox\"]:not(:checked)');
+		return this._modal.querySelectorAll('.ddmcm-categories input[type="checkbox"]:not(:checked)');
 	}
 }

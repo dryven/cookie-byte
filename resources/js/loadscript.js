@@ -1,6 +1,6 @@
-import {CookieConsent, CookieCovers, CookieModal} from './cookie-byte';
+import { CookieConsent, CookieCovers, CookieModal } from "./cookie-byte";
 
-import './ie11-polyfills';
+import "./ie11-polyfills";
 
 window.InitCookieByte = () => {
 	window.CookieConsent = new CookieConsent();
@@ -8,10 +8,10 @@ window.InitCookieByte = () => {
 	window.CookieCovers = new CookieCovers(window.CookieConsent);
 };
 
-if (document.readyState !== 'loading') {
-	InitCookieByte();
+if (document.readyState !== "loading") {
+	window.InitCookieByte();
 } else {
-	document.addEventListener('DOMContentLoaded', () => {
-		InitCookieByte();
+	document.addEventListener("DOMContentLoaded", () => {
+		window.InitCookieByte();
 	});
 }

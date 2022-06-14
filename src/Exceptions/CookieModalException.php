@@ -1,18 +1,14 @@
 <?php
 
-	namespace DDM\CookieByte\Exceptions;
+namespace DDM\CookieByte\Exceptions;
 
-	use Exception;
+use Exception;
 
-	/**
-	 * Class CookieModalException
-	 * @package DDM\CookieByte\Exception
-	 * @author  DDM Studio
-	 */
-	class CookieModalException extends Exception {
-
-		public function __toString() {
-			parent::__toString();
-		}
-
-	}
+/**
+ * Class CookieModalException
+ * @package DDM\CookieByte\Exception
+ * @author  dryven
+ */
+class CookieModalException extends Exception
+{
+}

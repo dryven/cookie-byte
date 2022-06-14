@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-import {Cookies} from './cookies';
+import { Cookies } from "./cookies";
 
 /**
  * Class for handling cookie requests, changes and callbacks
@@ -17,17 +17,17 @@ export class CookieConsent {
 	constructor(options = {}) {
 		this._defaults = {
 			callbacks: {},
-			autorun: true
+			autorun: true,
 		};
 
 		this._options = Object.assign({}, this._defaults, options);
 
 		// Nevertheless, overwrite prefix, because it can't be customized yet
-		this._options.prefix = 'cookie-byte-consent';
+		this._options.prefix = "cookie-byte-consent";
 
 		// Add trailing dash to prefix if none exists
-		if (!this._options.prefix.endsWith('-')) {
-			this._options.prefix += '-';
+		if (!this._options.prefix.endsWith("-")) {
+			this._options.prefix += "-";
 		}
 
 		this._registerCPCallbacks();
@@ -78,7 +78,7 @@ export class CookieConsent {
 		if (!(cookieCategory in this._options.callbacks)) return;
 
 		this._options.callbacks[cookieCategory].forEach((callback) => {
-			if (typeof callback === 'function') callback();
+			if (typeof callback === "function") callback();
 		});
 
 		delete this._options.callbacks[cookieCategory];
@@ -102,10 +102,10 @@ export class CookieConsent {
 	hasConsent(cookieCategories) {
 		let consent = false;
 
-		const arr = cookieCategories.toString().split(',');
+		const arr = cookieCategories.toString().split(",");
 
 		for (const cookieCategory of arr) {
-			consent = Cookies.get(this._options.prefix + cookieCategory) === 'true';
+			consent = Cookies.get(this._options.prefix + cookieCategory) === "true";
 
 			// Return false if the current cookie category hasn't been consented to
 			if (!consent) {
@@ -133,8 +133,7 @@ export class CookieConsent {
 	 */
 	setConsent(cookieCategories, value) {
 		this._runSplitList(cookieCategories, (cookieType) => {
-
-			Cookies.set(this._options.prefix + cookieType, (value === true || value === 'true'));
+			Cookies.set(this._options.prefix + cookieType, value === true || value === "true");
 
 			this.runCallback(cookieType);
 		});
@@ -162,7 +161,7 @@ export class CookieConsent {
 	 */
 	_runSplitList(str, func) {
 		// First split the string into pieces
-		let arr = str.toString().split(',');
+		let arr = str.toString().split(",");
 
 		arr.forEach(func);
 	}

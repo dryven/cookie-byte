@@ -9,13 +9,14 @@
  * Object.assign() polyfill for IE11
  * @see <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign>
  */
-if (typeof Object.assign !== 'function') {
+if (typeof Object.assign !== "function") {
 	// Must be writable: true, enumerable: false, configurable: true
-	Object.defineProperty(Object, 'assign', {
-		value: function assign(target, varArgs) { // .length of function is 2
-			'use strict';
+	Object.defineProperty(Object, "assign", {
+		value: function assign(target, varArgs) {
+			// .length of function is 2
+			"use strict";
 			if (target === null || target === undefined) {
-				throw new TypeError('Cannot convert undefined or null to object');
+				throw new TypeError("Cannot convert undefined or null to object");
 			}
 
 			var to = Object(target);
@@ -35,10 +36,9 @@ if (typeof Object.assign !== 'function') {
 			return to;
 		},
 		writable: true,
-		configurable: true
+		configurable: true,
 	});
 }
-
 
 /**
  * String.endswith() polyfill for IE11

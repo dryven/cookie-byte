@@ -7,7 +7,7 @@
 	<div class="py-1 5 px-2 mb-4 text-sm w-full rounded-md bg-red text-white">
 		<div class="flex justify-between items-center">
 			<span>
-				<b class="mr-1">{{ $cookieByte::getCpTranslation('cookie_byte') }}</b>
+				<strong class="mr-1">{{ $cookieByte::getCpTranslation('cookie_byte') }}</b>
 				{{ $cookieByte::getCpTranslation('licensing_warning') }}
 			</span>
 			<div class="flex flex-shrink-0">

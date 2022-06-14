@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 const DISPLAY_SLEEP_TIME = 300;
 
@@ -16,15 +16,15 @@ export class CookieCovers {
 		this._instance.cookieCover = this;
 
 		// Now, there could be more than one of these, so keep that in mind
-		this._covers = document.querySelectorAll('.ddmcc');
+		this._covers = document.querySelectorAll(".ddmcc");
 		if (this._covers.length === 0) return;
 
 		this._covers.forEach((cover) => {
 			// Add a event listener to consent and hide the cover
-			const cover_button = cover.querySelector('.ddmcc-button-accept');
+			const cover_button = cover.querySelector(".ddmcc-button-accept");
 			if (cover_button === null) return;
 
-			cover_button.addEventListener('click', (event) => {
+			cover_button.addEventListener("click", (event) => {
 				event.preventDefault();
 
 				this._instance.consent(cover.dataset.categories);
@@ -43,7 +43,7 @@ export class CookieCovers {
 	 * @returns {NodeList} the node element  list
 	 */
 	getCoversByHandle(handle) {
-		const covers = document.querySelectorAll('.ddmcc[data-handle="' + handle + '"]');
+		const covers = document.querySelectorAll(`.ddmcc[data-handle="${handle}"]`);
 		return covers.length === 0 ? false : covers;
 	}
 
@@ -52,10 +52,10 @@ export class CookieCovers {
 
 		if (covers) {
 			covers.forEach((cover) => {
-				cover.style.display = 'block';
+				cover.style.display = "block";
 
 				setTimeout(() => {
-					cover.style.opacity = '1';
+					cover.style.opacity = "1";
 				}, 10);
 			});
 		}
@@ -66,10 +66,10 @@ export class CookieCovers {
 
 		if (covers) {
 			covers.forEach((cover) => {
-				cover.style.opacity = '0';
+				cover.style.opacity = "0";
 
 				setTimeout(() => {
-					cover.style.display = 'none';
+					cover.style.display = "none";
 				}, DISPLAY_SLEEP_TIME);
 			});
 		}
