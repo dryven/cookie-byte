@@ -27,7 +27,7 @@ class SettingsController extends CpController
 
 		return view(CookieByte::getNamespacedKey('settings'), [
 			'title' => CookieByte::getCpTranslation('title'),
-			'action' => cp_route(CookieByte::ROUTE_SETTINGS_INDEX),
+			'action' => cp_route(CookieByte::ROUTE_SETTINGS_UPDATE),
 			'blueprint' => $config->blueprint()->toPublishArray(),
 			'values' => $config->values(),
 			'meta' => $config->fields()->meta()
