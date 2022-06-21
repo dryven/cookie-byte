@@ -27,7 +27,7 @@ class CookieByteConfig
 	{
 		$this->currentLocale = $locale;
 		$this->blueprint = \Statamic\Facades\Blueprint::make()->setContents(ConfigBlueprint::getBlueprint());
-		$this->configPath = base_path("content/cookie_byte_" . $this->currentLocale . ".yaml");
+        $this->configPath = storage_path("statamic/addons/cookie-byte/cookie_byte_" . $this->currentLocale . ".yaml");
 		$this->configData = YAML::parse(File::disk()->get($this->configPath));
 	}
 

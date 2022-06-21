@@ -43,7 +43,7 @@ class CookieByte
 	 */
 	public static function getConfigurationData($locale): array
 	{
-		return YAML::file(base_path(self::getConfigurationFile($locale)))->parse();
+        return YAML::file(self::getConfigurationFile($locale))->parse();
 	}
 
 	/**
@@ -55,7 +55,7 @@ class CookieByte
 	 */
 	public static function getConfigurationFile($locale): string
 	{
-		return base_path("content/cookie_byte_" . $locale . ".yaml");
+        return storage_path("statamic/addons/cookie-byte/cookie_byte_" . $locale . ".yaml");
 	}
 
 	/**
