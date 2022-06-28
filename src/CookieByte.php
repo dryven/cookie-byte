@@ -3,6 +3,7 @@
 namespace DDM\CookieByte;
 
 use Statamic\Facades\YAML;
+use Illuminate\Support\Str;
 use Statamic\Licensing\LicenseManager;
 
 /**
@@ -43,7 +44,7 @@ class CookieByte
 	 */
 	public static function getConfigurationData($locale): array
 	{
-        return YAML::file(self::getConfigurationFile($locale))->parse();
+        return YAML::file(self::getConfigurationPath($locale))->parse();
 	}
 
 	/**
@@ -53,9 +54,19 @@ class CookieByte
 	 *
 	 * @return string
 	 */
-	public static function getConfigurationFile($locale): string
+	public static function getConfigurationPath($locale): string
 	{
-        return storage_path("statamic/addons/cookie-byte/cookie_byte_" . $locale . ".yaml");
+		return self::getConfigurationDirname() . "cookie_byte_$locale.yaml";
+	}
+
+	/**
+	 * Returns the configuration directory path.
+	 * 
+	 * @return string
+	 */
+	public static function getConfigurationDirname(): string
+	{
+		return Str::finish(config('cookie-byte.config_dirname', base_path("content")), '/');
 	}
 
 	/**

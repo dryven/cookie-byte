@@ -116,8 +116,8 @@ class ServiceProvider extends AddonServiceProvider
 		parent::bootPublishables();
 
 		$this->publishes([
-			__DIR__ . '/../content/cookie_byte_en_US.default.yaml' => CookieByte::getConfigurationFile("en_US"),
-			__DIR__ . '/../content/cookie_byte_de_DE.default.yaml' => CookieByte::getConfigurationFile("de_DE"),
+			__DIR__ . '/../content/cookie_byte_en_US.default.yaml' => CookieByte::getConfigurationPath("en_US"),
+			__DIR__ . '/../content/cookie_byte_de_DE.default.yaml' => CookieByte::getConfigurationPath("de_DE"),
 		], CookieByte::VENDOR_DEFAULT_SETTINGS_KEY);
 
 		$this->publishes([

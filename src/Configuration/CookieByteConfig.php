@@ -2,13 +2,13 @@
 
 namespace DDM\CookieByte\Configuration;
 
-use Illuminate\Http\Request;
-use Statamic\Facades\File;
-use Statamic\Facades\Site;
-use Statamic\Facades\YAML;
-use Statamic\Fields\Blueprint;
-use Statamic\Fields\Fields;
+use DDM\CookieByte\CookieByte;
 use Statamic\Support\Arr;
+use Statamic\Facades\File;
+use Statamic\Facades\YAML;
+use Statamic\Fields\Fields;
+use Illuminate\Http\Request;
+use Statamic\Fields\Blueprint;
 
 /**
  * Class CookieByteConfig
@@ -27,8 +27,8 @@ class CookieByteConfig
 	{
 		$this->currentLocale = $locale;
 		$this->blueprint = \Statamic\Facades\Blueprint::make()->setContents(ConfigBlueprint::getBlueprint());
-        $this->configPath = storage_path("statamic/addons/cookie-byte/cookie_byte_" . $this->currentLocale . ".yaml");
-		$this->configData = YAML::parse(File::disk()->get($this->configPath));
+		$this->configPath = CookieByte::getConfigurationPath($this->currentLocale);
+		$this->configData = CookieByte::getConfigurationData($this->currentLocale);
 	}
 
 	/**
