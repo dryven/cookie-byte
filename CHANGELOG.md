@@ -1,19 +1,25 @@
 # Changelog
 
+## [v1.0.16] - 2022-06-28
+
+### Added
+
+* Make config directory path an configurable variable
+
 ## [v1.0.15] - 2022-06-14
 
-## Added
+### Added
 
 * Make Cookie Byte work with static caching
 
-## Changed
+### Changed
 
 * Some minor code cleanup
 * Make statically cached sites update, when the CookieByte CP configuration is saved
 
 ## [v1.0.14] - 2022-03-16
 
-## Fixed
+### Fixed
 
 * Fix error when there are multiple asset containers defined
 
