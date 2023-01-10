@@ -1,5 +1,12 @@
 # Changelog
 
+## [v1.0.17] - 2022-12-15
+
+### Changed
+
+* Hide cookie category tooltip when description is empty
+* Fix categories not being shown after install without saving once
+
 ## [v1.0.16] - 2022-06-28
 
 ### Added

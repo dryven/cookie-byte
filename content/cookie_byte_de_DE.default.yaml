@@ -1,18 +1,21 @@
 enabled: true
 categories:
   -
+    id: OgPNAowX
     title: 'Essenzielle Cookies'
     handle: essential
     required: true
     description: 'Essenzielle Cookies sind Cookies, welche für die ordnungsgemäße Funktion der Website benötigt werden.'
     code_snippets: {  }
   -
+    id: WdUmZEHQ
     title: 'Drittanbieter Cookies'
     handle: thirdparty
     required: false
     description: 'Drittanbieter Cookies sind Cookies, die Drittanbieter-Software setzen, um Funktionen wie Google Maps zu ermöglichen.'
     code_snippets:
       -
+        id: smM04gH3
         code: |-
           console.log('Vielen Dank für den Download unseres Addons! :-)\n\t-- DDM OG 2021');
 

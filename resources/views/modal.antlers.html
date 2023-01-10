@@ -10,7 +10,9 @@
 					<div class="checkbox">
 						<input type="checkbox" id="cookie-category-{{ handle }}" name="{{ handle }}"{{ if required }} disabled checked{{ /if }}>
 						<label for="cookie-category-{{ handle }}">{{ title }}</label>
+						{{ if description }}
 						<button aria-label="{{ description }}" role="tooltip"></button>
+						{{ /if }}
 						{{ code_snippets }}
 						<script data-category="{{ handle }}" type="text/snippetscript">{{ code:code ?? code }}</script>
 						{{ /code_snippets }}
