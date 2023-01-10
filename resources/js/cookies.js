@@ -3,6 +3,9 @@
 const DAYS_IN_A_YEAR = 365;
 const SECONDS_IN_A_YEAR = 864e5;
 
+/**
+ * Helper class to safely interact with the document's cookies.
+ */
 export class Cookies {
 	static get(key, fallback = "") {
 		return document.cookie.match(`(^|;)\\s*${key}\\s*=\\s*([^;]+)`)?.pop() || fallback;

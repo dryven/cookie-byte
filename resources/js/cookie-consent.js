@@ -139,6 +139,11 @@ export class CookieConsent {
 		});
 	}
 
+	/**
+	 * Register all JavaScript snippets that were found on the page.
+	 * 
+	 * @private
+	 */
 	_registerCPCallbacks() {
 		const snippets = document.querySelectorAll('script[type="text/snippetscript"]');
 

@@ -1,18 +1,20 @@
 enabled: true
 categories:
   -
+    id: OgPNAowX
     title: 'Essential cookies'
     handle: essential
     required: true
     description: 'Essential cookies are cookies that are needed for the proper functioning of the website.'
-    code_snippets: {  }
   -
+    id: WdUmZEHQ
     title: 'Third-party cookies'
     handle: thirdparty
     required: false
     description: 'Third-party cookies are cookies set by third-party software to enable features such as Google Maps.'
     code_snippets:
       -
+        id: smM04gH3
         code: |-
           console.log('Thank you for downloading our addon! :-)\n\t-- DDM OG 2021');
 
