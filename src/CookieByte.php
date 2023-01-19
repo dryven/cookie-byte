@@ -38,30 +38,30 @@ class CookieByte
 	/**
 	 * Returns the configuration file data as an array.
 	 *
-	 * @param $locale configuration's locale
+	 * @param $handle configuration's handle
 	 *
 	 * @return array
 	 */
-	public static function getConfigurationData($locale): array
+	public static function getConfigurationData($handle): array
 	{
-        return YAML::file(self::getConfigurationPath($locale))->parse();
+        return YAML::file(self::getConfigurationPath($handle))->parse();
 	}
 
 	/**
 	 * Returns the configuration file path.
 	 *
-	 * @param $locale configuration's locale
+	 * @param $handle configuration's handle
 	 *
 	 * @return string
 	 */
-	public static function getConfigurationPath($locale): string
+	public static function getConfigurationPath($handle): string
 	{
-		return self::getConfigurationDirname() . "cookie_byte_$locale.yaml";
+		return self::getConfigurationDirname() . "cookie_byte_$handle.yaml";
 	}
 
 	/**
 	 * Returns the configuration directory path.
-	 * 
+	 *
 	 * @return string
 	 */
 	public static function getConfigurationDirname(): string

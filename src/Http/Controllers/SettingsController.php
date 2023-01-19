@@ -52,7 +52,7 @@ class SettingsController extends CpController
 
 	public function getConfig()
 	{
-		return new CookieByteConfig(Site::selected()->locale());
+		return new CookieByteConfig(Site::selected()->handle());
 	}
 
 	protected function isStaticCachingEnabled()

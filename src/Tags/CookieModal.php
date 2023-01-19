@@ -19,7 +19,7 @@ class CookieModal extends Tags
 
 	public function __construct()
 	{
-		$this->config = new CookieByteConfig(Site::current()->locale());
+		$this->config = new CookieByteConfig(Site::current()->handle());
 	}
 
 	public function index()
