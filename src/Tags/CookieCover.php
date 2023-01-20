@@ -12,7 +12,7 @@ use Statamic\Tags\Tags;
 /**
  * Class CookieCover
  * @package DDM\CookieByte\Tags
- * @author  DDM Studio
+ * @author  dryven
  */
 class CookieCover extends Tags
 {

@@ -10,7 +10,7 @@ use Statamic\Tags\Tags;
 /**
  * Class CookieModal
  * @package DDM\CookieByte\Tags
- * @author  DDM Studio
+ * @author  dryven
  */
 class CookieModal extends Tags
 {

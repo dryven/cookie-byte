@@ -17,7 +17,7 @@ categories:
       -
         id: smM04gH3
         code: |-
-          console.log('Vielen Dank für den Download unseres Addons! :-)\n\t-- DDM OG 2021');
+          console.log('Vielen Dank für den Download unseres Addons! :-)\n\t-- dryven 2023');
 
           // loadGoogleMaps();
 custom_style: false
