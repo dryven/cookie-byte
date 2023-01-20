@@ -13,7 +13,7 @@ use Statamic\Fields\Blueprint;
 /**
  * Class CookieByteConfig
  * @package DDM\CookieByte\Configuration
- * @author  DDM Studiio
+ * @author  dryven
  */
 class CookieByteConfig
 {
