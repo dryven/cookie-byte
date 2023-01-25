@@ -18,17 +18,17 @@ use Statamic\Fields\Blueprint;
 class CookieByteConfig
 {
 
-	protected $currentHandle;
+	protected $currentIdentifier;
 	protected $blueprint;
 	protected $configPath;
 	protected $configData;
 
-	public function __construct($handle)
+	public function __construct($identifier)
 	{
-		$this->currentHandle = $handle;
+		$this->currentIdentifier = $identifier;
 		$this->blueprint = \Statamic\Facades\Blueprint::make()->setContents(ConfigBlueprint::getBlueprint());
-		$this->configPath = CookieByte::getConfigurationPath($this->currentHandle);
-		$this->configData = CookieByte::getConfigurationData($this->currentHandle);
+		$this->configPath = CookieByte::getConfigurationPath($this->currentIdentifier);
+		$this->configData = CookieByte::getConfigurationData($this->currentIdentifier);
 	}
 
 	/**

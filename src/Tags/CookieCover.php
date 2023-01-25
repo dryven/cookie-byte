@@ -6,7 +6,6 @@ use DDM\CookieByte\Configuration\CookieByteConfig;
 use DDM\CookieByte\CookieByte;
 use DDM\CookieByte\Exceptions\CookieCoverException;
 use Statamic\Facades\Asset;
-use Statamic\Facades\Site;
 use Statamic\Tags\Tags;
 
 /**
@@ -21,7 +20,7 @@ class CookieCover extends Tags
 
 	public function __construct()
 	{
-		$this->config = new CookieByteConfig(Site::current()->handle());
+		$this->config = new CookieByteConfig(CookieByte::getCurrentSiteIdentifier());
 	}
 
 	/**
