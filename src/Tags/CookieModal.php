@@ -4,7 +4,6 @@ namespace DDM\CookieByte\Tags;
 
 use DDM\CookieByte\Configuration\CookieByteConfig;
 use DDM\CookieByte\CookieByte;
-use Statamic\Facades\Site;
 use Statamic\Tags\Tags;
 
 /**
@@ -19,7 +18,7 @@ class CookieModal extends Tags
 
 	public function __construct()
 	{
-		$this->config = new CookieByteConfig(Site::current()->locale());
+		$this->config = new CookieByteConfig(CookieByte::getCurrentSiteIdentifier());
 	}
 
 	public function index()

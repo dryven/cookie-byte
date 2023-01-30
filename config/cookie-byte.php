@@ -12,4 +12,12 @@
          */
         'config_dirname' => base_path("content"),
 
+        /**
+         * This specifies the value to save the configuration under.
+		 *
+		 * Allowed options:
+		 * - \DDM\CookieByte\CookieByte::HANDLE_IDENTIFIER | Uses the site handle to save. Useful if you have multiple domains.
+		 * - \DDM\CookieByte\CookieByte::LOCALE_IDENTIFIER | Uses the site locale. Recommended if you only translate the text.
+         */
+        'site_identifier_type' => \DDM\CookieByte\CookieByte::LOCALE_IDENTIFIER,
     ];

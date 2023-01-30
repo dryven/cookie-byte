@@ -5,7 +5,6 @@ namespace DDM\CookieByte\Http\Controllers;
 use DDM\CookieByte\Configuration\CookieByteConfig;
 use DDM\CookieByte\CookieByte;
 use Illuminate\Http\Request;
-use Statamic\Facades\Site;
 use Statamic\Facades\User;
 use Statamic\Http\Controllers\CP\CpController;
 use Statamic\StaticCaching\Cacher;
@@ -52,7 +51,7 @@ class SettingsController extends CpController
 
 	public function getConfig()
 	{
-		return new CookieByteConfig(Site::selected()->locale());
+		return new CookieByteConfig(CookieByte::getSelectedSiteIdentifier());
 	}
 
 	protected function isStaticCachingEnabled()
