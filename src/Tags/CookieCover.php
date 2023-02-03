@@ -2,17 +2,13 @@
 
 namespace DDM\CookieByte\Tags;
 
-use DDM\CookieByte\Configuration\CookieByteConfig;
-use DDM\CookieByte\CookieByte;
-use DDM\CookieByte\Exceptions\CookieCoverException;
-use Statamic\Facades\Asset;
 use Statamic\Tags\Tags;
+use Statamic\Facades\Asset;
+use DDM\CookieByte\CookieByte;
+use DDM\CookieByte\Configuration\CookieByteConfig;
+use DDM\CookieByte\Exceptions\CookieCoverException;
+use Statamic\Contracts\Assets\Asset as StatamicAsset;
 
-/**
- * Class CookieCover
- * @package DDM\CookieByte\Tags
- * @author  dryven
- */
 class CookieCover extends Tags
 {
 
@@ -26,9 +22,9 @@ class CookieCover extends Tags
 	/**
 	 * {{ cookie_cover:... }}
 	 *
-	 * @param $handle
+	 * @param $handle string the cookie cover handle
 	 */
-	public function wildcard($handle)
+	public function wildcard(string $handle)
 	{
 		$this->params['handle'] = $handle;
 
@@ -38,23 +34,21 @@ class CookieCover extends Tags
 	public function index()
 	{
 		$handle = $this->params->get('handle');
-		$values = $this->config->values();
-		$cover = null;
 
 		try {
-			$cover = $this->findCoverByHandle($values, $handle);
+			$cover = $this->findCoverByHandle($this->config->values(), $handle);
 		} catch (CookieCoverException $ex) {
 			// Only throw exception if the app is in debug
-			if (config('app.debug'))
-				throw $ex;
-			else return false;
+			throw_if(config('app.debug'), $ex);
+
+			return null;
 		}
 
 		// Add cover-specific variables into view data
-		if (isset($cover))
-			$this->config->setValues(array_merge($values, $cover));
-
-		$this->findBackgroundImage();
+		if (isset($cover)) {
+			$this->config->addValues($cover);
+			$this->config->addValue('bg_image', $this->getValidBackgroundImage($this->config->raw()));
+		}
 
 		return view(CookieByte::getNamespacedKey('cover'), collect($this->config->raw()));
 	}
@@ -88,23 +82,27 @@ class CookieCover extends Tags
 		return $cover;
 	}
 
-	private function findBackgroundImage()
+	/**
+	 * Gets the background image for a cookie cover from the config values and augments it.
+	 *
+	 * @param array $configValues
+	 * @return mixed|StatamicAsset|null
+	 */
+	protected function getValidBackgroundImage(array $configValues)
 	{
-		$values = $this->config->raw();
-
-		$values['bg_image'] = $values['bg_image'] === [] ? null : $values['bg_image'];
+		$bgImage = !empty($configValues['bg_image']) ? $configValues['bg_image'] : null;
 
 		// The background images is augmented to a string with the pattern
 		// "[assets-Folder]::[path/image.ext] so we have to convert the asset
 		// by finding the relative public path
-		if (isset($values['bg_image']) && !empty($values['bg_image'])) {
+		if (!empty($bgImage)) {
 			// If there is more than one image pick the first as the background
-			if (is_array($values['bg_image']))
-				$values['bg_image'] = $values['bg_image'][0];
+			if (is_array($bgImage))
+				$bgImage = $bgImage[0];
 
-			$values['bg_image'] = Asset::find($values['bg_image']);
+			$bgImage = Asset::find($bgImage);
 		}
 
-		$this->config->setValues($values);
+		return $bgImage;
 	}
 }

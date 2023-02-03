@@ -3,8 +3,10 @@
 namespace DDM\CookieByte\Configuration;
 
 use DDM\CookieByte\CookieByte;
-use Exception;
+use Illuminate\Config\Repository;
 use Statamic\Facades\AssetContainer;
+use Illuminate\Contracts\Foundation\Application;
+use DDM\CookieByte\Exceptions\CookieByteException;
 
 /**
  * Class ConfigBlueprint
@@ -14,16 +16,29 @@ use Statamic\Facades\AssetContainer;
 class ConfigBlueprint
 {
 
+	/**
+	 * Returns the configured asset container.
+	 *
+	 * @return Repository|Application|mixed
+	 * @throws CookieByteException
+	 */
 	protected static function getAssetsContainerHandle()
 	{
 		$assetContainerHandle = config('cookie-byte.asset_container', 'assets');
 
-		if (!AssetContainer::findByHandle($assetContainerHandle))
-			throw new Exception("The container with the handle $assetContainerHandle cannot be found.");
+		if (!AssetContainer::findByHandle($assetContainerHandle)) {
+			throw new CookieByteException("The container with the handle $assetContainerHandle cannot be found.");
+		}
 
 		return $assetContainerHandle;
 	}
 
+	/**
+	 * Returns the config blueprint as an array.
+	 *
+	 * @return array[]
+	 * @throws CookieByteException
+	 */
 	public static function getBlueprint(): array
 	{
 		return [

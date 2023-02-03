@@ -6,11 +6,6 @@ use DDM\CookieByte\Configuration\CookieByteConfig;
 use DDM\CookieByte\CookieByte;
 use Statamic\Tags\Tags;
 
-/**
- * Class CookieModal
- * @package DDM\CookieByte\Tags
- * @author  dryven
- */
 class CookieModal extends Tags
 {
 
@@ -23,36 +18,30 @@ class CookieModal extends Tags
 
 	public function index()
 	{
-		$values = $this->config->values();
-
 		// Add default stylesheet tag if no style customization is wanted
-		if (!(array_key_exists('custom_style', $values) && $values['custom_style']))
-			$this->addStylesheetVariable($values);
+		if ($this->config->shouldAddStylesheet()) {
+			$this->config->addValue('stylesheet', $this->getStylesheetVariable());
+		}
 
 		// Add loadscript if no JavaScript customization is wanted
-		if (!(array_key_exists('custom_code', $values) && $values['custom_code']))
-			$this->addJavaScriptVariable($values);
-
-		$this->config->setValues($values);
+		if ($this->config->shouldAddJavaScript()) {
+			$this->config->addValue('loadscript', $this->getJavaScriptVariable());
+		}
 
 		return view(CookieByte::getNamespacedKey('modal'), collect($this->config->raw()));
 	}
 
-	private function addStylesheetVariable(&$values): CookieModal
+	protected function getStylesheetVariable()
 	{
 		$stylesheetPath = CookieByte::PATH_STYLESHEET . basename(__DIR__ . "/../../dist/css/ddmcb.min.css");
 
-		$values['stylesheet'] = '<link rel="stylesheet" href="' . $stylesheetPath . '">';
-
-		return $this;
+		return '<link rel="stylesheet" href="' . $stylesheetPath . '">';
 	}
 
-	private function addJavaScriptVariable(&$values): CookieModal
+	protected function getJavaScriptVariable()
 	{
 		$javascriptPath = CookieByte::PATH_JAVASCRIPT . basename(__DIR__ . "/../../dist/js/ddmcb.min.js");
 
-		$values['loadscript'] = '<script src="' . $javascriptPath . '" async defer></script>';
-
-		return $this;
+		return '<script src="' . $javascriptPath . '" async defer></script>';
 	}
 }

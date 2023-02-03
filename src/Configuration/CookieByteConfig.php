@@ -10,11 +10,6 @@ use Statamic\Fields\Fields;
 use Illuminate\Http\Request;
 use Statamic\Fields\Blueprint;
 
-/**
- * Class CookieByteConfig
- * @package DDM\CookieByte\Configuration
- * @author  dryven
- */
 class CookieByteConfig
 {
 
@@ -107,6 +102,53 @@ class CookieByteConfig
 		$this->configData = $values;
 
 		return $this;
+	}
+
+	/**
+	 * Adds data / values to the existing configuration.
+	 *
+	 * @param array $values
+	 * @return $this
+	 */
+	public function addValues(array $values): CookieByteConfig
+	{
+		$this->configData = array_merge($this->configData, $values);
+
+		return $this;
+	}
+
+	/**
+	 * Adds a keyed value to the existing configuration.
+	 *
+	 * @param $key
+	 * @param $value
+	 * @return $this
+	 */
+	public function addValue($key, $value): CookieByteConfig
+	{
+		$this->addValues([$key => $value]);
+
+		return $this;
+	}
+
+	/**
+	 * Returns whether the default stylesheet should be added.
+	 *
+	 * @return bool
+	 */
+	public function shouldAddStylesheet(): bool
+	{
+		return !(array_key_exists('custom_style', $this->configData) && $this->configData['custom_style']);
+	}
+
+	/**
+	 * Returns whether the default JavaScript code should be added.
+	 *
+	 * @return bool
+	 */
+	public function shouldAddJavaScript(): bool
+	{
+		return !(array_key_exists('custom_code', $this->configData) && $this->configData['custom_code']);
 	}
 
 	/**
