@@ -69,7 +69,8 @@ class ConfigBlueprint
 											'instructions' => CookieByte::getCpTranslation('category_handle_instructions'),
 											'placeholder' => CookieByte::getCpTranslation('category_handle_placeholder'),
 											'generate' => true,
-											'validate' => ['required'],
+											'from' => 'title',
+											'validate' => ['alpha', 'required'],
 											'width' => 33
 										]
 									],
@@ -276,7 +277,7 @@ class ConfigBlueprint
 											'instructions' => CookieByte::getCpTranslation('cover_handle_instructions'),
 											'placeholder' => CookieByte::getCpTranslation('cover_handle_placeholder'),
 											'generate' => false,
-											'validate' => ['required', 'alpha'],
+											'validate' => ['alpha', 'required'],
 											'width' => 33
 										]
 									],
