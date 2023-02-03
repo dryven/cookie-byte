@@ -59,23 +59,31 @@ class CookieCover extends Tags
 		return view(CookieByte::getNamespacedKey('cover'), collect($this->config->raw()));
 	}
 
-	private function findCoverByHandle($values, $handle)
+	/**
+	 * Returns the config of a specified cookie cover.
+	 *
+	 * @param $configValues array the CookieByte config values
+	 * @param $coverHandle string the cookie cover handle
+	 * @return mixed
+	 * @throws CookieCoverException
+	 */
+	protected function findCoverByHandle(array $configValues, string $coverHandle)
 	{
 		// Stop execution if there are no cookie covers or no handle was given
-		if (!array_key_exists('covers', $values)) throw new CookieCoverException("No covers were found.");
-		if (empty($handle)) throw new CookieCoverException("There was no handle specified.");
+		if (!array_key_exists('covers', $configValues)) throw new CookieCoverException("No covers were found.");
+		if (empty($coverHandle)) throw new CookieCoverException("There was no handle specified.");
 
 		// Find cookie cover with the given handle
 		$cover = null;
 
-		foreach ($values['covers'] as $currentCover) {
-			if ($currentCover['handle'] === $handle) {
+		foreach ($configValues['covers'] as $currentCover) {
+			if ($currentCover['handle'] === $coverHandle) {
 				$cover = $currentCover;
 			}
 		}
 
 		// Stop execution if it wasn't found
-		if ($cover === null) throw new CookieCoverException("There is no cover with the handle '$handle'.");
+		if ($cover === null) throw new CookieCoverException("There is no cover with the handle '$coverHandle'.");
 
 		return $cover;
 	}
