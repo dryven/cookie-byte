@@ -1,6 +1,7 @@
 "use strict";
 
-const DISPLAY_SLEEP_TIME = 300;
+import {CookieConsent} from "./cookie-consent";
+import {CookieCover} from "./cookie-cover";
 
 /**
  * Class for initializing the cookie covers on the current page.
@@ -13,66 +14,60 @@ export class CookieCovers {
 	 */
 	constructor(instance) {
 		this._instance = instance;
-		this._instance.cookieCover = this;
+		this._instance.cookieCovers = this;
+		this.cookieCovers = [];
 
 		// Now, there could be more than one of these, so keep that in mind
 		this._covers = document.querySelectorAll(".ddmcc");
 		if (this._covers.length === 0) return;
 
 		this._covers.forEach((cover) => {
-			// Add a event listener to consent and hide the cover
-			const cover_button = cover.querySelector(".ddmcc-button-accept");
-			if (cover_button === null) return;
-
-			cover_button.addEventListener("click", (event) => {
-				event.preventDefault();
-
-				this._instance.consent(cover.dataset.categories);
-
-				this.hideConsented();
-
-				if (this._instance.cookieModal) this._instance.cookieModal.hideIfConsented();
-			});
+			this.cookieCovers.push(new CookieCover(this._instance, cover));
 		});
 	}
 
 	/**
-	 * Returns the cookie covers with a specific handle.
+	 * Returns the cookie covers' elements with a given handle.
 	 *
-	 * @param {string} handle
-	 * @returns {NodeList} the node element  list
+	 * @param {string} handle the handle of the cookie cover to look for
+	 * @returns {Array<CookieCover>} the cookie covers' elements with a given handle
+	 *
+	 * @deprecated Only used by other deprecated methods. Should be removed by 1.2.
 	 */
 	getCoversByHandle(handle) {
-		const covers = document.querySelectorAll(`.ddmcc[data-handle="${handle}"]`);
-		return covers.length === 0 ? false : covers;
+		return this.cookieCovers.filter((cover) => {
+			return cover.handle === handle;
+		});
 	}
 
-	show(handle) {
-		let covers = this.getCoversByHandle(handle);
+	/**
+	 * Shows the cookie cover with the given handle.
+	 *
+	 * @param {HTMLElement|string} cover the cookie covers' element or handle
+	 *
+	 * @deprecated Use the show() function of the CookieCover object itself. Should be removed by 1.2.
+	 */
+	show(cover) {
+		let covers = this.getCoversByHandle(cover);
 
-		if (covers) {
-			covers.forEach((cover) => {
-				cover.style.display = "block";
-
-				setTimeout(() => {
-					cover.style.opacity = "1";
-				}, 10);
-			});
-		}
+		covers.forEach((cover) => {
+			cover.show();
+		});
 	}
 
-	hide(handle) {
-		let covers = this.getCoversByHandle(handle);
+	/**
+	 * Hides the cookie cover with the given handle.
+	 *
+	 * @param {HTMLElement|string} cover the cookie covers' element or handle
+	 *
+	 * @deprecated Use the hide() function of the CookieCover object itself. Should be removed by 1.2.
+	 */
+	hide(cover) {
+		let covers = this.getCoversByHandle(cover);
 
-		if (covers) {
-			covers.forEach((cover) => {
-				cover.style.opacity = "0";
-
-				setTimeout(() => {
-					cover.style.display = "none";
-				}, DISPLAY_SLEEP_TIME);
-			});
-		}
+		covers.forEach((cover) => {
+			cover.hide();
+		});
 	}
 
 	/**

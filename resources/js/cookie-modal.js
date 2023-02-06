@@ -1,5 +1,7 @@
 "use strict";
 
+import {CookieConsent} from "./cookie-consent";
+
 const DISPLAY_SLEEP_TIME = 300;
 
 /**
@@ -15,7 +17,7 @@ export class CookieModal {
 		this._instance = instance;
 		this._instance.cookieModal = this;
 
-		// We assume that there should only exist one modal per page
+		// We assume that there only exists one modal per page
 		this._modal = document.querySelector(".ddmcm");
 		if (this._modal === null) return;
 
@@ -28,28 +30,13 @@ export class CookieModal {
 			check.checked = this._instance.hasConsent(check.name);
 		});
 
-		// Find the two buttons necessary in the modal and add their listeners
-		this._buttonSelectAll = this._modal.querySelector("#ddmcm-button-all");
-		this._buttonConfirm = this._modal.querySelector("#ddmcm-button-selected");
-		if (this._buttonSelectAll === null || this._buttonConfirm == null) return;
-
-		this._buttonSelectAll.addEventListener("click", (event) => {
-			event.preventDefault();
-
+		// Make a button select all options and therefore consent to all categories
+		this._initButton("#ddmcm-button-all", () => {
 			this.checkAll();
-
-			this._pushSettings();
-
-			this._finalize();
 		});
 
-		this._buttonConfirm.addEventListener("click", (event) => {
-			event.preventDefault();
-
-			this._pushSettings();
-
-			this._finalize();
-		});
+		// Make a button just consent the selected categories
+		this._initButton("#ddmcm-button-selected");
 
 		// Show the cookie notice if it hasn't already been interacted with
 		if (!this._instance.hasConsent("showed")) this.show();
@@ -82,7 +69,7 @@ export class CookieModal {
 	 * Hides the cookie modal if all cookie categories have been consented to.
 	 */
 	hideIfConsented() {
-		let allConsented = Array.prototype.every.call(this._modalCheckboxes, (check) =>
+		const allConsented = Array.prototype.every.call(this._modalCheckboxes, (check) =>
 			this._instance.hasConsent(check.name)
 		);
 
@@ -117,18 +104,45 @@ export class CookieModal {
 	_finalize() {
 		this.hide();
 
-		if (this._instance.cookieCover !== null) {
-			this._instance.cookieCover.hideConsented();
+		// Try to hide the cookie covers' that have their cookie categories' consent
+		if (this._instance.cookieCovers !== null) {
+			this._instance.cookieCovers.hideConsented();
 		}
 	}
 
 	/**
-	 * Returns all currenty unselected checkboxes.
+	 * Returns all currently unselected checkboxes.
 	 *
-	 * @returns {NodeListOf<Element>}
+	 * @returns {NodeListOf<HTMLInputElement>}
 	 * @private
 	 */
 	_getUncheckedModals() {
 		return this._modal.querySelectorAll('.ddmcm-categories input[type="checkbox"]:not(:checked)');
+	}
+
+	/**
+	 * Initializes a button in the cookie modal for saving and consenting to the selected categories.
+	 *
+	 * @param {HTMLButtonElement|string} element the button element or a selector
+	 * @param {function|null} prepare the callback that is run before the settings are saved
+	 * @private
+	 */
+	_initButton(element, prepare = null) {
+		if (typeof element === "string") {
+			element = this._modal.querySelector(element);
+		}
+
+		if (element === null) return;
+
+		element.addEventListener("click", (event) => {
+			event.preventDefault();
+
+			if (typeof prepare === "function") {
+				prepare();
+			}
+
+			this._pushSettings();
+			this._finalize();
+		});
 	}
 }
