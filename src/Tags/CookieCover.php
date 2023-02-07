@@ -50,9 +50,11 @@ class CookieCover extends Tags
 			$this->config->addValue('bg_image', $this->getValidBackgroundImage($this->config->raw()));
 		}
 
-		return view(CookieByte::getNamespacedKey('cover'), array_merge($this->config->raw(), [
+		$variables = array_merge($this->config->raw(), [
 			'slot' => $this->isPair ? trim($this->parse()) : null,
-		]));
+		]);
+
+		return view(CookieByte::getNamespacedKey('cover'), $variables);
 	}
 
 	/**
