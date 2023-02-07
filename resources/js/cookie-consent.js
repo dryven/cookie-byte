@@ -16,7 +16,7 @@ export class CookieConsent {
 	 *
 	 * @param {{
 	 *     autorun: boolean,
-	 *     callbacks: Array<function>,
+	 *     callbacks: Object<Array<function>>,
 	 *     prefix: string
 	 * }} options
 	 */
