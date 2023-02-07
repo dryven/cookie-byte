@@ -27,6 +27,16 @@ class CookieByteConfig
 	}
 
 	/**
+	 * Returns the blueprint.
+	 *
+	 * @return Blueprint
+	 */
+	public function blueprint(): Blueprint
+	{
+		return $this->blueprint;
+	}
+
+	/**
 	 * Returns the path to the configuration file.
 	 *
 	 * @return string
@@ -37,13 +47,13 @@ class CookieByteConfig
 	}
 
 	/**
-	 * Returns the blueprint.
+	 * Returns the raw array data.
 	 *
-	 * @return Blueprint
+	 * @return array
 	 */
-	public function blueprint(): Blueprint
+	public function raw(): array
 	{
-		return $this->blueprint;
+		return $this->configData;
 	}
 
 	/**
@@ -62,16 +72,6 @@ class CookieByteConfig
 	public function fields(): Fields
 	{
 		return $this->blueprint->fields()->addValues($this->raw())->preProcess();
-	}
-
-	/**
-	 * Returns the raw array data.
-	 *
-	 * @return array
-	 */
-	public function raw(): array
-	{
-		return $this->configData;
 	}
 
 	/**

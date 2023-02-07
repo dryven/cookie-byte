@@ -63,7 +63,7 @@ class ConfigBlueprint
 								'add_row' => CookieByte::getCpTranslation('categories_add_row'),
 								'mode' => 'stacked',
 								'reorderable' => true,
-								'min_rows' => 1,
+//								'min_rows' => 1,  FIXME Hotfix for Statamic adding a ghost item when min_rows is set to 1
 								'fields' => [
 									[
 										'handle' => 'title',
