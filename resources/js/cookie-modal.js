@@ -92,8 +92,6 @@ export class CookieModal {
 		this._modalCheckboxes.forEach((check) => {
 			this._instance.setConsent(check.name, check.checked);
 		});
-
-		this._instance.consent("showed");
 	}
 
 	/**
@@ -103,6 +101,7 @@ export class CookieModal {
 	 */
 	_finalize() {
 		this.hide();
+		this._instance.consent("showed");
 
 		// Try to hide the cookie covers' that have their cookie categories' consent
 		if (this._instance.cookieCovers !== null) {
