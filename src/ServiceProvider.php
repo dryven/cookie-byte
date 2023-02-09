@@ -2,15 +2,17 @@
 
 namespace DDM\CookieByte;
 
-use DDM\CookieByte\Http\Middleware\LicenseMiddleware;
-use DDM\CookieByte\Tags\CookieConsent;
+use Statamic\Statamic;
+use Statamic\Facades\File;
+use Statamic\Facades\CP\Nav;
+use Statamic\Facades\Permission;
 use DDM\CookieByte\Tags\CookieCover;
 use DDM\CookieByte\Tags\CookieModal;
-use Statamic\Facades\CP\Nav;
-use Statamic\Facades\File;
-use Statamic\Facades\Permission;
+use DDM\CookieByte\Tags\CookieConsent;
 use Statamic\Providers\AddonServiceProvider;
-use Statamic\Statamic;
+use DDM\CookieByte\Fieldtypes\CookieCover as CookieCoverFieldtype;
+use DDM\CookieByte\Fieldtypes\CookieCategory as CookieCategoryFieldtype;
+use DDM\CookieByte\Http\Middleware\LicenseMiddleware;
 
 /**
  * The connection point between Laravel, Statamic and this addon.
@@ -22,6 +24,11 @@ use Statamic\Statamic;
  */
 class ServiceProvider extends AddonServiceProvider
 {
+
+	protected $fieldtypes = [
+        CookieCoverFieldtype::class,
+        CookieCategoryFieldtype::class,
+    ];
 
 	protected $tags = [
 		CookieConsent::class,
@@ -38,6 +45,10 @@ class ServiceProvider extends AddonServiceProvider
 			LicenseMiddleware::class
 		]
 	];
+
+	protected $scripts = [
+        __DIR__.'/../resources/dist/js/cp.js'
+    ];
 
 	protected $publishAfterInstall = false;
 

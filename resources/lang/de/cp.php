@@ -90,7 +90,9 @@ return [
 	'cover_handle_placeholder' => 'beispiel',
 	'cover_categories' => 'Zu akzeptierende Cookie Kategorien',
 	'cover_categories_instructions' => 'Welche Cookie Kategorien müssen von den Website-Besucher_innen akzeptiert werden, damit das Cookie Content Cover auf magische Weise verschwindet?',
-	'cover_categories_placeholder' => 'essenziell,statistisch',
+	'cover_name' => 'Name',
+	'cover_name_instructions' => 'Interne Bezeichnung (erscheint nicht auf der Website)',
+	'cover_name_placeholder' => 'Cover für Google Maps',
 	'cover_title' => 'Überschrift des Cookie Content Covers',
 	'cover_title_instructions' => 'Noch eine Überschrift (sie wird auf der Website angezeigt), die den Website-Besucher_innen ins Auge fallen. Nutze sie!',
 	'cover_title_placeholder' => 'Dieser Inhalt kann nicht angezeigt werden',
@@ -115,4 +117,8 @@ return [
 	'license_warning_toast_0' => 'Cookie Byte hat keine Lizenz.',
 	'license_warning_toast_1' => 'Kaufe eine Cookie Byte Lizenz&nbsp;<a href="https://statamic.com/addons/dryven/cookie-byte">hier</a>.',
 	'license_warning_toast_2' => 'Du musst eine Lizenz für Cookie Byte kaufen.',
+
+	/* FIELDTYPES */
+	'cookie_cover_fieldtype_title' => 'Cookie Content Cover',
+	'cookie_category_fieldtype_title' => 'Cookie Kategorie',
 ];

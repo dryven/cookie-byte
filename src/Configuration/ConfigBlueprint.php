@@ -285,6 +285,16 @@ class ConfigBlueprint
 								'reorderable' => true,
 								'fields' => [
 									[
+										'handle' => 'name',
+										'field' => [
+											'type' => 'text',
+											'display' => CookieByte::getCpTranslation('cover_name'),
+											'instructions' => CookieByte::getCpTranslation('cover_name_instructions'),
+											'placeholder' => CookieByte::getCpTranslation('cover_name_placeholder'),
+											'width' => 50
+										]
+									],
+									[
 										'handle' => 'handle',
 										'field' => [
 											'type' => 'slug',
@@ -293,18 +303,18 @@ class ConfigBlueprint
 											'placeholder' => CookieByte::getCpTranslation('cover_handle_placeholder'),
 											'generate' => false,
 											'validate' => ['alpha', 'required'],
-											'width' => 33
+											'width' => 50
 										]
 									],
 									[
 										'handle' => 'categories',
 										'field' => [
-											'type' => 'text',
+											'type' => 'cookie_category',
 											'display' => CookieByte::getCpTranslation('cover_categories'),
 											'instructions' => CookieByte::getCpTranslation('cover_categories_instructions'),
-											'placeholder' => CookieByte::getCpTranslation('cover_categories_placeholder'),
 											'validate' => ['required'],
-											'width' => 66
+											'multiple' => true,
+											'width' => 100
 										]
 									],
 									[
