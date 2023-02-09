@@ -85,7 +85,7 @@ class ConfigBlueprint
 											'placeholder' => CookieByte::getCpTranslation('category_handle_placeholder'),
 											'generate' => true,
 											'from' => 'title',
-											'validate' => ['alpha', 'required'],
+											'validate' => ['alpha_dash', 'required'],
 											'width' => 33
 										]
 									],
@@ -302,7 +302,7 @@ class ConfigBlueprint
 											'instructions' => CookieByte::getCpTranslation('cover_handle_instructions'),
 											'placeholder' => CookieByte::getCpTranslation('cover_handle_placeholder'),
 											'generate' => false,
-											'validate' => ['alpha', 'required'],
+											'validate' => ['alpha_dash', 'required'],
 											'width' => 50
 										]
 									],
