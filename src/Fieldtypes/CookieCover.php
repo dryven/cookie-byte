@@ -7,15 +7,15 @@ use DDM\CookieByte\Configuration\CookieByteConfig;
 
 class CookieCover extends CookieHandleSelect
 {
-    protected $categories = ['relationship'];
+	protected $categories = ['relationship'];
 
-    public static function title()
-    {
-        return CookieByte::getCpTranslation('cookie_cover_fieldtype_title');
-    }
+	public static function title()
+	{
+		return CookieByte::getCpTranslation('cookie_cover_fieldtype_title');
+	}
 
-    public function preload()
-    {
+	public function preload()
+	{
 		$covers = $this->config->rawValue('covers', []);
 
 		return [
@@ -26,5 +26,5 @@ class CookieCover extends CookieHandleSelect
 				return [$handle => $name ?? $handle];
 			})
 		];
-    }
+	}
 }
