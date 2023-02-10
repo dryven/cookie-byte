@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.1.1] - 2023-02-10
+
+### Fixed
+
+* **Cookie Cover**: Make cookie covers tag compatible with Laravel versions before 9.x
+
 ## [v1.1.0] - 2023-02-10
 
 ### Added

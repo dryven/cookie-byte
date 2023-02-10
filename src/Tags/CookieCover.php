@@ -53,7 +53,7 @@ class CookieCover extends Tags
 
 		$variables = array_merge($this->config->raw(), [
 			'slot' => $this->isPair ? trim($this->parse()) : null,
-			'categories' => Arr::join($this->config->rawValue('categories', []), ',')
+			'categories' => implode(',', $this->config->rawValue('categories', []))
 		]);
 
 		return view(CookieByte::getNamespacedKey('cover'), $variables);
