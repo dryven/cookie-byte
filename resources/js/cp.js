@@ -1,4 +1,4 @@
-import SelectHandleFieldtype from './fieldtypes/SelectHandleFieldtype.vue';
+import CookieHandleSelect from './fieldtypes/CookieHandleSelect.vue';
 
-Statamic.$components.register('cookie_cover-fieldtype', SelectHandleFieldtype);
-Statamic.$components.register('cookie_category-fieldtype', SelectHandleFieldtype);
+Statamic.$components.register('cookie_cover-fieldtype', CookieHandleSelect);
+Statamic.$components.register('cookie_category-fieldtype', CookieHandleSelect);
