@@ -2,18 +2,14 @@
 
 namespace DDM\CookieByte\Tags;
 
-use DDM\CookieByte\Configuration\CookieByteConfig;
-use DDM\CookieByte\CookieByte;
-use DDM\CookieByte\Exceptions\CookieCoverException;
-use Statamic\Facades\Asset;
-use Statamic\Facades\Site;
+use Statamic\Support\Arr;
 use Statamic\Tags\Tags;
+use Statamic\Facades\Asset;
+use DDM\CookieByte\CookieByte;
+use DDM\CookieByte\Configuration\CookieByteConfig;
+use DDM\CookieByte\Exceptions\CookieCoverException;
+use Statamic\Contracts\Assets\Asset as StatamicAsset;
 
-/**
- * Class CookieCover
- * @package DDM\CookieByte\Tags
- * @author  DDM Studio
- */
 class CookieCover extends Tags
 {
 
@@ -21,15 +17,15 @@ class CookieCover extends Tags
 
 	public function __construct()
 	{
-		$this->config = new CookieByteConfig(Site::current()->locale());
+		$this->config = new CookieByteConfig(CookieByte::getCurrentSiteIdentifier());
 	}
 
 	/**
 	 * {{ cookie_cover:... }}
 	 *
-	 * @param $handle
+	 * @param $handle string the cookie cover handle
 	 */
-	public function wildcard($handle)
+	public function wildcard(string $handle)
 	{
 		$this->params['handle'] = $handle;
 
@@ -39,65 +35,80 @@ class CookieCover extends Tags
 	public function index()
 	{
 		$handle = $this->params->get('handle');
-		$values = $this->config->values();
-		$cover = null;
 
 		try {
-			$cover = $this->findCoverByHandle($values, $handle);
+			$cover = $this->findCoverByHandle($this->config->values(), $handle);
 		} catch (CookieCoverException $ex) {
 			// Only throw exception if the app is in debug
-			if (config('app.debug'))
-				throw $ex;
-			else return false;
+			throw_if(config('app.debug'), $ex);
+
+			return null;
 		}
 
 		// Add cover-specific variables into view data
-		if (isset($cover))
-			$this->config->setValues(array_merge($values, $cover));
+		if (isset($cover)) {
+			$this->config->addValues($cover);
+			$this->config->addValue('bg_image', $this->getValidBackgroundImage($this->config->raw()));
+		}
 
-		$this->findBackgroundImage();
+		$variables = array_merge($this->config->raw(), [
+			'slot' => $this->isPair ? trim($this->parse()) : null,
+			'categories' => Arr::join($this->config->rawValue('categories', []), ',')
+		]);
 
-		return view(CookieByte::getNamespacedKey('cover'), collect($this->config->raw()));
+		return view(CookieByte::getNamespacedKey('cover'), $variables);
 	}
 
-	private function findCoverByHandle($values, $handle)
+	/**
+	 * Returns the config of a specified cookie cover.
+	 *
+	 * @param $configValues array the CookieByte config values
+	 * @param $coverHandle string the cookie cover handle
+	 * @return mixed
+	 * @throws CookieCoverException
+	 */
+	protected function findCoverByHandle(array $configValues, string $coverHandle)
 	{
 		// Stop execution if there are no cookie covers or no handle was given
-		if (!array_key_exists('covers', $values)) throw new CookieCoverException("No covers were found.");
-		if (empty($handle)) throw new CookieCoverException("There was no handle specified.");
+		if (!array_key_exists('covers', $configValues)) throw new CookieCoverException("No covers were found.");
+		if (empty($coverHandle)) throw new CookieCoverException("There was no handle specified.");
 
 		// Find cookie cover with the given handle
 		$cover = null;
 
-		foreach ($values['covers'] as $currentCover) {
-			if ($currentCover['handle'] === $handle) {
+		foreach ($configValues['covers'] as $currentCover) {
+			if ($currentCover['handle'] === $coverHandle) {
 				$cover = $currentCover;
 			}
 		}
 
 		// Stop execution if it wasn't found
-		if ($cover === null) throw new CookieCoverException("There is no cover with the handle '$handle'.");
+		if ($cover === null) throw new CookieCoverException("There is no cover with the handle '$coverHandle'.");
 
 		return $cover;
 	}
 
-	private function findBackgroundImage()
+	/**
+	 * Gets the background image for a cookie cover from the config values and augments it.
+	 *
+	 * @param array $configValues
+	 * @return mixed|StatamicAsset|null
+	 */
+	protected function getValidBackgroundImage(array $configValues)
 	{
-		$values = $this->config->raw();
-
-		$values['bg_image'] = $values['bg_image'] === [] ? null : $values['bg_image'];
+		$bgImage = !empty($configValues['bg_image']) ? $configValues['bg_image'] : null;
 
 		// The background images is augmented to a string with the pattern
 		// "[assets-Folder]::[path/image.ext] so we have to convert the asset
 		// by finding the relative public path
-		if (isset($values['bg_image']) && !empty($values['bg_image'])) {
+		if (!empty($bgImage)) {
 			// If there is more than one image pick the first as the background
-			if (is_array($values['bg_image']))
-				$values['bg_image'] = $values['bg_image'][0];
+			if (is_array($bgImage))
+				$bgImage = $bgImage[0];
 
-			$values['bg_image'] = Asset::find($values['bg_image']);
+			$bgImage = Asset::find($bgImage);
 		}
 
-		$this->config->setValues($values);
+		return $bgImage;
 	}
 }

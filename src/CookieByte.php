@@ -2,9 +2,11 @@
 
 namespace DDM\CookieByte;
 
+use Statamic\Facades\Site;
 use Statamic\Facades\YAML;
 use Illuminate\Support\Str;
 use Statamic\Licensing\LicenseManager;
+use function config;
 
 /**
  * Global definitions and routines.
@@ -35,33 +37,36 @@ class CookieByte
 	public const VENDOR_VIEWS_KEY = self::NAMESPACE . '-views';
 	public const VENDOR_LANGUAGES_KEY = self::NAMESPACE . '-lang';
 
+	public const LOCALE_IDENTIFIER = 'locale';
+	public const HANDLE_IDENTIFIER = 'handle';
+
 	/**
 	 * Returns the configuration file data as an array.
 	 *
-	 * @param $locale configuration's locale
+	 * @param $identifier configuration's identifier
 	 *
 	 * @return array
 	 */
-	public static function getConfigurationData($locale): array
+	public static function getConfigurationData($identifier): array
 	{
-        return YAML::file(self::getConfigurationPath($locale))->parse();
+        return YAML::file(self::getConfigurationPath($identifier))->parse();
 	}
 
 	/**
 	 * Returns the configuration file path.
 	 *
-	 * @param $locale configuration's locale
+	 * @param $identifier configuration's identifier
 	 *
 	 * @return string
 	 */
-	public static function getConfigurationPath($locale): string
+	public static function getConfigurationPath($identifier): string
 	{
-		return self::getConfigurationDirname() . "cookie_byte_$locale.yaml";
+		return self::getConfigurationDirname() . "cookie_byte_$identifier.yaml";
 	}
 
 	/**
 	 * Returns the configuration directory path.
-	 * 
+	 *
 	 * @return string
 	 */
 	public static function getConfigurationDirname(): string
@@ -91,6 +96,28 @@ class CookieByte
 	public static function getCpTranslation($translationKey): string
 	{
 		return __(CookieByte::NAMESPACE . '::cp.' . $translationKey);
+	}
+
+	public static function getCurrentSiteIdentifier(): string
+	{
+		switch (config('cookie-byte.site_identifier_type', self::LOCALE_IDENTIFIER)) {
+			case self::HANDLE_IDENTIFIER:
+				return Site::current()->handle();
+			case self::LOCALE_IDENTIFIER:
+			default:
+				return Site::current()->locale();
+		}
+	}
+
+	public static function getSelectedSiteIdentifier(): string
+	{
+		switch (config('cookie-byte.site_identifier_type', self::LOCALE_IDENTIFIER)) {
+			case self::HANDLE_IDENTIFIER:
+				return Site::selected()->handle();
+			case self::LOCALE_IDENTIFIER:
+			default:
+				return Site::selected()->locale();
+		}
 	}
 
 	/**

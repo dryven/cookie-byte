@@ -12,6 +12,7 @@ mix.options({
 });
 
 mix.js("resources/js/loadscript.js", `dist/js/ddmcb${fileSuffix}.js`);
+mix.js("resources/js/cp.js", "dist/js/cp.js").vue({ version: 2 });
 
 mix.postCss("resources/css/_cookie_byte.css", `dist/css/ddmcb${fileSuffix}.css`, [
 	require("postcss-import"),

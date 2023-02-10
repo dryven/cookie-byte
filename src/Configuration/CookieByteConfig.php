@@ -10,25 +10,30 @@ use Statamic\Fields\Fields;
 use Illuminate\Http\Request;
 use Statamic\Fields\Blueprint;
 
-/**
- * Class CookieByteConfig
- * @package DDM\CookieByte\Configuration
- * @author  DDM Studiio
- */
 class CookieByteConfig
 {
 
-	protected $currentLocale;
+	protected $currentIdentifier;
 	protected $blueprint;
 	protected $configPath;
 	protected $configData;
 
-	public function __construct($locale)
+	public function __construct($identifier)
 	{
-		$this->currentLocale = $locale;
+		$this->currentIdentifier = $identifier;
 		$this->blueprint = \Statamic\Facades\Blueprint::make()->setContents(ConfigBlueprint::getBlueprint());
-		$this->configPath = CookieByte::getConfigurationPath($this->currentLocale);
-		$this->configData = CookieByte::getConfigurationData($this->currentLocale);
+		$this->configPath = CookieByte::getConfigurationPath($this->currentIdentifier);
+		$this->configData = CookieByte::getConfigurationData($this->currentIdentifier);
+	}
+
+	/**
+	 * Returns the blueprint.
+	 *
+	 * @return Blueprint
+	 */
+	public function blueprint(): Blueprint
+	{
+		return $this->blueprint;
 	}
 
 	/**
@@ -42,13 +47,25 @@ class CookieByteConfig
 	}
 
 	/**
-	 * Returns the blueprint.
+	 * Returns the raw array data.
 	 *
-	 * @return Blueprint
+	 * @return array
 	 */
-	public function blueprint(): Blueprint
+	public function raw(): array
 	{
-		return $this->blueprint;
+		return $this->configData;
+	}
+
+	/**
+	 * Get the raw value of a config item using dot notation.
+	 *
+	 * @param string $key
+	 * @param mixed $default
+	 * @return mixed
+	 */
+	public function rawValue(string $key, $default = null)
+	{
+		return array_get($this->raw(), $key, $default);
 	}
 
 	/**
@@ -67,16 +84,6 @@ class CookieByteConfig
 	public function fields(): Fields
 	{
 		return $this->blueprint->fields()->addValues($this->raw())->preProcess();
-	}
-
-	/**
-	 * Returns the raw array data.
-	 *
-	 * @return array
-	 */
-	public function raw(): array
-	{
-		return $this->configData;
 	}
 
 	/**
@@ -107,6 +114,53 @@ class CookieByteConfig
 		$this->configData = $values;
 
 		return $this;
+	}
+
+	/**
+	 * Adds data / values to the existing configuration.
+	 *
+	 * @param array $values
+	 * @return $this
+	 */
+	public function addValues(array $values): CookieByteConfig
+	{
+		$this->configData = array_merge($this->configData, $values);
+
+		return $this;
+	}
+
+	/**
+	 * Adds a keyed value to the existing configuration.
+	 *
+	 * @param $key
+	 * @param $value
+	 * @return $this
+	 */
+	public function addValue($key, $value): CookieByteConfig
+	{
+		$this->addValues([$key => $value]);
+
+		return $this;
+	}
+
+	/**
+	 * Returns whether the default stylesheet should be added.
+	 *
+	 * @return bool
+	 */
+	public function shouldAddStylesheet(): bool
+	{
+		return !(array_key_exists('custom_style', $this->configData) && $this->configData['custom_style']);
+	}
+
+	/**
+	 * Returns whether the default JavaScript code should be added.
+	 *
+	 * @return bool
+	 */
+	public function shouldAddJavaScript(): bool
+	{
+		return !(array_key_exists('custom_code', $this->configData) && $this->configData['custom_code']);
 	}
 
 	/**

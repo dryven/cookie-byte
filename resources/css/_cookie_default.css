@@ -8,7 +8,6 @@
 .ddm {
     button {
         -webkit-appearance: button;
-        background: none;
         cursor: pointer;
 
         &:focus {

@@ -1,5 +1,31 @@
 # Changelog
 
+## [v1.1.0] - 2023-02-10
+
+### Added
+
+* **Cookie Cover**: Add a slot, which contents are hidden as long as its cookie categories haven't been accepted
+* **Control Panel**: Make the handles of cookie categories and cookie covers required and only consist of alpha characters
+* **Control Panel**: Make it possible to change the configuration file identifier from locale to handle, so it's possible to save different configs even though two multisites have the same locale
+* **Fields**: Add fieldtypes for cookie categories' and cookie covers' handles
+* Add full plug-and-play support for Statamic static caching
+* Add support for Statamic 3.4+
+
+### Changed
+
+* **Cookie Cover**: Make the cookie cover be fully controlled by JavaScript instead of antlers
+* **Cookie Modal**: Make the modal be marked as shown when it was closed by a cookie cover
+* **Internal**: Refactor CookieCovers to CookieCover, to separate logic of all covers and one cover
+* **Internal**: Change CookieConsent.cookieCover to CookieConsent.cookieCovers
+* **Internal**: Deprecate CookieCovers.show, CookieCovers.hide and CookieCovers.getCoversByHandle
+* **Internal**: Improve code documentation and typing
+
+### Fixed
+
+* **Cookie Cover**: Fix a bug that caused the background image to be invisible in some instances
+* **Cookie Cover**: Fix style bug, that caused the accept button to be hardly visible by default
+* **Control Panel**: Fix a bug that causes the cookie categories to be invalid even though it was filled correctly (More info: Statamic seems to add a ghost item while pre-processing the field, which is not visible but fails validation)
+
 ## [v1.0.17] - 2022-12-15
 
 ### Changed

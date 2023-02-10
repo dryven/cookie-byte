@@ -11,19 +11,23 @@ export class CookieConsent {
 	 *
 	 * Available options:
 	 *  - callbacks: object with arrays of functions, which are called when a cookie category has been consented to
+	 *  - autorun: if the cookie categories' callbacks / code snippets should be immediately be run at CookieByte's init
+	 *  - prefix: the prefix for the consent cookie key names
 	 *
-	 * @param {Object} options
+	 * @param {{
+	 *     autorun: boolean,
+	 *     callbacks: Object<Array<function>>,
+	 *     prefix: string
+	 * }} options
 	 */
 	constructor(options = {}) {
 		this._defaults = {
-			callbacks: {},
 			autorun: true,
+			callbacks: {},
+			prefix: "cookie-byte-consent-"
 		};
 
 		this._options = Object.assign({}, this._defaults, options);
-
-		// Nevertheless, overwrite prefix, because it can't be customized yet
-		this._options.prefix = "cookie-byte-consent";
 
 		// Add trailing dash to prefix if none exists
 		if (!this._options.prefix.endsWith("-")) {
@@ -38,7 +42,7 @@ export class CookieConsent {
 
 		// Add linkers to the dependent categories
 		this.cookieModal = null;
-		this.cookieCover = null;
+		this.cookieCovers = null;
 	}
 
 	/**
@@ -96,13 +100,13 @@ export class CookieConsent {
 	/**
 	 * Checks whether the cookie category or cookie categories have already been consented to.
 	 *
-	 * @param cookieCategories the cookie categories to check for
+	 * @param {string} cookieCategories a comma-separated list of the cookie categories to check for
 	 * @returns {boolean} whether the cookie categories have been consented to
 	 */
 	hasConsent(cookieCategories) {
 		let consent = false;
 
-		const arr = cookieCategories.toString().split(",");
+		const arr = String(cookieCategories).split(",");
 
 		for (const cookieCategory of arr) {
 			consent = Cookies.get(this._options.prefix + cookieCategory) === "true";
@@ -119,7 +123,7 @@ export class CookieConsent {
 	/**
 	 * Consents to the cookie categories.
 	 *
-	 * @param cookieCategories the cookie category to consent to
+	 * @param {string} cookieCategories a comma-separated list of the cookie category to consent to
 	 */
 	consent(cookieCategories) {
 		this.setConsent(cookieCategories, true);
@@ -128,7 +132,7 @@ export class CookieConsent {
 	/**
 	 * Sets the consent for a list of cookie categories.
 	 *
-	 * @param cookieCategories the cookie categories to set
+	 * @param {string} cookieCategories a comma-separated list of the cookie categories to set
 	 * @param {boolean, string} value
 	 */
 	setConsent(cookieCategories, value) {
@@ -141,7 +145,7 @@ export class CookieConsent {
 
 	/**
 	 * Register all JavaScript snippets that were found on the page.
-	 * 
+	 *
 	 * @private
 	 */
 	_registerCPCallbacks() {
@@ -151,9 +155,9 @@ export class CookieConsent {
 
 		snippets.forEach((snippet) => {
 			const cookieCategory = snippet.dataset.category;
-			const snippetCode = snippet.text;
+			const snippetCode = snippet.text.trim();
 
-			this.registerCallback(cookieCategory.toString(), Function(snippetCode));
+			this.registerCallback(String(cookieCategory), Function(snippetCode));
 		});
 	}
 
@@ -166,7 +170,7 @@ export class CookieConsent {
 	 */
 	_runSplitList(str, func) {
 		// First split the string into pieces
-		let arr = str.toString().split(",");
+		let arr = String(str).split(",");
 
 		arr.forEach(func);
 	}

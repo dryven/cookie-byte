@@ -155,6 +155,7 @@
 }
 
 #ddmcm-button-selected {
+    background: none;
     font-size: 0.875rem;
     line-height: 1.25rem;
     text-decoration: none;

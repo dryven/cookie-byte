@@ -3,8 +3,10 @@
 namespace DDM\CookieByte\Configuration;
 
 use DDM\CookieByte\CookieByte;
-use Exception;
+use Illuminate\Config\Repository;
 use Statamic\Facades\AssetContainer;
+use Illuminate\Contracts\Foundation\Application;
+use DDM\CookieByte\Exceptions\CookieByteException;
 
 /**
  * Class ConfigBlueprint
@@ -14,16 +16,29 @@ use Statamic\Facades\AssetContainer;
 class ConfigBlueprint
 {
 
+	/**
+	 * Returns the configured asset container.
+	 *
+	 * @return Repository|Application|mixed
+	 * @throws CookieByteException
+	 */
 	protected static function getAssetsContainerHandle()
 	{
 		$assetContainerHandle = config('cookie-byte.asset_container', 'assets');
 
-		if (!AssetContainer::findByHandle($assetContainerHandle))
-			throw new Exception("The container with the handle $assetContainerHandle cannot be found.");
+		if (!AssetContainer::findByHandle($assetContainerHandle)) {
+			throw new CookieByteException("The container with the handle $assetContainerHandle cannot be found.");
+		}
 
 		return $assetContainerHandle;
 	}
 
+	/**
+	 * Returns the config blueprint as an array.
+	 *
+	 * @return array[]
+	 * @throws CookieByteException
+	 */
 	public static function getBlueprint(): array
 	{
 		return [
@@ -48,7 +63,7 @@ class ConfigBlueprint
 								'add_row' => CookieByte::getCpTranslation('categories_add_row'),
 								'mode' => 'stacked',
 								'reorderable' => true,
-								'min_rows' => 1,
+//								'min_rows' => 1,  FIXME Hotfix for Statamic adding a ghost item when min_rows is set to 1
 								'fields' => [
 									[
 										'handle' => 'title',
@@ -69,7 +84,8 @@ class ConfigBlueprint
 											'instructions' => CookieByte::getCpTranslation('category_handle_instructions'),
 											'placeholder' => CookieByte::getCpTranslation('category_handle_placeholder'),
 											'generate' => true,
-											'validate' => ['required'],
+											'from' => 'title',
+											'validate' => ['alpha_dash', 'required'],
 											'width' => 33
 										]
 									],
@@ -269,6 +285,16 @@ class ConfigBlueprint
 								'reorderable' => true,
 								'fields' => [
 									[
+										'handle' => 'name',
+										'field' => [
+											'type' => 'text',
+											'display' => CookieByte::getCpTranslation('cover_name'),
+											'instructions' => CookieByte::getCpTranslation('cover_name_instructions'),
+											'placeholder' => CookieByte::getCpTranslation('cover_name_placeholder'),
+											'width' => 50
+										]
+									],
+									[
 										'handle' => 'handle',
 										'field' => [
 											'type' => 'slug',
@@ -276,19 +302,19 @@ class ConfigBlueprint
 											'instructions' => CookieByte::getCpTranslation('cover_handle_instructions'),
 											'placeholder' => CookieByte::getCpTranslation('cover_handle_placeholder'),
 											'generate' => false,
-											'validate' => ['required', 'alpha'],
-											'width' => 33
+											'validate' => ['alpha_dash', 'required'],
+											'width' => 50
 										]
 									],
 									[
 										'handle' => 'categories',
 										'field' => [
-											'type' => 'text',
+											'type' => 'cookie_category',
 											'display' => CookieByte::getCpTranslation('cover_categories'),
 											'instructions' => CookieByte::getCpTranslation('cover_categories_instructions'),
-											'placeholder' => CookieByte::getCpTranslation('cover_categories_placeholder'),
 											'validate' => ['required'],
-											'width' => 66
+											'multiple' => true,
+											'width' => 100
 										]
 									],
 									[

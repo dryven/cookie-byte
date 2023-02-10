@@ -85,12 +85,14 @@ return [
 	'covers' => 'Cookie content covers',
 	'covers_instructions' => 'Please note: Each of these cookie content covers must be inserted into the website\'s code in order to work. More details on how this works can be found in the addon\'s documentation.',
 	'covers_add_row' => 'Add a cookie content cover',
+	'cover_name' => 'Name',
+	'cover_name_instructions' => 'Internal identifier (is not displayed on the website)',
+	'cover_name_placeholder' => 'Cover for Google Maps',
 	'cover_handle' => 'Handle',
 	'cover_handle_instructions' => 'This is the internal name for the cookie category.',
 	'cover_handle_placeholder' => 'example',
 	'cover_categories' => 'Cookie categories to be accepted',
 	'cover_categories_instructions' => 'Which cookie categories must be accepted by the user for the cookie content cover to magically disappear?',
-	'cover_categories_placeholder' => 'essential,statistical',
 	'cover_title' => 'Headline of the cookie content cover',
 	'cover_title_instructions' => 'Another headline (it is displayed on the website) that will catch the eye of the user. Make it useful!',
 	'cover_title_placeholder' => 'This content can not be displayed.',
@@ -115,4 +117,8 @@ return [
 	'license_warning_toast_0' => 'Cookie Byte seems to lack a license.',
 	'license_warning_toast_1' => 'Purchase a Cookie Byte license&nbsp;<a href="https://statamic.com/addons/dryven/cookie-byte">here</a>.',
 	'license_warning_toast_2' => 'You need to purchase a license for Cookie Byte.',
+
+	/* FIELDTYPES */
+	'cookie_cover_fieldtype_title' => 'Cookie Content Cover',
+	'cookie_category_fieldtype_title' => 'Cookie Category',
 ];

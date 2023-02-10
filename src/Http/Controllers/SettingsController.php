@@ -2,19 +2,13 @@
 
 namespace DDM\CookieByte\Http\Controllers;
 
-use DDM\CookieByte\Configuration\CookieByteConfig;
-use DDM\CookieByte\CookieByte;
-use Illuminate\Http\Request;
-use Statamic\Facades\Site;
 use Statamic\Facades\User;
-use Statamic\Http\Controllers\CP\CpController;
+use Illuminate\Http\Request;
+use DDM\CookieByte\CookieByte;
 use Statamic\StaticCaching\Cacher;
+use Statamic\Http\Controllers\CP\CpController;
+use DDM\CookieByte\Configuration\CookieByteConfig;
 
-/**
- * Class SettingsController
- * @package DDM\CookieByte\Http\Controllers
- * @author  dryven
- */
 class SettingsController extends CpController
 {
 	public function index()
@@ -25,13 +19,15 @@ class SettingsController extends CpController
 
 		$config = $this->getConfig();
 
-		return view(CookieByte::getNamespacedKey('settings'), [
+		$variables = [
 			'title' => CookieByte::getCpTranslation('title'),
 			'action' => cp_route(CookieByte::ROUTE_SETTINGS_UPDATE),
 			'blueprint' => $config->blueprint()->toPublishArray(),
 			'values' => $config->values(),
 			'meta' => $config->fields()->meta()
-		]);
+		];
+
+		return view(CookieByte::getNamespacedKey('settings'), $variables);
 	}
 
 	public function update(Request $request)
@@ -50,12 +46,12 @@ class SettingsController extends CpController
 		if ($this->isStaticCachingEnabled()) app(Cacher::class)->flush();
 	}
 
-	public function getConfig()
+	public function getConfig(): CookieByteConfig
 	{
-		return new CookieByteConfig(Site::selected()->locale());
+		return new CookieByteConfig(CookieByte::getSelectedSiteIdentifier());
 	}
 
-	protected function isStaticCachingEnabled()
+	protected function isStaticCachingEnabled(): bool
 	{
 		return config('statamic.static_caching.strategy') !== null;
 	}
