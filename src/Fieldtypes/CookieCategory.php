@@ -31,7 +31,7 @@ class CookieCategory extends CookieHandleSelect
 
     public function preload()
     {
-        $categories = $this->config->getValue('categories', []);
+        $categories = $this->config->rawValue('categories', []);
 
         return [
 			'options' => collect($categories)->mapWithKeys(function ($category) {

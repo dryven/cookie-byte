@@ -16,7 +16,7 @@ class CookieCover extends CookieHandleSelect
 
     public function preload()
     {
-		$covers = $this->config->getValue('covers', []);
+		$covers = $this->config->rawValue('covers', []);
 
 		return [
 			'options' => collect($covers)->mapWithKeys(function ($cover) {

@@ -63,7 +63,7 @@ class CookieByteConfig
 	 * @param mixed $default
 	 * @return mixed
 	 */
-	public function getValue(string $key, $default = null)
+	public function rawValue(string $key, $default = null)
 	{
 		return array_get($this->raw(), $key, $default);
 	}
