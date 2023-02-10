@@ -18,15 +18,15 @@ policies. In case of doubt, please contact your legal advisor.
 ## Features
 
 Cookie Byte is an important addon to make your website fit for the current privacy and cookie policies. In addition to
-the usual cookie consent modal, in which users can selectively accept the desired cookies, the addon offers numerous
-other features so that you no longer have to worry about cookies of any kind.
+the usual cookie consent modal, in which users can selectively accept their desired cookies, the addon offers numerous
+other features so that you no longer have to worry about how to handle cookies placed by your website.
 
 -   **Control panel settings:** Change the addon's settings directly where you prefer to do it: In the control panel.
     Activate the addon, add cookie categories, remove a code snippet - rule over all cookies!
 -   **Code snippets and their cookies:** Code snippets are loaded on the website only when the user agrees to the cookies
     required for them - without reloading the website (so your analytics data won't be corrupted - yesss!).
--   **Cookie content covers:** Some content must be hidden as long as the corresponding cookies have not been accepted,
-    such as Google Maps embeds. For this we created cookie content covers (and because it's a nice alliteration).
+-   **Cookie content covers:** Some content must be hidden as long as the corresponding cookies have not been accepted, 
+-   such as YouTube or Google Maps embeds. Content covers will handle this for you with just one simple tag.
 -   **Customisability:** The modal and the covers are completely customizable - change the text and position of the modal
     as you see fit.
 -   **Developer friendly:** To make your life easier, the addon comes with predefined styles and inline code. But rest
@@ -34,13 +34,13 @@ other features so that you no longer have to worry about cookies of any kind.
 
 There are more amazing features coming: Take a look at our [Feature releases](#future-features)!
 
-## Documentation
-
-For more information about how to use this addon see our [documentation](DOCUMENTATION.md).
-
 ## Licensing
 
 Cookie Byte is a commercial addon - you **must purchase a license** via the [Statamic Marketplace](https://statamic.com/addons/dryven/cookie-byte) to use it in a production environment.
+
+## Documentation
+
+For more information about how to use this addon see our [documentation](DOCUMENTATION.md).
 
 ## Future features
 

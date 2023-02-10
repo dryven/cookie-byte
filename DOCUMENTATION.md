@@ -78,24 +78,26 @@ if they want to accept the cookies on your site. It is recommended to put this i
 
 ### CookieCover
 
-```
+```php
 {{ cookie_cover:... }}
 {{ cookie_cover handle="..." }}
 ```
 
-The CookieCover tag adds a special cover above an element to hide the content which can't be loaded yet because of the
-missing consent. It takes a string or a string variable with it's handle. It's an absolutely positioned div, so be sure
-to put a relative wrapper around it to fill the whole space like this:
+The CookieCover tag adds a special cover before a specific HTML snippet can be placed on the website. Be sure to create 
+the cookie content cover in the control panel first and give this tag its handle. A typical implementation looks 
+something like this:
 
 ```html
-
-<div style="position: relative;">
-    <div class="google-maps-container"></div>
+<div style="position: relative; width: 500px; height: 500px;">
     {{ cookie_cover handle="google-maps" }}
+        <iframe src="..." width="500" height="500"></iframe>
+    {{ /cookie_cover }}
 </div>
 ```
 
-With the right settings it could look something like this:
+Be aware that the inline styles are considered bad practice, but we included them as the cookie cover itself is 
+absolutely positioned and should be contained in a relative element with some space boundary like above. With some 
+extra magic the cookie content cover could look something like this:
 
 ![Cover Preview](https://raw.githubusercontent.com/dryven/cookie-byte/main/repo/CookieCoverExample.gif)
 
@@ -108,16 +110,18 @@ With the right settings it could look something like this:
 ```
 
 This tag either takes a string or a string variable and checks if the given cookie categories have been consented to.
-You can either put a single term like ``"essential"`` or a comma-seperated list of terms like ``"essential,thirdparty"``
-in it. It's a pretty useful feature to check if the cookie category has been set on a previous visit to the page, but
-for Analytics and the like it's better to add these as code snippets which will be loaded right on the click on the
-"Accept" button. You can use it like so:
+You can either put a single category like ``"essential"`` or a comma-seperated list of categories like 
+``"essential,thirdparty"`` in it. You can use it like this:
 
 ```php
 {{ if { cookie_consent has="marketing-cookies" } }}
     {{# code that should be executed #}}
 {{ /if }}
 ```
+
+It's a pretty useful feature to check if the cookie category has been set on a previous visit to the page. Be aware 
+that this will **not work** if you enabled static caching and will break things like analytics as these require to be 
+loaded as soon as the cookie categories are accepted. Do this by adding a code snippet in the control panel.
 
 ## Advanced configuration
 
