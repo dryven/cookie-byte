@@ -2,6 +2,7 @@
 
 namespace DDM\CookieByte\Tags;
 
+use Statamic\Support\Arr;
 use Statamic\Tags\Tags;
 use Statamic\Facades\Asset;
 use DDM\CookieByte\CookieByte;
@@ -50,17 +51,10 @@ class CookieCover extends Tags
 			$this->config->addValue('bg_image', $this->getValidBackgroundImage($this->config->raw()));
 		}
 
-		$variables = $this->config->raw();
-
-		// transform categories into comma-separated string, if they are an array
-		$categories = array_get($variables, 'categories', null);
-		if (is_array($categories))
-			$categories = implode(',', $categories);
-
-		$variables = array_merge($variables, [
+		$variables = array_merge($this->config->raw(), [
 			'slot' => $this->isPair ? trim($this->parse()) : null,
-			'categories' => $categories
-		]);	
+			'categories' => Arr::join($this->config->getValue('categories', []), ',')
+		]);
 
 		return view(CookieByte::getNamespacedKey('cover'), $variables);
 	}

@@ -57,6 +57,18 @@ class CookieByteConfig
 	}
 
 	/**
+	 * Get the raw value of a config item using dot notation.
+	 *
+	 * @param string $key
+	 * @param mixed $default
+	 * @return mixed
+	 */
+	public function getValue(string $key, $default = null)
+	{
+		return array_get($this->raw(), $key, $default);
+	}
+
+	/**
 	 * Returns the values augmented by the blueprint.
 	 */
 	public function values(): array
