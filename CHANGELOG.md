@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.1.2] - 2023-02-15
+
+### Changed
+
+* **Cookie Cover**: Make the HTML snippet of a cookie cover be added before the cover element without a div surrounding it
+
 ## [v1.1.1] - 2023-02-10
 
 ### Fixed
