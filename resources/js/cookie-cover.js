@@ -81,16 +81,12 @@ export class CookieCover {
 	 */
 	_insertHTMLSnippet() {
 		if (this.htmlSnippet === null) return;
-		const wrapper = this.element.parentNode;
 
-		const htmlNode = document.createElement("div");
-		htmlNode.innerHTML = this.htmlSnippet;
+		// Insert the snippet before the cookie cover
+		this.element.insertAdjacentHTML('beforebegin', this.htmlSnippet);
 
 		// Set htmlSnippet to null, so it won't be inserted again when calling this method
 		this.htmlSnippet = null;
-
-		// Insert the snippet before the cookie cover
-		wrapper.insertBefore(htmlNode, this.element);
 	}
 
 	/**
