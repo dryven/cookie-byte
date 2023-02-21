@@ -2,7 +2,7 @@
 
 namespace DDM\CookieByte\Configuration;
 
-use DDM\CookieByte\CookieByte;
+use DDM\CookieByte\Exceptions\CookieByteException;
 use Statamic\Support\Arr;
 use Statamic\Facades\File;
 use Statamic\Facades\YAML;
@@ -13,17 +13,22 @@ use Statamic\Fields\Blueprint;
 class CookieByteConfig
 {
 
-	protected $currentIdentifier;
 	protected $blueprint;
 	protected $configPath;
 	protected $configData;
 
-	public function __construct($identifier)
+	/**
+	 * Creates an instance for the config of the CookieByte addon.
+	 *
+	 * @param array $configData
+	 * @param string|null $configPath
+	 * @throws CookieByteException
+	 */
+	public function __construct(array $configData, ?string $configPath = null)
 	{
-		$this->currentIdentifier = $identifier;
+		$this->configData = $configData;
+		$this->configPath = $configPath;
 		$this->blueprint = \Statamic\Facades\Blueprint::make()->setContents(ConfigBlueprint::getBlueprint());
-		$this->configPath = CookieByte::getConfigurationPath($this->currentIdentifier);
-		$this->configData = CookieByte::getConfigurationData($this->currentIdentifier);
 	}
 
 	/**
@@ -44,6 +49,19 @@ class CookieByteConfig
 	public function path(): string
 	{
 		return $this->configPath;
+	}
+
+	/**
+	 * Set the path of the configuration file.
+	 *
+	 * @param string $configPath
+	 * @return $this
+	 */
+	public function setPath(string $configPath): CookieByteConfig
+	{
+		$this->configPath = $configPath;
+
+		return $this;
 	}
 
 	/**
@@ -117,6 +135,20 @@ class CookieByteConfig
 	}
 
 	/**
+	 * Set the given value in the given key to the existing configuration.
+	 *
+	 * @param $key
+	 * @param $value
+	 * @return $this
+	 */
+	public function setValue($key, $value): CookieByteConfig
+	{
+		$this->configData[$key] = $value;
+
+		return $this;
+	}
+
+	/**
 	 * Adds data / values to the existing configuration.
 	 *
 	 * @param array $values
@@ -144,6 +176,19 @@ class CookieByteConfig
 	}
 
 	/**
+	 * Removes a key-value pair from the config data.
+	 *
+	 * @param $key
+	 * @return $this
+	 */
+	public function removeValue($key): CookieByteConfig
+	{
+		unset($this->configData[$key]);
+
+		return $this;
+	}
+
+	/**
 	 * Returns whether the default stylesheet should be added.
 	 *
 	 * @return bool
@@ -165,9 +210,14 @@ class CookieByteConfig
 
 	/**
 	 * Saves the configuration to disk.
+	 * @throws CookieByteException if the configPath was not defined
 	 */
 	public function save()
 	{
+		if (!$this->configPath) {
+			throw new CookieByteException();
+		}
+
 		File::disk()->put($this->configPath, YAML::dump($this->configData));
 	}
 }

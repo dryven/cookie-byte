@@ -184,10 +184,25 @@ class ConfigBlueprint
 						[
 							'handle' => 'modal_description',
 							'field' => [
-								'type' => 'textarea',
+								'type' => 'bard',
 								'display' => CookieByte::getCpTranslation('modal_description'),
 								'instructions' => CookieByte::getCpTranslation('modal_description_instructions'),
 								'placeholder' => CookieByte::getCpTranslation('modal_description_placeholder'),
+								'buttons' => [
+									'bold',
+									'italic',
+									'underline',
+									'strikethrough',
+									'superscript',
+									'subscript',
+									'small',
+									'anchor',
+									'removeformat',
+									'alignleft',
+									'aligncenter',
+									'alignright',
+									'alignjustify',
+								],
 								'validate' => ['required']
 							]
 						],
@@ -214,7 +229,7 @@ class ConfigBlueprint
 							]
 						],
 						[
-							'handle' => 'modal_horizontal_positon',
+							'handle' => 'modal_horizontal_position',
 							'field' => [
 								'type' => 'select',
 								'display' => CookieByte::getCpTranslation('modal_horizontal_position'),
@@ -230,7 +245,7 @@ class ConfigBlueprint
 							]
 						],
 						[
-							'handle' => 'modal_vertical_positon',
+							'handle' => 'modal_vertical_position',
 							'field' => [
 								'type' => 'select',
 								'display' => CookieByte::getCpTranslation('modal_vertical_position'),

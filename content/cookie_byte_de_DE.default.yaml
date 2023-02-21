@@ -23,11 +23,19 @@ categories:
 custom_style: false
 custom_code: false
 modal_title: Cookie-Einstellungen
-modal_description: 'Wir verwenden Cookies, um Ihnen auf unserer Website ein optimales Erlebnis zu bieten. Sie können im Folgenden auswählen, welche Cookies Sie zulassen möchten. Nähere Details finden Sie in unserer Datenschutzerklärung.'
+modal_description:
+  -
+    type: paragraph
+    attrs:
+      textAlign: left
+    content:
+      -
+        type: text
+        text: 'Wir verwenden Cookies, um Ihnen auf unserer Website ein optimales Erlebnis zu bieten. Sie können im Folgenden auswählen, welche Cookies Sie zulassen möchten. Nähere Details finden Sie in unserer Datenschutzerklärung.'
 modal_button_all: 'Alle auswählen'
 modal_button_selected: 'Auswahl bestätigen'
-modal_horizontal_positon: right
-modal_vertical_positon: bottom
+modal_horizontal_position: right
+modal_vertical_position: bottom
 modal_background: back-none
 covers:
   -

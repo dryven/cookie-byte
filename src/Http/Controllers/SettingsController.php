@@ -2,6 +2,7 @@
 
 namespace DDM\CookieByte\Http\Controllers;
 
+use DDM\CookieByte\Factories\CookieByteConfigFactory;
 use Statamic\Facades\User;
 use Illuminate\Http\Request;
 use DDM\CookieByte\CookieByte;
@@ -48,7 +49,7 @@ class SettingsController extends CpController
 
 	public function getConfig(): CookieByteConfig
 	{
-		return new CookieByteConfig(CookieByte::getSelectedSiteIdentifier());
+		return CookieByteConfigFactory::createConfig();
 	}
 
 	protected function isStaticCachingEnabled(): bool

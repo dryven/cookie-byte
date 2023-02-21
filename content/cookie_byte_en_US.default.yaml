@@ -22,11 +22,19 @@ categories:
 custom_style: false
 custom_code: false
 modal_title: 'Cookie Settings'
-modal_description: 'We use cookies to give you the best experience on our website. You can choose which cookies you want to allow below. You can find more details in our privacy policy.'
+modal_description:
+  -
+    type: paragraph
+    attrs:
+      textAlign: left
+    content:
+      -
+        type: text
+        text: 'We use cookies to give you the best experience on our website. You can choose which cookies you want to allow below. You can find more details in our privacy policy.'
 modal_button_all: 'Select all'
 modal_button_selected: 'Confirm selection'
-modal_horizontal_positon: right
-modal_vertical_positon: bottom
+modal_horizontal_position: right
+modal_vertical_position: bottom
 modal_background: back-none
 covers:
   -

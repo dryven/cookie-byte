@@ -2,11 +2,10 @@
 
 namespace DDM\CookieByte\Tags;
 
-use Statamic\Support\Arr;
+use DDM\CookieByte\Factories\CookieByteConfigFactory;
 use Statamic\Tags\Tags;
 use Statamic\Facades\Asset;
 use DDM\CookieByte\CookieByte;
-use DDM\CookieByte\Configuration\CookieByteConfig;
 use DDM\CookieByte\Exceptions\CookieCoverException;
 use Statamic\Contracts\Assets\Asset as StatamicAsset;
 
@@ -17,7 +16,7 @@ class CookieCover extends Tags
 
 	public function __construct()
 	{
-		$this->config = new CookieByteConfig(CookieByte::getCurrentSiteIdentifier());
+		$this->config = CookieByteConfigFactory::createConfig();
 	}
 
 	/**

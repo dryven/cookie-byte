@@ -3,7 +3,7 @@
 namespace DDM\CookieByte\Fieldtypes;
 
 use DDM\CookieByte\Configuration\CookieByteConfig;
-use DDM\CookieByte\CookieByte;
+use DDM\CookieByte\Factories\CookieByteConfigFactory;
 use Statamic\Support\Arr;
 use Statamic\Fieldtypes\Select;
 use Illuminate\Support\Facades\File;
@@ -20,7 +20,7 @@ class CookieHandleSelect extends Select
 
 	public function __construct()
 	{
-		$this->config = new CookieByteConfig(CookieByte::getCurrentSiteIdentifier());
+		$this->config = CookieByteConfigFactory::createConfig();
 	}
 
 
