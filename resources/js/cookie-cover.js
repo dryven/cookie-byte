@@ -43,9 +43,9 @@ export class CookieCover {
 	 * Hides the cookie cover by removing it and optionally add the html snippet.
 	 */
 	hide() {
-		this._insertHTMLSnippet();
-
 		this.element.style.opacity = "0";
+
+		this._insertHTMLSnippet();
 
 		setTimeout(() => {
 			this.element.style.display = "none";
@@ -68,10 +68,10 @@ export class CookieCover {
 	 * @private
 	 */
 	_fetchHTMLSnippet() {
-		const snippetElement = this.element.querySelector('script[type="text/htmlsnippet"]');
+		const snippetElement = this.element.querySelector('textarea[data-html-snippet]');
 		if (snippetElement === null) return null;
 
-		return snippetElement.text.trim();
+		return snippetElement.value.trim();
 	}
 
 	/**
@@ -82,11 +82,47 @@ export class CookieCover {
 	_insertHTMLSnippet() {
 		if (this.htmlSnippet === null) return;
 
+		const helperElement = document.createElement('div');
+		helperElement.innerHTML = this.htmlSnippet;
+
+		// Script tags are not being executed if they are just pasted into the DOM using
+		// .innerHTML, so this method will add them the native way
+		this._makeScriptTagsExecutable(helperElement);
+
 		// Insert the snippet before the cookie cover
-		this.element.insertAdjacentHTML('beforebegin', this.htmlSnippet);
+		this.element.insertAdjacentElement('beforebegin', helperElement);
+
+		// remove the div-wrapper
+		helperElement.replaceWith(...helperElement.childNodes);
 
 		// Set htmlSnippet to null, so it won't be inserted again when calling this method
 		this.htmlSnippet = null;
+	}
+
+	/**
+	 * Makes all script tags executable that are child elements of the passed element
+	 * Re-adds the scripts using appendChild, which enables the native script functionality
+	 *
+	 * @param {HTMLElement} parentElement of the script tags
+	 */
+	_makeScriptTagsExecutable(parentElement) {
+		const scriptTags = parentElement.querySelectorAll('script');
+
+		Array.from(scriptTags).forEach(originalScript => {
+			const newScript = document.createElement('script');
+
+			// re-add all attributes
+			Array.from(originalScript.attributes).forEach(attr => {
+				newScript.setAttribute(attr.name, attr.value);
+			});
+
+			// re-add contents, if any
+			const scriptText = document.createTextNode(originalScript.innerHTML);
+			newScript.appendChild(scriptText);
+
+			// replace original node with new one
+			originalScript.parentNode.replaceChild(newScript, originalScript);
+		});
 	}
 
 	/**
