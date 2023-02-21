@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.1.4] - 2023-02-21
+
+### Changed
+
+* **Control Panel**: Make modal description a bard field
+* **Control Panel**: Fix typo in modal position variables
+* Add update scripts to migrate modal_description and modal position variables
+
 ## [v1.1.3] - 2023-02-21
 
 ### Fixed

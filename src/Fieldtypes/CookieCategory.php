@@ -3,7 +3,6 @@
 namespace DDM\CookieByte\Fieldtypes;
 
 use DDM\CookieByte\CookieByte;
-use DDM\CookieByte\Configuration\CookieByteConfig;
 
 class CookieCategory extends CookieHandleSelect
 {

@@ -1,10 +1,14 @@
 {{ if enabled }}
 <div class="ddm ddmcm {{ modal_background }}" style="display:none;opacity:0;">
 	<div class="ddmcm-wrapper">
-		<div class="ddmcm-box {{ modal_horizontal_positon }} {{ modal_vertical_positon }}">
+		<div class="ddmcm-box {{ modal_horizontal_position }} {{ modal_vertical_position }}">
 			<div class="ddmcm-content">
 				<h2>{{ modal_title }}</h2>
-				<p>{{ modal_description }}</p>
+				{{ if modal_description:0 }}
+					{{ modal_description | raw | bard_html }}
+				{{ else }}
+					<p>{{ modal_description }}</p>
+				{{ /if }}
 				<div class="ddmcm-categories">
 					{{ categories }}
 					<div class="checkbox">

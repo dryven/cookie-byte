@@ -2,6 +2,8 @@
 
 namespace DDM\CookieByte;
 
+use DDM\CookieByte\UpdateScripts\UpdateModalDescriptionConfig;
+use DDM\CookieByte\UpdateScripts\UpdateModalPositionConfig;
 use Statamic\Statamic;
 use Statamic\Facades\File;
 use Statamic\Facades\CP\Nav;
@@ -49,6 +51,11 @@ class ServiceProvider extends AddonServiceProvider
 	protected $scripts = [
         __DIR__.'/../resources/dist/js/cp.js'
     ];
+
+	protected $updateScripts = [
+		UpdateModalPositionConfig::class,
+		UpdateModalDescriptionConfig::class
+	];
 
 	protected $publishAfterInstall = false;
 

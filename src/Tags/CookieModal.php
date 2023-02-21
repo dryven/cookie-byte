@@ -2,8 +2,8 @@
 
 namespace DDM\CookieByte\Tags;
 
-use DDM\CookieByte\Configuration\CookieByteConfig;
 use DDM\CookieByte\CookieByte;
+use DDM\CookieByte\Factories\CookieByteConfigFactory;
 use Statamic\Tags\Tags;
 
 class CookieModal extends Tags
@@ -13,7 +13,7 @@ class CookieModal extends Tags
 
 	public function __construct()
 	{
-		$this->config = new CookieByteConfig(CookieByte::getCurrentSiteIdentifier());
+		$this->config = CookieByteConfigFactory::createConfig();
 	}
 
 	public function index()
