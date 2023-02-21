@@ -88,7 +88,6 @@ export class CookieCover {
 		// Script tags are not being executed if they are just pasted into the DOM using
 		// .innerHTML, so this method will add them the native way
 		this._makeScriptTagsExecutable(helperElement);
-	
 
 		// Insert the snippet before the cookie cover
 		this.element.insertAdjacentElement('beforebegin', helperElement);
@@ -103,25 +102,24 @@ export class CookieCover {
 	/**
 	 * Makes all script tags executable that are child elements of the passed element
 	 * Re-adds the scripts using appendChild, which enables the native script functionality
-	 * 
-	 * @param {HTMLElement} parentElement of the script tags 
+	 *
+	 * @param {HTMLElement} parentElement of the script tags
 	 */
 	_makeScriptTagsExecutable(parentElement) {
 		const scriptTags = parentElement.querySelectorAll('script');
 
 		Array.from(scriptTags).forEach(originalScript => {
-
 			const newScript = document.createElement('script');
-			
+
 			// re-add all attributes
 			Array.from(originalScript.attributes).forEach(attr => {
 				newScript.setAttribute(attr.name, attr.value);
 			});
-			
+
 			// re-add contents, if any
 			const scriptText = document.createTextNode(originalScript.innerHTML);
 			newScript.appendChild(scriptText);
-			
+
 			// replace original node with new one
 			originalScript.parentNode.replaceChild(newScript, originalScript);
 		});

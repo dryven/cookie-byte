@@ -474,3 +474,7 @@
         color: #fff; /* Secondary color */
     }
 
+[data-html-snippet] {
+    display: none;
+}
+

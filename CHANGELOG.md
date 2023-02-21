@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.1.3] - 2023-02-21
+
+### Fixed
+
+* **Cookie Cover**: Make script tags executable in a cookie cover
+
 ## [v1.1.2] - 2023-02-15
 
 ### Changed
