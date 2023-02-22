@@ -198,10 +198,6 @@ class ConfigBlueprint
 									'small',
 									'anchor',
 									'removeformat',
-									'alignleft',
-									'aligncenter',
-									'alignright',
-									'alignjustify',
 								],
 								'validate' => ['required']
 							]
