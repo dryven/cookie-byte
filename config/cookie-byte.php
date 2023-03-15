@@ -7,6 +7,11 @@
          */
         'asset_container' => 'assets',
 
+         /**
+         * This specifies the collections, entries can be selected from in any bard field inside the Cookie Byte config.
+         */
+        'link_collections' => ['pages'],
+
         /**
          * This specifies the directory, in which the addon will save its Control Panel configuration file.
          */
