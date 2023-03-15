@@ -1,5 +1,15 @@
 # Changelog
 
+## [v1.1.5] - 2023-03-15
+
+### Added
+
+* Let users specify link_collections for bards
+
+### Changed
+
+* Remove bard text align options, as they do not work for addons
+
 ## [v1.1.4] - 2023-02-21
 
 ### Changed

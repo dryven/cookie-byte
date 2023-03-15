@@ -188,6 +188,7 @@ class ConfigBlueprint
 								'display' => CookieByte::getCpTranslation('modal_description'),
 								'instructions' => CookieByte::getCpTranslation('modal_description_instructions'),
 								'placeholder' => CookieByte::getCpTranslation('modal_description_placeholder'),
+								'link_collections' => config('cookie-byte.link_collections', ['pages']),
 								'buttons' => [
 									'bold',
 									'italic',
@@ -198,10 +199,6 @@ class ConfigBlueprint
 									'small',
 									'anchor',
 									'removeformat',
-									'alignleft',
-									'aligncenter',
-									'alignright',
-									'alignjustify',
 								],
 								'validate' => ['required']
 							]
