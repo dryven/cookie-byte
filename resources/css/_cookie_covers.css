@@ -10,6 +10,8 @@
     transition: opacity ease-in-out 300ms;
     z-index: 10;
     max-width: 100%;
+    width: 42rem;
+    max-width: 100%;
 }
 
 .ddmcc-wrapper {
@@ -17,10 +19,8 @@
     flex-direction: column;
     justify-content: center;
     height: 100%;
-    background-color: rgba(0, 0, 0, .5);
-    width: 42rem;
     min-height: 20rem;
-    max-width: 100%;
+    background-color: rgba(0, 0, 0, .5);
 }
 
 .ddmcc-content {
