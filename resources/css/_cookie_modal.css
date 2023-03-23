@@ -9,7 +9,6 @@
     !!! In this stylesheet are some pretty useful categories, which deletion !!!
     !!! could make some of the settings in the control panel, well, useless. !!!
     !!! Drive safe and most importantly: be careful.                         !!!
-    !!! Everything is safe to edit after line: 107                           !!!
     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  */
 
@@ -59,7 +58,7 @@
     pointer-events: auto;
 
     background-color: #fff;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0px 15px 3px rgb(44 62 80 / 10%), 0 0 6px 0 rgb(44 62 80 / 10%);
 
     /* Make the modal a little wider on desktops */
     @media screen and (min-width: 64rem) {
@@ -104,7 +103,71 @@
     }
 }
 
-/*                   Everything is safe to be edited from here                */
+/** Accordion styling **/
+
+.ddmcm-accordion-item {
+
+    .ddmcm-accordion-toggle {
+        cursor: default;
+        display: flex;
+        align-items: center;
+        user-select: none;
+    }
+
+    .ddmcm-accordion-arrow {
+        display: flex;
+        width: 1rem;
+        height: 1rem;
+        margin-left: 0.3rem;
+        transition: transform 150ms ease-in-out;
+        /* Thanks to bootstrap icons for this cool chevron icon (name: chevron-down) */
+        background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22currentColor%22%20viewBox%3D%220%200%2016%2016%22%3E%0A%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M1.646%204.646a.5.5%200%200%201%20.708%200L8%2010.293l5.646-5.647a.5.5%200%200%201%20.708.708l-6%206a.5.5%200%200%201-.708%200l-6-6a.5.5%200%200%201%200-.708z%22%2F%3E%0A%3C%2Fsvg%3E") no-repeat;
+    }
+
+    &.has-content .ddmcm-accordion-toggle {
+        cursor: pointer;
+    }
+}
+
+.ddmcm-accordion-toggle input[type="checkbox"] {
+    display: none;
+
+    &:checked + .ddmcm-accordion-arrow {
+        transform: rotate(180deg);
+    }
+}
+
+.ddmcm-accordion-content {
+    transition: 500ms all cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    height: 0;
+    font-size: 0.9em;
+
+    /* Add some spacing on top and bottom of the content wrapper */
+    &:before, &:after {
+        content: '';
+        height: 10px;
+        display: block;
+    }
+
+    /* Basic table styling, let's keep it compact and simple */
+    table td {
+        padding: 0.25rem 1rem 0.25rem 0;
+        border: none;
+        vertical-align: top;
+
+        h2, p {
+            margin-bottom: 0;
+        }
+
+        &:last-child {
+            padding-right: 0;
+        }
+    }
+}
+
+
+/***********  Everything is safe to be edited from here  ***********/
 
 /** Now it's time to align the checkboxes. */
 .ddmcm-categories {
@@ -113,14 +176,17 @@
     .checkbox {
         display: flex;
         justify-content: space-between;
-        align-items: center;
-
-        &:not(:last-of-type) {
-            margin-bottom: 0.5rem;
-        }
 
         @media screen and (min-width: 48rem) {
             display: block;
+        }
+    }
+
+    .ddmcm-category {
+        display: flex;
+
+        &:not(:last-child) {
+            margin-bottom: 0.5rem;
         }
     }
 }

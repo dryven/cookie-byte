@@ -101,10 +101,26 @@ class ConfigBlueprint
 									[
 										'handle' => 'description',
 										'field' => [
-											'type' => 'textarea',
+											'type' => 'bard',
 											'display' => CookieByte::getCpTranslation('category_description'),
 											'instructions' => CookieByte::getCpTranslation('category_description_instructions'),
 											'placeholder' => CookieByte::getCpTranslation('category_description_placeholder'),
+											'link_collections' => config('cookie-byte.link_collections', ['pages']),
+											'buttons' => [
+												'bold',
+												'italic',
+												'underline',
+												'strikethrough',
+												'superscript',
+												'subscript',
+												'small',
+												'anchor',
+												'removeformat',
+												'unorderedlist',
+												'orderedlist',
+												'quote',
+												'table'
+											]
 										]
 									],
 									[

@@ -22,7 +22,7 @@ export class CookieModal {
 		if (this._modal === null) return;
 
 		// Find all cookie category checkboxes
-		this._modalCheckboxes = this._modal.querySelectorAll('.ddmcm-categories input[type="checkbox"]');
+		this._modalCheckboxes = this._modal.querySelectorAll('.ddmcm-categories input[data-ddmcm-category][type="checkbox"]');
 		if (this._modalCheckboxes.length === 0) return;
 
 		// Select all checkboxes which already have consent
@@ -37,6 +37,9 @@ export class CookieModal {
 
 		// Make a button just consent the selected categories
 		this._initButton("#ddmcm-button-selected");
+
+		// Init cookie category accordion
+		this._initAccordion();
 
 		// Show the cookie notice if it hasn't already been interacted with
 		if (!this._instance.hasConsent("showed")) this.show();
@@ -116,7 +119,7 @@ export class CookieModal {
 	 * @private
 	 */
 	_getUncheckedModals() {
-		return this._modal.querySelectorAll('.ddmcm-categories input[type="checkbox"]:not(:checked)');
+		return this._modal.querySelectorAll('.ddmcm-categories input[data-ddmcm-category][type="checkbox"]:not(:checked)');
 	}
 
 	/**
@@ -143,5 +146,54 @@ export class CookieModal {
 			this._pushSettings();
 			this._finalize();
 		});
+	}
+
+	/**
+	 * Initializes the functionality to expand and collapse each cookie category like an accordion
+	 * 
+	 * @private 
+	 */
+	_initAccordion() {
+		const accordion = this._modal.querySelector('.ddmcm-accordion');
+
+		if (!accordion)
+			return;
+	
+		const accordionItems = accordion.querySelectorAll('.ddmcm-accordion-item');
+
+		accordionItems.forEach((accordionItem) => {
+			const accordionToggle = accordionItem.querySelector('.ddmcm-accordion-toggle input[type="checkbox"]');
+
+			if (!accordionToggle)
+				return;
+
+			accordionToggle.addEventListener('change', () => {
+				accordionItems.forEach((item) => {
+					this._toggleAccordionItem(item, accordionItem === item && accordionToggle.checked);
+				});
+			});
+		});
+	}
+
+	/**
+	 * Opens or closes passed accordion item
+	 * @param {Element} accordionItem Accordion item container of a single accordion item ('.accordion-item')
+	 * @param {Boolean} open Open/Close
+	 */
+	_toggleAccordionItem(accordionItem, open) {
+		let checkbox = accordionItem.querySelector('.ddmcm-accordion-toggle input[type="checkbox"]');
+		let accordionContent = accordionItem.querySelector('.ddmcm-accordion-content');
+
+		if (!checkbox | !accordionContent)
+			return;
+
+		checkbox.checked = open;
+		accordionContent.style.height = (open ? accordionContent.scrollHeight : 0) + 'px';
+
+		// set it again after transition end, so that nothing is cut off
+		// sometimes there are issues in the scrollHeight calculation
+		setTimeout(() => {
+			accordionContent.style.height = (open ? accordionContent.scrollHeight : 0) + 'px';
+		}, 500);
 	}
 }

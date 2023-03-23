@@ -3,17 +3,13 @@
     This is our pre-defined cookie cover styling.
  */
 
-.ddmcc {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+ .ddmcc {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     transition: opacity ease-in-out 300ms;
     z-index: 10;
+    max-width: 100%;
 }
 
 .ddmcc-wrapper {
@@ -21,11 +17,18 @@
     flex-direction: column;
     justify-content: center;
     height: 100%;
-    background-color: rgba(64, 64, 64, .6);
+    background-color: rgba(0, 0, 0, .5);
+    width: 42rem;
+    min-height: 20rem;
+    max-width: 100%;
 }
 
 .ddmcc-content {
-    padding: 0 3rem;
+    padding: 3rem 1.5rem;
+
+    @media screen and (min-width: 64rem) {
+        padding: 3rem;
+    }
 
     h2, p {
         text-align: center;
