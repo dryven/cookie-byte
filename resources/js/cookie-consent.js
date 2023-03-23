@@ -1,6 +1,6 @@
 "use strict";
 
-import { Cookies } from "./cookies";
+import Cookies from 'js-cookie';
 
 /**
  * Class for handling cookie requests, changes and callbacks
@@ -137,7 +137,7 @@ export class CookieConsent {
 	 */
 	setConsent(cookieCategories, value) {
 		this._runSplitList(cookieCategories, (cookieType) => {
-			Cookies.set(this._options.prefix + cookieType, value === true || value === "true");
+			Cookies.set(this._options.prefix + cookieType, value === true || value === "true", { expires: 365 }); // 365 days
 
 			this.runCallback(cookieType);
 		});

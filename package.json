@@ -30,6 +30,7 @@
 		"hot": "mix watch --hot"
 	},
 	"devDependencies": {
+		"js-cookie": "^3.0.1",
 		"laravel-mix": "^6.0.49",
 		"postcss-import": "^14.1.0",
 		"postcss-nested": "^5.0.6",
