@@ -1,5 +1,16 @@
 # Changelog
 
+## [v1.2.0] - 2023-03-23
+
+### Added
+**Expandable cookie categories**
+* acc. to GDPR, every using must get all the information about a cookie without having to visit the privacy policy first
+* since the tooltip isn't sufficient for this case, we are adding a bard field
+* this extended info is expandable for each category
+### Changed
+* Move to js-cookie as it is more reliable
+* Remove pause before hiding cookie cover
+
 ## [v1.1.5] - 2023-03-15
 
 ### Added

@@ -1,6 +1,6 @@
 {
 	"name": "cookie-byte",
-	"version": "1.1.5",
+	"version": "1.2.0",
 	"description": "A highly customizable cookie consent manager for Statamic websites",
 	"keywords": [
 		"cookie consent",
