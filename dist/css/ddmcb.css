@@ -1,7 +1,7 @@
 /**
     DEFAULT COOKIE BYTE STYLING
 
-    Here we define basic styles for buttons, checkboxes and tooltips. You can
+    Here we define basic styles for e.g. buttons or checkboxes. You can
     reuse each or replace them with your own to match your site's design.
  */
 
@@ -19,6 +19,8 @@
         box-sizing: border-box;
     }
 
+/* Buttons */
+
 #ddmcm-button-all, .ddmcc-button-accept {
     display: inline-flex;
     justify-content: center;
@@ -31,14 +33,16 @@
     transition: all ease-in-out 300ms;
 }
 
-.ddmcm input[type='checkbox'] {
+/* Checkboxes */
+
+.ddmcm .checkbox input[type='checkbox'] {
     display: none;
 }
 
-.ddmcm input[type='checkbox'] + label {
+.ddmcm .checkbox input[type='checkbox'] + label {
         position: relative;
-        display: inline-block;
-        padding-left: 2.5rem;
+        display: block;
+        padding-left: 2rem;
 
         cursor: pointer;
         -webkit-user-select: none;
@@ -47,16 +51,16 @@
                 user-select: none;
     }
 
-.ddmcm input[type='checkbox']:disabled + label {
+.ddmcm .checkbox input[type='checkbox']:disabled + label {
         color: #a3a3a3; /* Greyed out */
     }
 
-.ddmcm input[type='checkbox'] + label::before {
+.ddmcm .checkbox input[type='checkbox'] + label::before {
         display: block;
         width: 1.25rem;
         height: 1.25rem;
         position: absolute;
-        top: 0;
+        top: 0.15rem;
         left: 0;
 
         border: 2px solid #000; /* Primary color */
@@ -64,11 +68,11 @@
         transition: all .12s, border-color .08s;
     }
 
-.ddmcm input[type='checkbox']:disabled + label::before {
+.ddmcm .checkbox input[type='checkbox']:disabled + label::before {
         border-color: #a3a3a3; /* Greyed out */
     }
 
-.ddmcm input[type='checkbox']:checked + label::before {
+.ddmcm .checkbox input[type='checkbox']:checked + label::before {
         width: 0.75rem;
         top: 0.5rem;
         transform: rotate(45deg) translate(-50%, -50%);
@@ -81,160 +85,43 @@
         border-bottom-width: 2px;
     }
 
-.ddmcm input[type='checkbox']:checked:disabled + label::before {
+.ddmcm .checkbox input[type='checkbox']:checked:disabled + label::before {
         border-right-color: #a3a3a3; /* Greyed out */
         border-bottom-color: #a3a3a3; /* Greyed out */
-    }
-
-/* Big thanks to Ghosh for this amazing tooltip (npm: microtip) */
-
-.ddmcm [aria-label][role~=tooltip] {
-    position: relative;
-    width: 1rem;
-    height: 1rem;
-    vertical-align: super;
-    /* Thanks to bootstrap icons for this cool info icon (name: info-circle) */
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23000' viewBox='0 0 16 16'%3E%3Cpath d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'/%3E%3Cpath d='M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z'/%3E%3C/svg%3E") no-repeat;
-}
-
-.ddmcm [aria-label][role~=tooltip]::before, .ddmcm [aria-label][role~=tooltip]::after {
-        position: absolute;
-        transform-origin: top;
-        will-change: transform;
-        box-sizing: border-box;
-
-        z-index: 10;
-        opacity: 0;
-        -webkit-backface-visibility: hidden;
-                backface-visibility: hidden;
-        pointer-events: none;
-        transition: all .18s ease-in-out;
-
-        /* default tooltip position: left */
-        top: 50%;
-        left: auto;
-        right: 100%;
-        bottom: auto;
-        transform: translate3d(10px, -50%, 0);
-    }
-
-/* The little arrow, showing where the tooltip comes from */
-
-.ddmcm [aria-label][role~=tooltip]::before {
-        background-size: 100% auto !important;
-    }
-
-.ddmcm [aria-label][role~=tooltip]::before {
-        content: '';
-
-        /* default tooltip position: left */
-        background: url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2212px%22%20height%3D%2236px%22%3E%3Cpath%20fill%3D%22rgba%2817,%2017,%2017,%200.9%29%22%20transform%3D%22rotate%28-90%2018%2018%29%22%20d%3D%22M2.658,0.000%20C-13.615,0.000%2050.938,0.000%2034.662,0.000%20C28.662,0.000%2023.035,12.002%2018.660,12.002%20C14.285,12.002%208.594,0.000%202.658,0.000%20Z%22/%3E%3C/svg%3E') no-repeat;
-        width: 6px;
-        height: 18px;
-        margin-right: 5px;
-        margin-bottom: 0;
-    }
-
-.ddmcm [aria-label][role~=tooltip]::after {
-        width: 60vw;
-        max-width: 260px;
-        padding: .5em 1em;
-        box-sizing: content-box;
-
-        border-radius: 4px;
-        content: attr(aria-label);
-        font-size: 13px;
-        color: #fff;
-        background: rgba(17, 17, 17, .9);
-
-        /* default tooltip position: left */
-        margin-right: 11px;
-    }
-
-.ddmcm [aria-label][role~=tooltip]:hover::before, .ddmcm [aria-label][role~=tooltip]:hover::after, .ddmcm [aria-label][role~=tooltip]:focus::before, .ddmcm [aria-label][role~=tooltip]:focus::after {
-            opacity: 1;
-            pointer-events: auto;
-
-            /* default tooltip position: left */
-            transform: translate3d(0, -50%, 0);
-        }
-
-/* Everything above tablet; Tooltip position: top-right */
-
-@media screen and (min-width: 48rem) {
-        .ddmcm [aria-label][role~=tooltip]::before, .ddmcm [aria-label][role~=tooltip]::after {
-            top: auto;
-            right: auto;
-        }
-
-        .ddmcm [aria-label][role~=tooltip]::before {
-            background: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2236px%22%20height%3D%2212px%22%3E%3Cpath%20fill%3D%22rgba%2817,%2017,%2017,%200.9%29%22%20transform%3D%22rotate%280%29%22%20d%3D%22M2.658,0.000%20C-13.615,0.000%2050.938,0.000%2034.662,0.000%20C28.662,0.000%2023.035,12.002%2018.660,12.002%20C14.285,12.002%208.594,0.000%202.658,0.000%20Z%22/%3E%3C/svg%3E") no-repeat;
-            width: 18px;
-            height: 6px;
-            bottom: 100%;
-            left: 50%;
-            margin-right: auto;
-            margin-bottom: 5px;
-            transform: translate3d(-50%, 0, 0);
-        }
-
-        .ddmcm [aria-label][role~=tooltip]::after {
-            bottom: 100%;
-            left: 50%;
-            margin-right: auto;
-            margin-bottom: 11px;
-            transform: translate3d(calc(0% + -16px), 0, 0);
-        }
-            .ddmcm [aria-label][role~=tooltip]:hover::before {
-                transform: translate3d(-50%, -5px, 0);
-            }
-
-            .ddmcm [aria-label][role~=tooltip]:hover::after {
-                transform: translate3d(calc(0% + -16px), -5px, 0);
-            }
     }
 
 /** Adds some basic styling to the modal's content itself.
  *  Everything after this line can be changed without a doubt. */
 
-.ddmcm-content, .ddmcc-content {
-    margin: 1.5rem;
-}
-
-.ddmcm-content h2, .ddmcm-content p, .ddmcc-content h2, .ddmcc-content p {
-        margin-bottom: 1.25rem;
-    }
-
-/** Let's play safe: H2 is sometimes used for enormously huge texts,
-     * so we define our own size, everything else is up to the other styles. */
+.ddmcm-content h2:not(:last-child), .ddmcm-content p:not(:last-child), .ddmcc-content h2:not(:last-child), .ddmcc-content p:not(:last-child) {
+            padding-bottom: 1rem;
+        }
 
 .ddmcm-content h2, .ddmcc-content h2 {
         font-size: 1.125rem;
         line-height: 1.75rem;
-        @apply text-lg lg:text-xl;
-    }
-
-.ddmcm-content p, .ddmcm-content label, .ddmcc-content p, .ddmcc-content label {
-        font-size: 0.875rem;
-        line-height: 1.25rem;
     }
 
 @media screen and (min-width: 64rem) {
-        .ddmcm-content h2, .ddmcc-content h2 {
+
+.ddmcm-content h2, .ddmcc-content h2 {
             font-size: 1.25rem;
-            line-height: 1.75rem;
+            line-height: 1.75rem
+    }
         }
 
-        .ddmcm-content p, .ddmcm-content label, .ddmcc-content p, .ddmcc-content label {
-            font-size: 1rem;
-            line-height: 1.5rem;
-        }
+/** Let's play safe: H2 is sometimes used for enormously huge texts,
+     * so we define our own size, everything else is up to the other styles. */
+
+.ddmcm-content .ddmcm-title, .ddmcc-content .ddmcm-title {
+        position: sticky;
+        top: 0;
+        padding: 1rem 0;
+        background-color: white;
     }
 
-@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-    .ddmcm [aria-label][role~=tooltip] {
-        vertical-align: inherit;
-    }
+.ddmcm-content {
+    margin: 0 1.5rem 1.5rem 1.5rem;
 }
 
 /*
@@ -248,7 +135,6 @@
     !!! In this stylesheet are some pretty useful categories, which deletion !!!
     !!! could make some of the settings in the control panel, well, useless. !!!
     !!! Drive safe and most importantly: be careful.                         !!!
-    !!! Everything is safe to edit after line: 107                           !!!
     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  */
 
@@ -304,7 +190,7 @@
     pointer-events: auto;
 
     background-color: #fff;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0px 15px 3px rgba(44, 62, 80, 0.1), 0 0 6px 0 rgba(44, 62, 80, 0.1);
 }
 
 /* Make the modal a little wider on desktops */
@@ -351,7 +237,72 @@
             }
     }
 
-/*                   Everything is safe to be edited from here                */
+/** Accordion styling **/
+
+.ddmcm-accordion-item .ddmcm-accordion-toggle {
+        cursor: default;
+        display: flex;
+        align-items: center;
+        -webkit-user-select: none;
+           -moz-user-select: none;
+            -ms-user-select: none;
+                user-select: none;
+    }
+
+.ddmcm-accordion-item .ddmcm-accordion-arrow {
+        display: flex;
+        width: 1rem;
+        height: 1rem;
+        margin-left: 0.3rem;
+        transition: transform 150ms ease-in-out;
+        /* Thanks to bootstrap icons for this cool chevron icon (name: chevron-down) */
+        background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22currentColor%22%20viewBox%3D%220%200%2016%2016%22%3E%0A%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M1.646%204.646a.5.5%200%200%201%20.708%200L8%2010.293l5.646-5.647a.5.5%200%200%201%20.708.708l-6%206a.5.5%200%200%201-.708%200l-6-6a.5.5%200%200%201%200-.708z%22%2F%3E%0A%3C%2Fsvg%3E") no-repeat;
+    }
+
+.ddmcm-accordion-item.has-content .ddmcm-accordion-toggle {
+        cursor: pointer;
+    }
+
+.ddmcm-accordion-toggle input[type="checkbox"] {
+    display: none;
+}
+
+.ddmcm-accordion-toggle input[type="checkbox"]:checked + .ddmcm-accordion-arrow {
+        transform: rotate(180deg);
+    }
+
+.ddmcm-accordion-content {
+    transition: 500ms all cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    height: 0;
+    font-size: 0.9em;
+}
+
+/* Add some spacing on top and bottom of the content wrapper */
+
+.ddmcm-accordion-content:before, .ddmcm-accordion-content:after {
+        content: '';
+        height: 10px;
+        display: block;
+    }
+
+/* Basic table styling, let's keep it compact and simple */
+
+.ddmcm-accordion-content table td {
+        padding: 0.25rem 1rem 0.25rem 0;
+        border: none;
+        vertical-align: top;
+    }
+
+.ddmcm-accordion-content table td h2, .ddmcm-accordion-content table td p {
+            margin-bottom: 0;
+        }
+
+.ddmcm-accordion-content table td:last-child {
+            padding-right: 0;
+        }
+
+/***********  Everything is safe to be edited from here  ***********/
 
 /** Now it's time to align the checkboxes. */
 
@@ -362,18 +313,21 @@
 .ddmcm-categories .checkbox {
         display: flex;
         justify-content: space-between;
-        align-items: center;
     }
-
-.ddmcm-categories .checkbox:not(:last-of-type) {
-            margin-bottom: 0.5rem;
-        }
 
 @media screen and (min-width: 48rem) {
 
 .ddmcm-categories .checkbox {
             display: block
     }
+        }
+
+.ddmcm-categories .ddmcm-category {
+        display: flex;
+    }
+
+.ddmcm-categories .ddmcm-category:not(:last-child) {
+            margin-bottom: 0.5rem;
         }
 
 .ddmcm-buttons {
@@ -428,16 +382,14 @@
  */
 
 .ddmcc {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     transition: opacity ease-in-out 300ms;
     z-index: 10;
+    max-width: 100%;
+    width: 42rem;
+    max-width: 100%;
 }
 
 .ddmcc-wrapper {
@@ -445,12 +397,20 @@
     flex-direction: column;
     justify-content: center;
     height: 100%;
-    background-color: rgba(64, 64, 64, .6);
+    min-height: 20rem;
+    background-color: rgba(0, 0, 0, .5);
 }
 
 .ddmcc-content {
-    padding: 0 3rem;
+    padding: 3rem 1.5rem;
 }
+
+@media screen and (min-width: 64rem) {
+
+.ddmcc-content {
+        padding: 3rem
+}
+    }
 
 .ddmcc-content h2, .ddmcc-content p {
         text-align: center;

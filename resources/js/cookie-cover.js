@@ -2,8 +2,6 @@
 
 import {CookieConsent} from "./cookie-consent";
 
-const DISPLAY_SLEEP_TIME = 300;
-
 /**
  * Class for initializing a cookie cover.
  */
@@ -44,12 +42,9 @@ export class CookieCover {
 	 */
 	hide() {
 		this.element.style.opacity = "0";
+		this.element.style.display = "none";
 
 		this._insertHTMLSnippet();
-
-		setTimeout(() => {
-			this.element.style.display = "none";
-		}, DISPLAY_SLEEP_TIME);
 	}
 
 	/**

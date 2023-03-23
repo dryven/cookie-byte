@@ -27,7 +27,7 @@ return [
 	'category_required' => 'Required',
 	'category_required_instructions' => 'Are these cookies mandatory for navigating the website?',
 	'category_description' => 'Description',
-	'category_description_instructions' => 'Give users an idea for what these cookies are used for (this is displayed on the website in a tooltip).',
+	'category_description_instructions' => 'Give users an idea for what these cookies are used for (this is displayed in a expandable menu on the website).',
 	'category_description_placeholder' => 'Example cookies are used to ...',
 	'category_code_snippets' => 'Code snippets',
 	'category_code_snippets_instructions' => 'These code snippets are executed as soon as the user accepts this cookie category. For example: Add the code snippet of you analysis tool to the cookies category "Statistical cookies" so that the analysis tool is only tracking as soon as the user accepts the "Statistical cookies".',
