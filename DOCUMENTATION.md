@@ -83,21 +83,15 @@ if they want to accept the cookies on your site. It is recommended to put this i
 {{ cookie_cover handle="..." }}
 ```
 
-The CookieCover tag adds a special cover before a specific HTML snippet can be placed on the website. Be sure to create 
-the cookie content cover in the control panel first and give this tag its handle. A typical implementation looks 
-something like this:
+The CookieCover tag adds a special cover before a specific HTML snippet can be placed on the website. Be sure to create the cookie content cover in the control panel first and pass its handle to this tag. A typical implementation looks something like this:
 
 ```html
-<div style="position: relative; width: 500px; height: 500px;">
-    {{ cookie_cover handle="google-maps" }}
-        <iframe src="..." width="500" height="500"></iframe>
-    {{ /cookie_cover }}
-</div>
+{{ cookie_cover handle="google-maps" }}
+    <iframe src="..." width="500" height="500"></iframe>
+{{ /cookie_cover }}
 ```
 
-Be aware that the inline styles are considered bad practice, but we included them as the cookie cover itself is 
-absolutely positioned and should be contained in a relative element with some space boundary like above. With some 
-extra magic the cookie content cover could look something like this:
+Depending on your use-case, the cookie cover can look something like this:
 
 ![Cover Preview](https://raw.githubusercontent.com/dryven/cookie-byte/main/repo/CookieCoverExample.gif)
 
@@ -195,7 +189,7 @@ const initMySite = () => {
     window.CookieCovers = new CookieCovers(window.CookieConsent);
 
     window.CookieConsent.registerCallback('essential', () => {
-        console.log('HELLO :-)');
+        console.log('HELLO :-)');W
     });
 
     if (window.CookieConsent.hasConsent('essential,thirdparty')) {
