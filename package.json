@@ -1,6 +1,6 @@
 {
 	"name": "cookie-byte",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"description": "A highly customizable cookie consent manager for Statamic websites",
 	"keywords": [
 		"cookie consent",
@@ -29,8 +29,10 @@
 		"watch-poll": "mix watch -- --watch-options-poll=1000",
 		"hot": "mix watch --hot"
 	},
+	"dependencies": {
+		"js-cookie": "^3.0.1"
+	},
 	"devDependencies": {
-		"js-cookie": "^3.0.1",
 		"laravel-mix": "^6.0.49",
 		"postcss-import": "^14.1.0",
 		"postcss-nested": "^5.0.6",
