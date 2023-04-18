@@ -1,12 +1,20 @@
 # Changelog
 
+## [v1.2.1] - 2023-04-18
+
+### Fixed
+
+* Fix multi site not working correctly in CP since Site::current() is not returning the selected site
+
 ## [v1.2.0] - 2023-03-23
 
 ### Added
+
 **Expandable cookie categories**
 * acc. to GDPR, every using must get all the information about a cookie without having to visit the privacy policy first
 * since the tooltip isn't sufficient for this case, we are adding a bard field
 * this extended info is expandable for each category
+
 ### Changed
 * Move to js-cookie as it is more reliable
 * Remove pause before hiding cookie cover
