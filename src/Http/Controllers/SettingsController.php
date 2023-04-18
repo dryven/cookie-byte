@@ -49,7 +49,7 @@ class SettingsController extends CpController
 
 	public function getConfig(): CookieByteConfig
 	{
-		return CookieByteConfigFactory::createConfig();
+		return CookieByteConfigFactory::createConfigWithIdentifier(CookieByte::getSelectedSiteIdentifier());
 	}
 
 	protected function isStaticCachingEnabled(): bool
