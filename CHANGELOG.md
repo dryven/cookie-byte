@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.2.2] - 2023-04-18
+
+### Fixed
+
+* Fix current site returning selected site
+
 ## [v1.2.1] - 2023-04-18
 
 ### Fixed
