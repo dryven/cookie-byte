@@ -102,10 +102,10 @@ class CookieByte
 	{
 		switch (config('cookie-byte.site_identifier_type', self::LOCALE_IDENTIFIER)) {
 			case self::HANDLE_IDENTIFIER:
-				return Site::selected()->handle();
+				return Site::current()->handle();
 			case self::LOCALE_IDENTIFIER:
 			default:
-				return Site::selected()->locale();
+				return Site::current()->locale();
 		}
 	}
 
