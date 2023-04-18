@@ -40,7 +40,10 @@
 			"name": "Cookie Byte",
 			"description": "A highly customizable cookie consent manager for Statamic websites",
 			"version": "1.2.0"
-		}
+		},
+		"npm": {
+			"js-cookie": "^3.0.1"
+	  	}
 	},
 	"config": {
 		"allow-plugins": {
