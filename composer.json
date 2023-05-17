@@ -14,12 +14,12 @@
 	"authors": [
 		{
 			"name": "dryven",
-			"email": "hallo@dryven.at",
-			"homepage": "https://dryven.at/"
+			"email": "hallo@dryven.com",
+			"homepage": "https://dryven.com/"
 		}
 	],
 	"support": {
-		"email": "support@dryven.at"
+		"email": "support@dryven.com"
 	},
 	"require": {
 		"php": "^8.0",
