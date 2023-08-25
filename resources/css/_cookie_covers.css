@@ -3,14 +3,12 @@
     This is our pre-defined cookie cover styling.
  */
 
- .ddmcc {
+.ddmcc {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     transition: opacity ease-in-out 300ms;
     z-index: 10;
-    max-width: 100%;
-    width: 42rem;
     max-width: 100%;
 }
 
@@ -24,11 +22,7 @@
 }
 
 .ddmcc-content {
-    padding: 3rem 1.5rem;
-
-    @media screen and (min-width: 64rem) {
-        padding: 3rem;
-    }
+    padding: 1.5rem;
 
     h2, p {
         text-align: center;
@@ -38,17 +32,8 @@
 
 .ddmcc-buttons {
     display: flex;
+    gap: 1rem;
     justify-content: center;
-}
-
-.ddmcc-button-accept {
-    background-color: #fff; /* Secondary color */
-    color: #000; /* Primary color */
-
-    &:hover {
-        background-color: #000; /* Primary color */
-        color: #fff; /* Secondary color */
-    }
 }
 
 [data-html-snippet] {
