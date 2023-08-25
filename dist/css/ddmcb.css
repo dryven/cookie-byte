@@ -5,33 +5,55 @@
     reuse each or replace them with your own to match your site's design.
  */
 
-.ddm button {
-        -webkit-appearance: button;
-        cursor: pointer;
-    }
-
-.ddm button:focus {
-            outline: 2px solid transparent;
-            outline-offset: 2px;
-        }
+.ddm {
+    --ddm-color-primary: #000;
+    --ddm-color-secondary: #fff;
+    --ddm-color-disabled: #a3a3a3;
+    --ddm-color-background: #fff;
+    --ddm-color-text: #000;
+}
 
 .ddm * {
         box-sizing: border-box;
     }
 
-/* Buttons */
-
-#ddmcm-button-all, .ddmcc-button-accept {
+.ddm-button {
+    -webkit-appearance: button;
+    cursor: pointer;
     display: inline-flex;
     justify-content: center;
     align-items: center;
     padding: 0.375rem 1.25rem;
-
-    font-size: 1rem;
-    font-weight: 700;
+    font-weight: bold;
     text-decoration: none;
     transition: all ease-in-out 300ms;
+
+    background-color: var(--ddm-color-primary);
+    border: 2px solid var(--ddm-color-primary);
+    color: var(--ddm-color-secondary);
 }
+
+.ddm-button:hover {
+        background-color: var(--ddm-color-secondary);
+        color: var(--ddm-color-primary);
+    }
+
+.ddm-button:focus {
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+    }
+
+.ddm-button.inverted {
+    color: var(--ddm-color-primary);
+    background-color: var(--ddm-color-secondary);
+    border: 2px solid var(--ddm-color-secondary);
+}
+
+.ddm-button.inverted:hover {
+        color: var(--ddm-color-secondary);
+        background-color: var(--ddm-color-primary);
+        border: 2px solid var(--ddm-color-primary);
+    }
 
 /* Checkboxes */
 
@@ -52,7 +74,7 @@
     }
 
 .ddmcm .checkbox input[type='checkbox']:disabled + label {
-        color: #a3a3a3; /* Greyed out */
+        color: var(--ddm-color-disabled);
     }
 
 .ddmcm .checkbox input[type='checkbox'] + label::before {
@@ -63,13 +85,13 @@
         top: 0.15rem;
         left: 0;
 
-        border: 2px solid #000; /* Primary color */
+        border: 2px solid var(--ddm-color-primary);
         content: '';
         transition: all .12s, border-color .08s;
     }
 
 .ddmcm .checkbox input[type='checkbox']:disabled + label::before {
-        border-color: #a3a3a3; /* Greyed out */
+        border-color: var(--ddm-color-disabled);
     }
 
 .ddmcm .checkbox input[type='checkbox']:checked + label::before {
@@ -79,19 +101,18 @@
 
         background-color: transparent;
         border-color: transparent;
-        border-right-color: #000; /* Primary color */
-        border-bottom-color: #000; /* Primary color */
+        border-right-color: var(--ddm-color-primary);
+        border-bottom-color: var(--ddm-color-primary);
         border-right-width: 2px;
         border-bottom-width: 2px;
     }
 
 .ddmcm .checkbox input[type='checkbox']:checked:disabled + label::before {
-        border-right-color: #a3a3a3; /* Greyed out */
-        border-bottom-color: #a3a3a3; /* Greyed out */
+        border-right-color: var(--ddm-color-disabled);
+        border-bottom-color: var(--ddm-color-disabled);
     }
 
-/** Adds some basic styling to the modal's content itself.
- *  Everything after this line can be changed without a doubt. */
+/* Adds some basic styling to the modal's content itself. */
 
 .ddmcm-content h2:not(:last-child), .ddmcm-content p:not(:last-child), .ddmcc-content h2:not(:last-child), .ddmcc-content p:not(:last-child) {
             padding-bottom: 1rem;
@@ -117,12 +138,8 @@
         position: sticky;
         top: 0;
         padding: 1rem 0;
-        background-color: white;
+        background-color: var(--ddm-color-background);
     }
-
-.ddmcm-content {
-    margin: 0 1.5rem 1.5rem 1.5rem;
-}
 
 /*
     COOKIE MODAL STYLING
@@ -189,7 +206,8 @@
     overflow-y: auto;
     pointer-events: auto;
 
-    background-color: #fff;
+    background-color: var(--ddm-color-background);
+    color: var(--ddm-color-text);
     box-shadow: 0 0px 15px 3px rgba(44, 62, 80, 0.1), 0 0 6px 0 rgba(44, 62, 80, 0.1);
 }
 
@@ -235,6 +253,23 @@
             .ddmcm-box.center.top, .ddmcm-box.center.bottom {
                 transform: translateX(-50%);
             }
+    }
+
+.ddmcm-content {
+    margin: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.ddmcm-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+@media screen and (min-width: 64rem) {
+
+.ddmcm-buttons {
+        flex-direction: row
+}
     }
 
 /** Accordion styling **/
@@ -302,8 +337,6 @@
             padding-right: 0;
         }
 
-/***********  Everything is safe to be edited from here  ***********/
-
 /** Now it's time to align the checkboxes. */
 
 .ddmcm-categories {
@@ -330,52 +363,6 @@
             margin-bottom: 0.5rem;
         }
 
-.ddmcm-buttons {
-    display: flex;
-    flex-direction: column;
-}
-
-.ddmcm-buttons button:not(:last-of-type) {
-        margin-bottom: 1rem;
-    }
-
-@media screen and (min-width: 64rem) {
-
-.ddmcm-buttons {
-        display: block
-}
-
-        .ddmcm-buttons button:not(:last-of-type) {
-            margin-bottom: 0;
-            margin-right: 0.5rem;
-        }
-    }
-
-#ddmcm-button-all {
-    background-color: #000;
-    border: 2px solid #000; /* Primary color */
-    color: #fff;
-}
-
-/* Secondary color */
-
-#ddmcm-button-all:hover {
-        background-color: #fff; /* Secondary color */
-        color: #000; /* Primary color */
-    }
-
-#ddmcm-button-selected {
-    background: none;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    text-decoration: none;
-    transition: color ease-in-out 300ms;
-}
-
-#ddmcm-button-selected:hover {
-        color: #a3a3a3;
-    }
-
 /*
     COOKIE COVER STYLING
     This is our pre-defined cookie cover styling.
@@ -387,8 +374,6 @@
     background-repeat: no-repeat;
     transition: opacity ease-in-out 300ms;
     z-index: 10;
-    max-width: 100%;
-    width: 42rem;
     max-width: 100%;
 }
 
@@ -402,15 +387,8 @@
 }
 
 .ddmcc-content {
-    padding: 3rem 1.5rem;
+    padding: 1.5rem;
 }
-
-@media screen and (min-width: 64rem) {
-
-.ddmcc-content {
-        padding: 3rem
-}
-    }
 
 .ddmcc-content h2, .ddmcc-content p {
         text-align: center;
@@ -419,20 +397,9 @@
 
 .ddmcc-buttons {
     display: flex;
+    gap: 1rem;
     justify-content: center;
 }
-
-.ddmcc-button-accept {
-    background-color: #fff; /* Secondary color */
-    color: #000;
-}
-
-/* Primary color */
-
-.ddmcc-button-accept:hover {
-        background-color: #000; /* Primary color */
-        color: #fff; /* Secondary color */
-    }
 
 [data-html-snippet] {
     display: none;
