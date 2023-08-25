@@ -1,7 +1,7 @@
 {
 	"name": "ddm-studio/cookie-byte",
 	"type": "statamic-addon",
-	"version": "1.4.0",
+	"version": "1.4.1",
 	"description": "A highly customizable cookie consent manager for Statamic websites",
 	"keywords": [
 		"cookie consent",
