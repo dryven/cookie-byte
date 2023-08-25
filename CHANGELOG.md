@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.4.1] - 2023-08-25
+
+### Changed
+
+* Fix version conflict
+
 ## [v1.4.0] - 2023-08-25
 
 ### Changed
