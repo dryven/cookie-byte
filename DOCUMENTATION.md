@@ -51,6 +51,7 @@ By default, we added some placeholder texts, so you can play around with the add
     * *Background type*
 * **Covers**:
     * Cookie content covers
+        * *Name*
         * *Handle*
         * *Cookie categories to be accepted*
         * *Headline of the cookie content cover*
