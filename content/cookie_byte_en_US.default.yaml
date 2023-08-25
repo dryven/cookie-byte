@@ -38,6 +38,7 @@ modal_vertical_position: bottom
 modal_background: back-none
 covers:
   -
+    name: 'Google Maps Cover'
     handle: googlemaps
     categories: 'essential,thirdparty'
     title: 'Google Maps cannot be displayed.'
