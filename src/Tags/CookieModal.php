@@ -33,14 +33,14 @@ class CookieModal extends Tags
 
 	protected function getStylesheetVariable()
 	{
-		$stylesheetPath = CookieByte::PATH_STYLESHEET . basename(__DIR__ . "/../../dist/css/ddmcb.min.css");
+		$stylesheetPath = CookieByte::PATH_STYLESHEET . basename(__DIR__ . "/../../dist/css/ddmcb.css");
 
 		return '<link rel="stylesheet" href="' . $stylesheetPath . '">';
 	}
 
 	protected function getJavaScriptVariable()
 	{
-		$javascriptPath = CookieByte::PATH_JAVASCRIPT . basename(__DIR__ . "/../../dist/js/ddmcb.min.js");
+		$javascriptPath = CookieByte::PATH_JAVASCRIPT . basename(__DIR__ . "/../../dist/js/ddmcb.js");
 
 		return '<script src="' . $javascriptPath . '" async defer></script>';
 	}
