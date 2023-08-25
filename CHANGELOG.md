@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.4.0] - 2023-08-25
+
+### Changed
+
+* Make it easier to apply custom styles
+
 ## [v1.3.0] - 2023-05-17
 
 ### Added
