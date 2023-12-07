@@ -7,6 +7,9 @@ window.InitCookieByte = () => {
 	window.CookieConsent = new CookieConsent();
 	window.CookieModal = new CookieModal(window.CookieConsent);
 	window.CookieCovers = new CookieCovers(window.CookieConsent);
+
+	// Dispatch an event for external scripts to hook into
+	window.dispatchEvent(new Event('CookieByteReady'));
 };
 
 // Run the initialization process only if the document is fully loaded
