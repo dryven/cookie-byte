@@ -1,6 +1,6 @@
 {
 	"name": "cookie-byte",
-	"version": "1.4.2",
+	"version": "1.4.3",
 	"description": "A highly customizable cookie consent manager for Statamic websites",
 	"keywords": [
 		"cookie consent",
@@ -37,8 +37,8 @@
 		"postcss-import": "^14.1.0",
 		"postcss-nested": "^5.0.6",
 		"postcss-preset-env": "^7.8.3",
-		"vue-loader": "^15.10.1",
-		"vue-template-compiler": "^2.7.14"
+		"vue-loader": "^15.11.1",
+		"vue-template-compiler": "^2.7.15"
 	},
 	"browserslist": [
 		"defaults",
