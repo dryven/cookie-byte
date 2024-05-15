@@ -1,7 +1,7 @@
 {
 	"name": "ddm-studio/cookie-byte",
 	"type": "statamic-addon",
-	"version": "1.4.3",
+	"version": "1.5.0",
 	"description": "A highly customizable cookie consent manager for Statamic websites",
 	"keywords": [
 		"cookie consent",
@@ -23,7 +23,8 @@
 	},
 	"require": {
 		"php": "^8.0",
-		"statamic/cms": "^3.0 || ^4.0"
+		"statamic/cms": "^3.0 || ^4.0 || ^5.0",
+		"laravel/helpers": "^1.7"
 	},
 	"autoload": {
 		"psr-4": {
@@ -39,7 +40,7 @@
 		"statamic": {
 			"name": "Cookie Byte",
 			"description": "A highly customizable cookie consent manager for Statamic websites",
-			"version": "1.4.3"
+			"version": "1.5.0"
 		},
 		"npm": {
 			"js-cookie": "^3.0.1"
