@@ -138,6 +138,40 @@ make this dream possible to you, by providing the command in the next line of th
 php artisan vendor:publish --tag="cookie-byte-settings"
 ```
 
+### Publishing the config
+
+There are some config preferences you may want to change. In order to do so, go ahead and publish the config file to your project's config folder:
+```shell
+php please vendor:publish --tag=cookie-byte-config
+```
+
+You will receive a new file called ```cookie-byte.php``` in your config folder:
+```php
+/**
+* This specifies the asset container, which is used for all asset fields in the Cookie Byte config.
+*/
+'asset_container' => 'assets',
+
+/**
+* This specifies the collections, entries can be selected from in any bard field inside the Cookie Byte config.
+*/
+'link_collections' => ['pages'],
+
+/**
+* This specifies the directory, in which the addon will save its Control Panel configuration file.
+*/
+'config_dirname' => base_path("content"),
+
+/**
+* This specifies the value to save the configuration under.
+*
+* Allowed options:
+* - \DDM\CookieByte\CookieByte::HANDLE_IDENTIFIER | Uses the site handle to save. Useful if you have multiple domains.
+* - \DDM\CookieByte\CookieByte::LOCALE_IDENTIFIER | Uses the site locale. Recommended if you only translate the text.
+*/
+'site_identifier_type' => \DDM\CookieByte\CookieByte::LOCALE_IDENTIFIER
+```
+
 ### Publishing the languages
 
 Does your customer or other team members on your site speak a different language? Cookie Byte comes with English and
