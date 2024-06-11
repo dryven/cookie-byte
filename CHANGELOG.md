@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.5.2] - 2024-06-11
+
+### Fixed
+
+* Bump version to 1.5.2 due to packagist version mismatch
+
 ## [v1.5.1] - 2024-06-06
 
 ### Added
