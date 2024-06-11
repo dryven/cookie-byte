@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.5.1] - 2024-06-06
+
+### Added
+
+* Add config to documentation
+
 ## [v1.5.0] - 2024-05-15
 
 ### Added
