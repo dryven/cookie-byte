@@ -13,7 +13,7 @@ class CookieCover extends CookieHandleSelect
 		return CookieByte::getCpTranslation('cookie_cover_fieldtype_title');
 	}
 
-	public function preload()
+	public function preload(): array
 	{
 		$covers = $this->config->rawValue('covers', []);
 
