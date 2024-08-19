@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.5.3] - 2024-08-19
+
+### Fixed
+
+* Fix fieldtype preload function not compatible with newly changed statamic fieldtype
+
 ## [v1.5.2] - 2024-06-11
 
 ### Fixed

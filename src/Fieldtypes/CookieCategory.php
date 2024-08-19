@@ -28,7 +28,7 @@ class CookieCategory extends CookieHandleSelect
 		return $value;
 	}
 
-	public function preload()
+	public function preload(): array
 	{
 		$categories = $this->config->rawValue('categories', []);
 
