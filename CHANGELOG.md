@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.5.4] - 2024-10-22
+
+### Fixed
+
+* Fix provided fieldtypes not working
+
 ## [v1.5.3] - 2024-08-19
 
 ### Fixed

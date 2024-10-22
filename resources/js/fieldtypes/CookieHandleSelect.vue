@@ -13,7 +13,7 @@ export default {
             return this.config;
         },
         selectedValue() {
-            return this.value ?? this.config.default;
+            return this.value ?? [this.config.default];
         }
     }
 };
