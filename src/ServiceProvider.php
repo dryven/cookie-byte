@@ -48,8 +48,13 @@ class ServiceProvider extends AddonServiceProvider
 		]
 	];
 
-	protected $scripts = [
-        __DIR__.'/../resources/dist/js/cp.js'
+	protected $vite = [
+        'publicDirectory' => 'dist',
+        'hotFile' => 'dist/hot',
+        'input' => [
+            'resources/css/_cookie_byte.css',
+            'resources/js/cp.js',	
+        ],
     ];
 
 	protected $updateScripts = [
@@ -59,18 +64,14 @@ class ServiceProvider extends AddonServiceProvider
 
 	protected $publishAfterInstall = false;
 
-	public function boot()
+	public function bootAddon()
 	{
-		parent::boot();
+		$this
+			->bootPermissions()
+			->bootNavigation();
 
-		Statamic::booted(function () {
-			$this
-				->bootPermissions()
-				->bootNavigation();
-
-			$this->loadTranslationsFrom(__DIR__ . '/../resources/lang', CookieByte::NAMESPACE);
-			$this->loadViewsFrom(__DIR__ . '/../resources/views', CookieByte::NAMESPACE);
-		});
+		$this->loadTranslationsFrom(__DIR__ . '/../resources/lang', CookieByte::NAMESPACE);
+		$this->loadViewsFrom(__DIR__ . '/../resources/views', CookieByte::NAMESPACE);
 
 		Statamic::afterInstalled(function ($command) {
 			// Publish default settings, to make the first time experience easier
@@ -139,8 +140,7 @@ class ServiceProvider extends AddonServiceProvider
 		], CookieByte::VENDOR_DEFAULT_SETTINGS_KEY);
 
 		$this->publishes([
-			__DIR__ . '/../dist/css' => public_path(CookieByte::PATH_STYLESHEET),
-			__DIR__ . '/../dist/js' => public_path(CookieByte::PATH_JAVASCRIPT),
+			__DIR__ . '/../dist/build' => public_path(CookieByte::PATH_BUILD),
 		], CookieByte::VENDOR_WEB_RESOURCES_KEY);
 
 		$this->publishes([

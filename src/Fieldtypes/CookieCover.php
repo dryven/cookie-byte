@@ -18,11 +18,11 @@ class CookieCover extends CookieHandleSelect
 		$covers = $this->config->rawValue('covers', []);
 
 		return [
-			'options' => collect($covers)->mapWithKeys(function ($cover) {
+			'options' => collect($covers)->map(function ($cover) {
 				$handle = array_get($cover, 'handle');
 				$name = array_get($cover, 'name');
 
-				return [$handle => $name ?? $handle];
+				return ['label' => $name ?? $handle, 'value' => $handle];
 			})
 		];
 	}
