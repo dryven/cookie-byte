@@ -1,6 +1,6 @@
 {
 	"name": "cookie-byte",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"description": "A highly customizable cookie consent manager for Statamic websites",
 	"keywords": [
 		"cookie consent",
@@ -25,9 +25,7 @@
 		"build": "vite build"
 	},
 	"dependencies": {
-		"@tailwindcss/vite": "^4.2.1",
-		"js-cookie": "^3.0.5",
-		"tailwindcss": "^4.1.16"
+		"js-cookie": "^3.0.5"
 	},
 	"devDependencies": {
 		"@statamic/cms": "file:vendor/statamic/cms/resources/dist-package",
