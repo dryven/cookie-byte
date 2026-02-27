@@ -33,15 +33,41 @@ class CookieModal extends Tags
 
 	protected function getStylesheetVariable()
 	{
-		$stylesheetPath = CookieByte::PATH_STYLESHEET . basename(__DIR__ . "/../../dist/css/ddmcb.css");
-
-		return '<link rel="stylesheet" href="' . $stylesheetPath . '">';
+		$file = $this->getManifestAsset('resources/css/_cookie_byte.css');
+		if ($file === null) {
+			return '';
+		}
+		return '<link rel="stylesheet" href="' . CookieByte::PATH_BUILD . $file . '">';
 	}
 
 	protected function getJavaScriptVariable()
 	{
-		$javascriptPath = CookieByte::PATH_JAVASCRIPT . basename(__DIR__ . "/../../dist/js/ddmcb.js");
+		$file = $this->getManifestAsset('resources/js/loadscript.js');
+		if ($file === null) {
+			return '';
+		}
+		return '<script src="' . CookieByte::PATH_BUILD . $file . '" async defer></script>';
+	}
 
-		return '<script src="' . $javascriptPath . '" async defer></script>';
+	/**
+	 * Resolve the built asset filename from Vite manifest by entry key.
+	 *
+	 * @param string $entry Key used in vite config input (e.g. "resources/css/_cookie_byte.css")
+	 * @return string|null The manifest "file" value (e.g. "assets/_cookie_byte-DSiWpDG6.css") or null if missing
+	 */
+	protected function getManifestAsset(string $entry): ?string
+	{
+		$manifestPath = public_path(CookieByte::PATH_BUILD . 'manifest.json');
+		if (!is_file($manifestPath)) {
+			$manifestPath = dirname(__DIR__, 2) . '/dist/build/manifest.json';
+		}
+		if (!is_file($manifestPath)) {
+			return null;
+		}
+		$manifest = json_decode(file_get_contents($manifestPath), true);
+		if (!is_array($manifest) || !isset($manifest[$entry]['file'])) {
+			return null;
+		}
+		return $manifest[$entry]['file'];
 	}
 }

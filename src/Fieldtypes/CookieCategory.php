@@ -33,11 +33,11 @@ class CookieCategory extends CookieHandleSelect
 		$categories = $this->config->rawValue('categories', []);
 
 		return [
-			'options' => collect($categories)->mapWithKeys(function ($category) {
+			'options' => collect($categories)->map(function ($category) {
 				$handle = array_get($category, 'handle');
 				$title = array_get($category, 'title');
 
-				return [$handle => $title ?? $handle];
+				return ['label' => $title, 'value' => $handle];
 			})
 		];
 	}

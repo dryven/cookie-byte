@@ -9,6 +9,7 @@ use DDM\CookieByte\CookieByte;
 use Statamic\StaticCaching\Cacher;
 use Statamic\Http\Controllers\CP\CpController;
 use DDM\CookieByte\Configuration\CookieByteConfig;
+use Inertia\Inertia;
 
 class SettingsController extends CpController
 {
@@ -23,12 +24,13 @@ class SettingsController extends CpController
 		$variables = [
 			'title' => CookieByte::getCpTranslation('title'),
 			'action' => cp_route(CookieByte::ROUTE_SETTINGS_UPDATE),
-			'blueprint' => $config->blueprint()->toPublishArray(),
-			'values' => $config->values(),
-			'meta' => $config->fields()->meta()
+			'initialBlueprint' => $config->blueprint()->toPublishArray(),
+			'initialValues' => $config->values(),
+			'initialMeta' => $config->fields()->meta()
 		];
 
-		return view(CookieByte::getNamespacedKey('settings'), $variables);
+		// return view(CookieByte::getNamespacedKey('settings'), $variables);
+		return Inertia::render(CookieByte::getNamespacedKey('settings'), $variables);
 	}
 
 	public function update(Request $request)

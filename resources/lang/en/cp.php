@@ -9,6 +9,10 @@ return [
 
 	/* CONTROL PANEL */
 	'title' => 'Cookie Byte settings',
+
+	'settings_saved_successfully' => 'Settings saved successfully',
+	'something_went_wrong' => 'Something went wrong',
+
 	/** General tab **/
 	'tab_general' => 'General',
 

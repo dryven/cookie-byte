@@ -1,0 +1,19 @@
+{
+  "resources/css/_cookie_byte.css": {
+    "file": "assets/_cookie_byte-DSiWpDG6.css",
+    "src": "resources/css/_cookie_byte.css",
+    "isEntry": true
+  },
+  "resources/js/cp.js": {
+    "file": "assets/cp-4zM3veXX.js",
+    "name": "cp",
+    "src": "resources/js/cp.js",
+    "isEntry": true
+  },
+  "resources/js/loadscript.js": {
+    "file": "assets/loadscript-D8zyegSh.js",
+    "name": "loadscript",
+    "src": "resources/js/loadscript.js",
+    "isEntry": true
+  }
+}
